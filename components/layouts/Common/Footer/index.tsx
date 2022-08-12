@@ -123,11 +123,11 @@ const MainFooter = () => {
 
 					if (item.__type === 'CONTACT_LIST_AND_NECESSARY_LINKS')
 						return (
-							<div>
+							<div key={itemIndex} className='m-6'>
 								<h3 className='font-bold text-white text-2xl mb-12'>
 									{item.header.text}
 								</h3>
-								<ul>
+								<ul className='text-lg'>
 									{item.list.map((subItem, subItemIndex) => {
 										if (subItem.__type === 'LINK_MAIL')
 											return (

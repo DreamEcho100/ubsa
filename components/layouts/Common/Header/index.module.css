@@ -4,6 +4,7 @@
 	left: 0;
 	overflow: hidden;
 	opacity: 0;
+	height: 0;
 	transition: all 0.1s ease-in 0.2s;
 	animation: setVarNone 0.3s ease-in-out 0.3s;
 }
@@ -29,9 +30,11 @@
 }
 
 .navOnHoverContainer:hover .navOnHover,
+.navOnHover:hover,
 .navOnHoverContainer > button:focus + .navOnHover,
 .navOnHoverContainer:focus-within .navOnHover {
 	opacity: 1;
+	height: auto;
 	animation: setVarAuto 0.3s ease-in-out 0.6s forwards;
 }
 .navOnHoverContainer .navOnHover:hover {
