@@ -241,6 +241,7 @@ const ShowCaseAndNewsSections = () => {
 						itemIndex % 2 !== 0 ? 'lg:flex-row-reverse' : ''
 					}
 						md:justify-center md:items-center
+						my-8
 					`}
 				>
 					<div className='w-1/2 p-4 hidden lg:block'>
