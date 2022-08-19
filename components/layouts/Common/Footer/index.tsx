@@ -68,7 +68,7 @@ const MainFooter = () => {
 	const { generalLinks, socialLinks } = mainFooterData;
 	return (
 		<footer className='w-full bg-black text-zinc-500 font-bold text-lg px-8 py-8'>
-			<div className='flex items-start justify-between max-w-[1400px] mx-auto flex-wrap md:flex-nowrap py-12'>
+			<div className='flex items-start justify-between max-w-[1400px] mx-auto flex-wrap md:flex-nowrap pt-12'>
 				{generalLinks.map((item, itemIndex) => {
 					if (item.__type === 'NAV_LINKS')
 						return (

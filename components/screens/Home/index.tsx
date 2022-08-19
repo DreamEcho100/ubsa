@@ -111,7 +111,7 @@ const AllServices = () => {
 	return (
 		<div className='bg-zinc-100 text-black bg-opacity-95 bg-contain bg-no-repeat'>
 			<div className='max-w-[1400px] mx-auto px-8 translate-y-[-8rem]'>
-				<div className='px-12 py-16 md:px-16 md:py-20 text-zinc-100 bg-blue-600 text-center md:text-justify flex flex-col items-center md:flex-row md:justify-around rounded-md md:rounded-xl'>
+				<div className='px-12 py-16 md:px-16 md:py-20 text-zinc-100 bg-blue-600 text-center md:text-left flex flex-col items-center md:flex-row md:justify-around rounded-md md:rounded-xl'>
 					<div className='text-2xl md:text-3xl font-light'>
 						<p className='max-w-[800px]'>
 							&quot;Exerge IT took the time to become well-versed in the
@@ -264,7 +264,7 @@ const ShowCaseAndNewsSections = () => {
 							/>
 						</div>
 						<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
-						<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-justify'>
+						<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-left'>
 							<h3 className='text-4xl lg:text-8xl font-medium max-w-[75%]'>
 								{item.header.text}
 							</h3>
