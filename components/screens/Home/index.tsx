@@ -19,12 +19,12 @@ const WebsiteAppsDesignSection = () => {
 			className='bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
 			<div className='max-w-[1400px] mx-auto p-8'>
-				<h2 className='text-7xl sm:text-7xl md:text-9xl flex flex-col leading-snug font-medium'>
-					<span>Websites.</span>
-					<span>Apps.</span>
-					<span>Design.</span>
+				<h2 className='text-7xl sm:text-7xl md:text-9xl flex flex-col leading-relaxed font-medium'>
+					<span className='my-2'>Websites.</span>
+					<span className='my-2'>Apps.</span>
+					<span className='my-2'>Design.</span>
 				</h2>
-				<div className='py-16 md:py-24' />
+				<div className='py-16 md:py-16' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					While very diverse, our aesthetic and advance approach often involves
 					distinct sense of play and global vision, aiming to put the fun in
@@ -333,7 +333,7 @@ const ShowCaseAndNewsSections = () => {
 const HomeScreen = () => {
 	return (
 		<CommonLayout>
-			<main>
+			<main className='leading-relaxed'>
 				<WebsiteAppsDesignSection />
 				<AllServices />
 				<ShowCaseAndNewsSections />
