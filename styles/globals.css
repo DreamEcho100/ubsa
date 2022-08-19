@@ -66,6 +66,12 @@ button[disabled] {
 	transition: all 300ms ease-out;
 }
 
+@media screen and (max-width: 1024px) {
+	body {
+		--nav-height: 4rem;
+	}
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
