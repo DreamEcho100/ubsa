@@ -182,7 +182,7 @@ const AllServices = () => {
 							<div className='px-4' />
 							<div className='flex flex-col'>
 								<h3 className=''>{item.title}</h3>
-								<p className='text-base text-gray-500 max-w-[10rem]'>
+								<p className='text-base text-gray-500 md:max-w-[15rem]'>
 									{item.description}
 								</p>
 							</div>
@@ -238,10 +238,12 @@ const ShowCaseAndNewsSections = () => {
 				<div
 					key={itemIndex}
 					className={`flex max-w-[1400px] mx-auto p-8 ${
-						itemIndex % 2 !== 0 ? 'flex-row-reverse' : ''
-					}`}
+						itemIndex % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+					}
+						md:justify-center md:items-center
+					`}
 				>
-					<div className='w-1/2 p-4'>
+					<div className='w-1/2 p-4 hidden lg:block'>
 						<CustomNextImage
 							src={item.image.src}
 							alt={item.image.alt}
@@ -250,22 +252,36 @@ const ShowCaseAndNewsSections = () => {
 							className='w-full'
 						/>
 					</div>
-					<div className='w-1/2 p-4'>
-						<h3 className='text-4xl lg:text-8xl font-medium max-w-[75%]'>
-							{item.header.text}
-						</h3>
-						<p className='my-8'>{item.description}</p>
-						<button className='transition-all rounded-3xl duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
-							<a href={item.button.href}>{item.button.text}</a>
-						</button>
+					<div className='w-full md:w-4/5 p-4 relative'>
+						<div className='lg:p-4 lg:hidden absolute top-0 left-0 w-full h-full z-[1]'>
+							<CustomNextImage
+								src={item.image.src}
+								alt={item.image.alt}
+								width={800}
+								height={1000}
+								className='w-full h-full'
+							/>
+						</div>
+						<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
+						<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-justify'>
+							<h3 className='text-4xl lg:text-8xl font-medium max-w-[75%]'>
+								{item.header.text}
+							</h3>
+							<p className='my-8 max-w-[400px] drop-shadow-'>
+								{item.description}
+							</p>
+							<button className='transition-all rounded-3xl duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
+								<a href={item.button.href}>{item.button.text}</a>
+							</button>
+						</div>
 					</div>
 				</div>
 			))}
 			<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
-				<header className='px-4'>
+				<header>
 					<h2 className='text-7xl'>News</h2>
 				</header>
-				<div className='flex flex-wrap mt-8 justify-around'>
+				<div className='flex flex-wrap mt-8 md:justify-between items-center'>
 					{[
 						{
 							date: 'April 11, 2022',
@@ -296,7 +312,7 @@ const ShowCaseAndNewsSections = () => {
 							},
 						},
 					].map((item, itemIndex) => (
-						<div key={itemIndex} className='w-1/3 p-4 m-2'>
+						<div key={itemIndex} className='w-full md:w-5/12 lg:w-72 my-4'>
 							<small>
 								<time dateTime={new Date(item.date).toISOString()}>
 									{item.date}
