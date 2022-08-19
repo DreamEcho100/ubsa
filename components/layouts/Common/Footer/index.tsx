@@ -68,12 +68,12 @@ const mainFooterData = {
 const MainFooter = () => {
 	const { generalLinks, socialLinks } = mainFooterData;
 	return (
-		<footer className='w-full bg-black text-zinc-500 font-bold text-lg px-6 py-8'>
-			<div className='flex items-start justify-between max-w-[1000px] mx-auto flex-wrap md:flex-nowrap '>
+		<footer className='w-full bg-black text-zinc-500 font-bold text-lg px-8 py-8'>
+			<div className='flex items-start justify-between max-w-[1200px] mx-auto flex-wrap md:flex-nowrap py-12'>
 				{generalLinks.map((item, itemIndex) => {
 					if (item.__type === 'NAV_LINKS')
 						return (
-							<div key={item.header.text} className='m-6'>
+							<div key={item.header.text} className='m-2'>
 								<h3 className='font-bold text-white text-2xl mb-12'>
 									{item.header.text}
 								</h3>
@@ -91,7 +91,7 @@ const MainFooter = () => {
 
 					if (item.__type === 'ADDRESS_LIST_MANY_SECTION')
 						return (
-							<div key={itemIndex} className='m-6'>
+							<div key={itemIndex} className='m-2'>
 								{/* <h3 className='font-bold text-white text-2xl mb-12'>
 										{item.header.text}
 									</h3>
@@ -123,7 +123,7 @@ const MainFooter = () => {
 
 					if (item.__type === 'CONTACT_LIST_AND_NECESSARY_LINKS')
 						return (
-							<div key={itemIndex} className='m-6'>
+							<div key={itemIndex} className='m-2'>
 								<h3 className='font-bold text-white text-2xl mb-12'>
 									{item.header.text}
 								</h3>
@@ -162,10 +162,10 @@ const MainFooter = () => {
 				})}
 			</div>
 			<div className='w-full flex justify-between lg:flex-row'>
-				<div className='m-6 flex '>
+				<div className='my-2 flex '>
 					<small>&copy; 2022 Exerge. All rights reserved</small>
 				</div>
-				<div className='m-6 flex w-full justify-center items-center lg:flex-row lg:w-fit'>
+				<div className='my-2 flex w-full justify-center items-center lg:flex-row lg:w-fit'>
 					<nav>
 						<ul className='flex'>
 							{socialLinks.map((listItem, listItemIndex) => (
