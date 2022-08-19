@@ -61,8 +61,8 @@ const navDropDownSection1 = {
 const mainHeaderData = {
 	logo: {
 		href: '/',
-		text: 'Logo',
-		iconUrl: '#',
+		text: 'ubsa',
+		iconUrl: 'images/AKArtboard-light.png',
 	},
 	nav: [
 		navDropDownCard1,
@@ -174,14 +174,15 @@ const MainHeader = () => {
 							href={mainHeaderData.logo.href}
 							className=' flex justify-between items-center'
 						>
-							{/* <CustomNextImage
-							width={16}
-							height={16}
-							className='w-4 h-4'
-							src={mainHeaderData.logo.iconUrl}
-							alt=''
+							<CustomNextImage
+								width={16}
+								height={16}
+								className='w-8 h-8'
+								src={mainHeaderData.logo.iconUrl}
+								alt=''
+								priority
 							/>
-						<span className='px-1' /> */}
+							<span className='px-1' />
 							{mainHeaderData.logo.text}
 						</a>
 					</h1>
