@@ -19,13 +19,13 @@ const WebsiteAppsDesignSection = () => {
 			className='bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
 			<div className='max-w-[1400px] mx-auto p-8'>
-				<h2 className='text-9xl flex flex-col leading-snug font-medium'>
+				<h2 className='text-7xl sm:text-7xl md:text-9xl flex flex-col leading-snug font-medium'>
 					<span>Websites.</span>
 					<span>Apps.</span>
 					<span>Design.</span>
 				</h2>
-				<div className='py-24' />
-				<p className='text-4xl leading-relaxed'>
+				<div className='py-16 md:py-24' />
+				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					While very diverse, our aesthetic and advance approach often involves
 					distinct sense of play and global vision, aiming to put the fun in
 					functional. Strategically, our work aims to elevate brands offerings
@@ -33,14 +33,14 @@ const WebsiteAppsDesignSection = () => {
 					values.
 				</p>
 				<div className='py-16' />
-				<p className='text-4xl leading-relaxed'>
+				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					Our aim is to develop and deliver web applications that bring your
 					brand/app closer to your customer — and to yourself. We understand web
 					&amp; app design &amp; development like the back of our hands. We
 					deliver on time and without any financial or technical surprises.
 				</p>
 				<div className='py-16' />
-				<div className='flex flex-wrap items-center justify-center'>
+				<div className='flex flex-wrap items-center justify-around'>
 					{[
 						{
 							src: 'https://exerge.com/wp-content/uploads/2022/07/1ag-uai-258x116.png',
@@ -97,7 +97,7 @@ const WebsiteAppsDesignSection = () => {
 							alt={image.alt}
 							width={175}
 							height={80}
-							className='w-44 h-20'
+							className='w-44 h-20 m-4'
 						/>
 					))}
 				</div>
@@ -112,7 +112,7 @@ const AllServices = () => {
 		<div className='bg-zinc-100 text-black bg-opacity-95 bg-contain bg-no-repeat'>
 			<div className='max-w-[1400px] mx-auto px-8 translate-y-[-8rem]'>
 				<div className='px-12 py-16 md:px-16 md:py-20 text-zinc-100 bg-blue-600 text-center md:text-justify flex flex-col items-center md:flex-row md:justify-around rounded-md md:rounded-xl'>
-					<div className='text-3xl font-light'>
+					<div className='text-2xl md:text-3xl font-light'>
 						<p className='max-w-[800px]'>
 							&quot;Exerge IT took the time to become well-versed in the
 							intricacies of our business, and instead of reveals at set
@@ -261,11 +261,11 @@ const ShowCaseAndNewsSections = () => {
 					</div>
 				</div>
 			))}
-			<div className='max-w-[1400px] mx-auto font-medium mt-16'>
-				<header>
+			<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
+				<header className='px-4'>
 					<h2 className='text-7xl'>News</h2>
 				</header>
-				<div className='flex flex-wrap mt-8'>
+				<div className='flex flex-wrap mt-8 justify-around'>
 					{[
 						{
 							date: 'April 11, 2022',
@@ -296,12 +296,12 @@ const ShowCaseAndNewsSections = () => {
 							},
 						},
 					].map((item, itemIndex) => (
-						<div key={itemIndex} className='w-1/3 p-8'>
+						<div key={itemIndex} className='w-1/3 p-4 m-2'>
 							<small>
 								<time dateTime={new Date(item.date).toISOString()}>
 									{item.date}
 								</time>
-								<h3 className='text-3xl'>
+								<h3 className='text-2xl md:text-3xl'>
 									<a href={item.header.href}>{item.header.text}</a>
 								</h3>
 							</small>
