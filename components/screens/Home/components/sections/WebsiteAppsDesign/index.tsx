@@ -17,13 +17,13 @@ const WebsiteAppsDesignSection = () => {
 					className={`text-7xl sm:text-7xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
 					<span className='my-2' style={{ '--index': '0' } as CSSProperties}>
-						<p>Websites.</p>
+						<p className='py-2'>Websites.</p>
 					</span>
 					<span className='my-2' style={{ '--index': '1' } as CSSProperties}>
-						<p>Apps.</p>
+						<p className='py-2'>Apps.</p>
 					</span>
 					<span className='my-2' style={{ '--index': '3' } as CSSProperties}>
-						<p>Design.</p>
+						<p className='py-2'>Design.</p>
 					</span>
 				</h2>
 				<div className='py-16 md:py-16' />
