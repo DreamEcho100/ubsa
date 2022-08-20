@@ -118,7 +118,7 @@ const ImgTextSection = ({
 						{item.header.text}
 					</h3>
 					<p className='my-8 max-w-[400px] drop-shadow-'>{item.description}</p>
-					<button className='transition-all rounded-3xl duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
+					<button className='transition-all rounded-[10rem] duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
 						<a href={item.button.href}>{item.button.text}</a>
 					</button>
 				</div>
