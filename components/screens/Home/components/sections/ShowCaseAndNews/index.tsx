@@ -4,6 +4,7 @@ import classes from './index.module.css';
 
 const imgTextSectionOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
+	threshold: 0.25, // half of item height
 };
 
 const imgTextSectionObserver =
@@ -24,14 +25,11 @@ const imgTextSectionObserver =
 			if (!imgContainer || !detailsContainer) return;
 
 			if (entry.isIntersecting) {
-				if (!entry.target.classList.contains(classes.appear))
+				if (!entry.target.classList.contains(classes.appear)) {
 					entry.target.classList.add(classes.appear);
-
-				if (!imgContainer.classList.contains(classes.appear))
 					imgContainer.classList.add(classes.appear);
-
-				if (!detailsContainer.classList.contains(classes.appear))
 					detailsContainer.classList.add(classes.appear);
+				}
 			}
 			// }
 		});
@@ -131,6 +129,7 @@ const ImgTextSection = ({
 
 const newsCardSectionOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
+	threshold: 0.25, // half of item height
 };
 
 const newsCardSectionObserver =
