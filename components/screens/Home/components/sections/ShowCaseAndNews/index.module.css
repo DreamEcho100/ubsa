@@ -1,0 +1,42 @@
+.imgContainer,
+.detailsContainer {
+	transform: translateY(-50%);
+	opacity: 0;
+}
+
+.imgContainer.appear,
+.detailsContainer.appear {
+	transition: all ease-in 0.6s 0.3s;
+	transform: translateY(0%);
+	opacity: 1;
+}
+
+@media screen and (min-width: 1024px) {
+	.imgContainer {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	.detailsContainer {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+
+	.imgContainer.appear,
+	.detailsContainer.appear {
+		transition: all ease-in 0.6s 0.3s;
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+.newsCard {
+	transform: translate(-25%, -100%);
+	opacity: 0;
+}
+
+.newsCard.appear {
+	transition: all ease-in 0.3s calc((var(--index, 0) + 1) * 0.3s);
+	transform: translate(0%, 0%);
+	opacity: 1;
+}

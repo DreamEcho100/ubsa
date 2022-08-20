@@ -1,5 +1,5 @@
 import CommonLayout from '@components/layouts/Common';
-import ShowCaseAndNewsSections from './components/sections';
+import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
 import AllServicesSections from './components/sections/AllServices';
 import WebsiteAppsDesignSection from './components/sections/WebsiteAppsDesign';
 
