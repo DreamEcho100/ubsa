@@ -24,6 +24,9 @@ const imgTextSectionObserver =
 			if (!imgContainer || !detailsContainer) return;
 
 			if (entry.isIntersecting) {
+				if (!entry.target.classList.contains(classes.appear))
+					entry.target.classList.add(classes.appear);
+
 				if (!imgContainer.classList.contains(classes.appear))
 					imgContainer.classList.add(classes.appear);
 
@@ -37,6 +40,7 @@ const imgTextSectionObserver =
 const ImgTextSection = ({
 	item,
 	itemIndex,
+	itemsLength,
 }: {
 	item: {
 		button: {
@@ -53,6 +57,7 @@ const ImgTextSection = ({
 		};
 	};
 	itemIndex: number;
+	itemsLength: number;
 }) => {
 	const elemRef = useRef<HTMLDivElement>(null);
 
@@ -73,12 +78,19 @@ const ImgTextSection = ({
 		<div
 			ref={elemRef}
 			key={itemIndex}
-			className={`flex max-w-[1400px] mx-auto p-8 ${
+			className={`relative flex max-w-[1400px] mx-auto p-8 ${
 				itemIndex % 2 !== 0 ? 'lg:flex-row-reverse' : ''
 			}
 						md:justify-center md:items-center
 						my-8
+						${classes.imgAndDetailsContainer}
 					`}
+			style={
+				{
+					'--itemIndex': itemIndex,
+					'--itemsLength': itemsLength,
+				} as CSSProperties
+			}
 		>
 			<div className={`w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}>
 				<CustomNextImage
@@ -230,8 +242,13 @@ const ShowCaseAndNewsSections = () => {
 						alt: '',
 					},
 				},
-			].map((item, itemIndex) => (
-				<ImgTextSection key={itemIndex} item={item} itemIndex={itemIndex} />
+			].map((item, itemIndex, itemsArr) => (
+				<ImgTextSection
+					key={itemIndex}
+					item={item}
+					itemIndex={itemIndex}
+					itemsLength={itemsArr.length}
+				/>
 			))}
 			<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
 				<header>
