@@ -4,9 +4,9 @@
 
 .h2 span p {
 	transform: translateY(100%);
-	animation: slideYTo0 var(--animation-duration, 0.8s)
+	animation: slideYTo0 var(--animation-duration, 1.2s)
 		cubic-bezier(0.62, 0.06, 0, 1.12) forwards
-		calc(var(--index, 0) * 0.85 * var(--animation-duration, 0.8s));
+		calc(var(--index, 0) * 0.5 * var(--animation-duration, 0.4s));
 }
 
 @keyframes slideYTo0 {
