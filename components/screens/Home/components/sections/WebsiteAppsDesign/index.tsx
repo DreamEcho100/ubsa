@@ -103,7 +103,6 @@ const WebsiteAppsDesignSection = () => {
 								height={80}
 								className='w-full h-full m-4'
 							/>
-							<div className='item-shine-line'></div>
 						</div>
 					))}
 				</div>
@@ -124,7 +123,6 @@ const WebsiteAppsDesignSection = () => {
 									height={80}
 									className='w-full h-full m-4'
 								/>
-								<div className='item-shine-line'></div>
 							</div>
 						))}
 					</div>
