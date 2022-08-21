@@ -90,7 +90,9 @@ const ImgTextSection = ({
 				} as CSSProperties
 			}
 		>
-			<div className={`w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}>
+			<div
+				className={`item-shine w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}
+			>
 				<CustomNextImage
 					src={item.image.src}
 					alt={item.image.alt}

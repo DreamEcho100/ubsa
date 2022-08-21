@@ -92,7 +92,7 @@ const WebsiteAppsDesignSection = () => {
 					&amp; app design &amp; development like the back of our hands. We
 					deliver on time and without any financial or technical surprises.
 				</p>
-				<div className='py-12 md:py-16' />
+				<div className='py-8 md:py-12' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>
 					{testimonialsImages.map((image) => (
 						<div key={image.src} className='w-44 h-20 item-shine'>
@@ -127,7 +127,7 @@ const WebsiteAppsDesignSection = () => {
 						))}
 					</div>
 				</div>
-				<div className='py-16 md:py-16' />
+				<div className='py-24' />
 			</div>
 		</div>
 	);
