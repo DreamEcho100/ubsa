@@ -83,3 +83,31 @@ button[disabled] {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.item-shine {
+		position: relative;
+		overflow: hidden;
+	}
+	.item-shine-line {
+		content: '';
+		position: absolute;
+
+		width: 200%;
+		height: 20%;
+		background-image: linear-gradient(
+			180deg,
+			transparent,
+			rgba(255, 255, 255, 0.7)
+		);
+		transform: translate(-10%) rotate(-45deg);
+		position: absolute;
+		top: 0%;
+		left: -100%;
+	}
+	.item-shine:hover .item-shine-line {
+		transition: all 3s ease-in;
+		transform: translate(2000%) rotate(-45deg);
+		/* opacity: 1; */
+	}
+}

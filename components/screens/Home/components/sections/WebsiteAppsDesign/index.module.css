@@ -26,6 +26,19 @@
 	.sliderTrack:hover {
 		animation-play-state: paused;
 	}
+
+	/* .sliderTrack .image-show {
+		position: relative;
+	}
+	.sliderTrack .image-show::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200%;
+		height: 20%;
+		background-image: linear-gradient(to bottom right, transparent, white);
+	} */
 }
 
 @keyframes infiniteXScrollAnimation {

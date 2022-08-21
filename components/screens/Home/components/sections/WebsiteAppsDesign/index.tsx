@@ -101,7 +101,7 @@ const WebsiteAppsDesignSection = () => {
 							alt={image.alt}
 							width={175}
 							height={80}
-							className='w-44 h-20 m-4'
+							className='image-show w-44 h-20 m-4'
 						/>
 					))}
 				</div>
@@ -114,18 +114,20 @@ const WebsiteAppsDesignSection = () => {
 						// justify-around
 					>
 						{testimonialsImages.map((image) => (
-							<CustomNextImage
-								key={image.src}
-								src={image.src}
-								alt={image.alt}
-								width={175}
-								height={80}
-								className='w-44 h-20 m-4'
-							/>
+							<div key={image.src} className='w-44 h-20 item-shine'>
+								<CustomNextImage
+									src={image.src}
+									alt={image.alt}
+									width={175}
+									height={80}
+									className='w-full h-full m-4'
+								></CustomNextImage>
+								<div className='item-shine-line'></div>
+							</div>
 						))}
 					</div>
 				</div>
-				<div className='py-12 md:py-16' />
+				<div className='py-16 md:py-16' />
 			</div>
 		</div>
 	);
