@@ -95,14 +95,16 @@ const WebsiteAppsDesignSection = () => {
 				<div className='py-12 md:py-16' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>
 					{testimonialsImages.map((image) => (
-						<CustomNextImage
-							key={image.src}
-							src={image.src}
-							alt={image.alt}
-							width={175}
-							height={80}
-							className='image-show w-44 h-20 m-4'
-						/>
+						<div key={image.src} className='w-44 h-20 item-shine'>
+							<CustomNextImage
+								src={image.src}
+								alt={image.alt}
+								width={175}
+								height={80}
+								className='w-full h-full m-4'
+							/>
+							<div className='item-shine-line'></div>
+						</div>
 					))}
 				</div>
 				<div className={`lg:hidden overflow-hidden ${classes.slider}`}>
@@ -121,7 +123,7 @@ const WebsiteAppsDesignSection = () => {
 									width={175}
 									height={80}
 									className='w-full h-full m-4'
-								></CustomNextImage>
+								/>
 								<div className='item-shine-line'></div>
 							</div>
 						))}
