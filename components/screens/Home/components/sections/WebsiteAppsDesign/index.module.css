@@ -14,3 +14,26 @@
 		transform: translateY(0);
 	}
 }
+
+@media screen and (max-width: 1024px) {
+	.sliderTrack {
+		/* width: calc(11rem * var(--itemsLength)); */
+		width: max-content;
+		animation: infiniteXScrollAnimation calc(var(--itemsLength) * 4s) linear
+			infinite;
+	}
+
+	.sliderTrack:hover {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes infiniteXScrollAnimation {
+	0% {
+		transform: translateX(100vw);
+	}
+	100% {
+		/* transform: translateX(-11rem * (var(--itemsLength) * 0.5)); */
+		transform: translateX(-100%);
+	}
+}
