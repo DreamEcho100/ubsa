@@ -21,9 +21,9 @@ const uniqueBusinessSolutionsSectionObserver =
 			if (!mainHeader) return;
 
 			if (entry.isIntersecting) {
-				mainHeader.style.backgroundColor = 'transparent';
+				mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
 			} else {
-				mainHeader.style.backgroundColor = '#111';
+				mainHeader.style.backgroundColor = 'rgba(0, 0, 0)';
 			}
 		});
 	},
@@ -105,6 +105,7 @@ const UniqueBusinessSolutionsSection = () => {
 			}}
 			className='bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
+			<div className='py-8 md:py-12' />
 			<div className='max-w-[1400px] mx-auto p-8'>
 				<h2
 					className={`text-7xl sm:text-7xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
