@@ -21,10 +21,20 @@ const uniqueBusinessSolutionsSectionObserver =
 			if (!mainHeader) return;
 
 			if (entry.isIntersecting) {
-				mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+				mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
 			} else {
 				mainHeader.style.backgroundColor = 'rgba(0, 0, 0)';
 			}
+
+			// const headerBg = mainHeader.querySelector('.header-bg') as HTMLDivElement;
+
+			// if (!headerBg) return;
+
+			// if (entry.isIntersecting) {
+			// 	headerBg.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+			// } else {
+			// 	headerBg.style.backgroundColor = 'rgba(0, 0, 0)';
+			// }
 		});
 	},
 	uniqueBusinessSolutionsSectionOptions);

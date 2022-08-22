@@ -168,167 +168,175 @@ const MainHeader = () => {
 			id='main-header'
 			className={`transition-all duration-300 z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto bg-black text-white  text-md font-medium ${classes.mainHeader}`}
 		>
-			<div className='w-full h-full max-w-[1400px] mx-auto flex justify-between items-center px-4'>
-				<div className='px-4 py-1 rounded-lg'>
-					{/* bg-zinc-700 bg-transparent */}
-					<h1>
-						<a
-							href={mainHeaderData.logo.href}
-							className=' flex justify-between items-center'
-						>
-							<CustomNextImage
-								width={16}
-								height={16}
-								className='w-8 h-8'
-								src={mainHeaderData.logo.iconUrl}
-								alt=''
-								priority
-							/>
-							<span className='px-1' />
-							{mainHeaderData.logo.text}
-						</a>
-					</h1>
-				</div>
-				<nav className='hidden h-full lg:flex'>
-					<ul className='flex justify-between items-center h-full'>
-						{mainHeaderData.nav.map((item, navItemIndex, itemsArr) => {
-							// if (item.__type === 'DROP_DOWN_LIST_SECTION') return <></>;
+			<div className='w-full h-full relative'>
+				{/* <div className='absolute top-0 left-0 w-full h-full filter blur-sm header-bg' /> */}
+				<div className='w-full h-full max-w-[1400px] mx-auto flex justify-between items-center px-4 backdrop-blur-md'>
+					<div className='px-4 py-1 rounded-lg'>
+						{/* bg-zinc-700 bg-transparent */}
+						<h1>
+							<a
+								href={mainHeaderData.logo.href}
+								className=' flex justify-between items-center'
+							>
+								<CustomNextImage
+									width={16}
+									height={16}
+									className='w-8 h-8'
+									src={mainHeaderData.logo.iconUrl}
+									alt=''
+									priority
+								/>
+								<span className='px-1' />
+								{mainHeaderData.logo.text}
+							</a>
+						</h1>
+					</div>
+					<nav className='hidden h-full lg:flex'>
+						<ul className='flex justify-between items-center h-full'>
+							{mainHeaderData.nav.map((item, navItemIndex, itemsArr) => {
+								// if (item.__type === 'DROP_DOWN_LIST_SECTION') return <></>;
 
-							if (
-								item.__type === 'DROP_DOWN_LIST_CARD' ||
-								item.__type === 'DROP_DOWN_LIST_SECTION'
-							)
+								if (
+									item.__type === 'DROP_DOWN_LIST_CARD' ||
+									item.__type === 'DROP_DOWN_LIST_SECTION'
+								)
+									return (
+										<li
+											className={`px-2 py-1 rounded-lg cursor-pointer h-full flex justify-center items-center ${
+												classes.navOnHoverContainer
+											} ${
+												item.__type === 'DROP_DOWN_LIST_CARD'
+													? classes.cardContainer
+													: classes.sectionContainer
+											}`}
+											key={item.entry}
+										>
+											<button
+												className='flex justify-between items-center'
+												title='click/press enter or space on this to show side menu'
+											>
+												{item.entry} <span className='px-1' />
+												<span
+													style={{
+														borderLeft: '0.25rem solid transparent',
+														borderRight: '0.25rem solid transparent',
+														borderTop: '0.25rem solid #fff',
+														fontSize: 0,
+														lineHeight: 0,
+													}}
+												/>
+											</button>
+											{item.__type === 'DROP_DOWN_LIST_CARD' && (
+												<nav
+													className={`bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 ${classes.navOnHover}`}
+												>
+													<ul
+														className={`${classes.container} flex flex-col justify-between items-center min-w-[12rem]`}
+													>
+														{item.list.map((subItem) => (
+															<li
+																className='w-full hover:text-zinc-600 px-4 py-2 rounded-lg cursor-pointer'
+																key={subItem.text}
+															>
+																<a
+																	href={subItem.href}
+																	className='focus:ring ring-zinc-400'
+																>
+																	{subItem.text}
+																</a>
+															</li>
+														))}
+													</ul>
+												</nav>
+											)}
+											{item.__type === 'DROP_DOWN_LIST_SECTION' && (
+												<nav
+													className={`bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 ${classes.navOnHover} ${classes.section}`}
+												>
+													<div className='p-4 flex justify-between'>
+														{item.list.map((item) => (
+															<div
+																key={item.header.h2.text}
+																className={classes.container}
+															>
+																<h2 className='text-xl font-semibold'>
+																	{item.header.h2.text}
+																</h2>
+																<ul>
+																	{item.list.map((listItem) => (
+																		<li
+																			key={listItem.text}
+																			className='my-2 hover:text-zinc-600 transition-all duration-150'
+																		>
+																			<span className='px-2'></span>
+																			<a
+																				href={listItem.href}
+																				className='focus:ring ring-zinc-400 transition-all duration-150'
+																			>
+																				{listItem.text}
+																			</a>
+																		</li>
+																	))}
+																</ul>
+															</div>
+														))}
+													</div>
+												</nav>
+											)}
+										</li>
+									);
+
 								return (
 									<li
-										className={`px-2 py-1 rounded-lg cursor-pointer h-full flex justify-center items-center ${
-											classes.navOnHoverContainer
-										} ${
-											item.__type === 'DROP_DOWN_LIST_CARD'
-												? classes.cardContainer
-												: classes.sectionContainer
+										className={`px-2 py-1 rounded-lg cursor-pointer h-full flex justify-center items-center border-l-1 ${
+											navItemIndex === itemsArr.length - 1 ? 'border-l-1' : ''
 										}`}
-										key={item.entry}
+										key={item.text}
 									>
-										<button className='flex justify-between items-center'>
-											{item.entry} <span className='px-1' />
-											<span
-												style={{
-													borderLeft: '0.25rem solid transparent',
-													borderRight: '0.25rem solid transparent',
-													borderTop: '0.25rem solid #fff',
-													fontSize: 0,
-													lineHeight: 0,
-												}}
-											/>
-										</button>
-										{item.__type === 'DROP_DOWN_LIST_CARD' && (
-											<nav
-												className={`bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 ${classes.navOnHover}`}
-											>
-												<ul
-													className={`${classes.container} flex flex-col justify-between items-center min-w-[12rem]`}
-												>
-													{item.list.map((subItem) => (
-														<li
-															className='w-full hover:text-zinc-600 px-4 py-2 rounded-lg cursor-pointer'
-															key={subItem.text}
-														>
-															<a
-																href={subItem.href}
-																className='focus:ring ring-zinc-400'
-															>
-																{subItem.text}
-															</a>
-														</li>
-													))}
-												</ul>
-											</nav>
-										)}
-										{item.__type === 'DROP_DOWN_LIST_SECTION' && (
-											<nav
-												className={`bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 ${classes.navOnHover} ${classes.section}`}
-											>
-												<div className='p-4 flex justify-between'>
-													{item.list.map((item) => (
-														<div
-															key={item.header.h2.text}
-															className={classes.container}
-														>
-															<h2 className='text-xl font-semibold'>
-																{item.header.h2.text}
-															</h2>
-															<ul>
-																{item.list.map((listItem) => (
-																	<li
-																		key={listItem.text}
-																		className='my-2 hover:text-zinc-600 transition-all duration-150'
-																	>
-																		<span className='px-2'></span>
-																		<a
-																			href={listItem.href}
-																			className='focus:ring ring-zinc-400 transition-all duration-150'
-																		>
-																			{listItem.text}
-																		</a>
-																	</li>
-																))}
-															</ul>
-														</div>
-													))}
-												</div>
-											</nav>
-										)}
+										<a href={item.href}>{item.text}</a>
 									</li>
 								);
+							})}
+						</ul>
+					</nav>
 
-							return (
-								<li
-									className={`px-2 py-1 rounded-lg cursor-pointer h-full flex justify-center items-center border-l-1 ${
-										navItemIndex === itemsArr.length - 1 ? 'border-l-1' : ''
-									}`}
-									key={item.text}
-								>
-									<a href={item.href}>{item.text}</a>
-								</li>
-							);
-						})}
-					</ul>
-				</nav>
-
-				<button
-					className='flex flex-col justify-around lg:hidden w-6 h-6'
-					onClick={() => setIsNavOnHoverContainerVisible((prev) => !prev)}
+					<button
+						className='flex flex-col justify-around lg:hidden w-6 h-6'
+						onClick={() => setIsNavOnHoverContainerVisible((prev) => !prev)}
+					>
+						<span className='w-full h-1 bg-white'></span>
+						<span className='w-full h-1 bg-white'></span>
+						<span className='w-full h-1 bg-white'></span>
+					</button>
+				</div>
+				<div
+					className={`${classes.dropdownOnSmallScreens} ${
+						isNavOnHoverContainerVisible ? '' : 'hidden'
+					} bg-black flex lg:hidden absolute top-full left-0 w-full`}
 				>
-					<span className='w-full h-1 bg-white'></span>
-					<span className='w-full h-1 bg-white'></span>
-					<span className='w-full h-1 bg-white'></span>
-				</button>
-			</div>
-			<div
-				className={`${classes.dropdownOnSmallScreens} ${
-					isNavOnHoverContainerVisible ? '' : 'hidden'
-				} bg-black flex lg:hidden absolute top-full left-0 w-full`}
-			>
-				<nav>
-					<ul className='flex flex-col justify-between'>
-						{mainHeaderData.nav.map((item) => {
-							if (
-								item.__type === 'DROP_DOWN_LIST_CARD' ||
-								item.__type === 'DROP_DOWN_LIST_SECTION'
-							)
-								return <SubMenuOnSmallerScreens item={item} key={item.entry} />;
+					<nav>
+						<ul className='flex flex-col justify-between'>
+							{mainHeaderData.nav.map((item) => {
+								if (
+									item.__type === 'DROP_DOWN_LIST_CARD' ||
+									item.__type === 'DROP_DOWN_LIST_SECTION'
+								)
+									return (
+										<SubMenuOnSmallerScreens item={item} key={item.entry} />
+									);
 
-							return (
-								<li
-									className={`px-4 py-4 rounded-lg cursor-pointer`}
-									key={item.text}
-								>
-									<a href={item.href}>{item.text}</a>
-								</li>
-							);
-						})}
-					</ul>
-				</nav>
+								return (
+									<li
+										className={`px-4 py-4 rounded-lg cursor-pointer`}
+										key={item.text}
+									>
+										<a href={item.href}>{item.text}</a>
+									</li>
+								);
+							})}
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</header>
 	);
