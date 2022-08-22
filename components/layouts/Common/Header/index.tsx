@@ -166,9 +166,9 @@ const MainHeader = () => {
 	return (
 		<header
 			id='main-header'
-			className={`transition-all duration-300 z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto bg-black text-white  text-md font-medium ${classes.mainHeader}`}
+			className={`transition-all duration-300 z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto text-md font-medium ${classes.mainHeader}`}
 		>
-			<div className='w-full h-full relative'>
+			<div className='w-full h-full relative bg-black bg-opacity-70 text-white'>
 				{/* <div className='absolute top-0 left-0 w-full h-full filter blur-sm header-bg' /> */}
 				<div className='w-full h-full max-w-[1400px] mx-auto flex justify-between items-center px-4 backdrop-blur-md'>
 					<div className='px-4 py-1 rounded-lg'>

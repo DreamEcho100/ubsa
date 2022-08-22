@@ -1,5 +1,8 @@
 import CustomNextImage from '@components/common/CustomNextImage';
-import { CSSProperties, useEffect, useRef } from 'react';
+import {
+	CSSProperties,
+	// useEffect, useRef
+} from 'react';
 
 import classes from './index.module.css';
 
@@ -21,9 +24,11 @@ const uniqueBusinessSolutionsSectionObserver =
 			if (!mainHeader) return;
 
 			if (entry.isIntersecting) {
-				mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+				// mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+				document.body.style.setProperty('--nav-height', '6rem');
 			} else {
-				mainHeader.style.backgroundColor = 'rgba(0, 0, 0)';
+				// mainHeader.style.backgroundColor = 'rgba(0, 0, 0)';
+				document.body.style.setProperty('--nav-height', '3rem');
 			}
 
 			// const headerBg = mainHeader.querySelector('.header-bg') as HTMLDivElement;
@@ -91,24 +96,24 @@ const testimonialsImages = [
 ];
 
 const UniqueBusinessSolutionsSection = () => {
-	const elemRef = useRef<HTMLDivElement>(null);
+	// const elemRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		if (!elemRef.current || !uniqueBusinessSolutionsSectionObserver) return;
+	// useEffect(() => {
+	// 	if (!elemRef.current || !uniqueBusinessSolutionsSectionObserver) return;
 
-		const elem = elemRef.current;
+	// 	const elem = elemRef.current;
 
-		uniqueBusinessSolutionsSectionObserver.observe(elem);
+	// 	uniqueBusinessSolutionsSectionObserver.observe(elem);
 
-		() => {
-			uniqueBusinessSolutionsSectionObserver.unobserve(elem);
-			// imgTextSectionObserver.disconnect();
-		};
-	}, []);
+	// 	() => {
+	// 		uniqueBusinessSolutionsSectionObserver.unobserve(elem);
+	// 		// imgTextSectionObserver.disconnect();
+	// 	};
+	// }, []);
 
 	return (
 		<div
-			ref={elemRef}
+			// ref={elemRef}
 			style={{
 				backgroundImage:
 					'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
