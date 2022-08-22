@@ -85,11 +85,11 @@ button[disabled] {
 @tailwind utilities;
 
 @layer components {
-	.item-shine {
+	.item-line-flash {
 		position: relative;
 		overflow: hidden;
 	}
-	.item-shine:before {
+	.item-line-flash:before {
 		content: '';
 		position: absolute;
 
@@ -107,9 +107,13 @@ button[disabled] {
 		top: 0%;
 		left: -100%;
 	}
-	.item-shine:hover:before {
+	.item-line-flash:hover:before {
 		transition: all 0.5s ease-in;
 		transform: translate(100%) rotate(-45deg);
 		/* opacity: 1; */
 	}
+
+	/* .img-container-scale {
+		
+	} */
 }

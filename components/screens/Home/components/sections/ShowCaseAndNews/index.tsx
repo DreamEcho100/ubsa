@@ -30,7 +30,25 @@ const imgTextSectionObserver =
 					imgContainer.classList.add(classes.appear);
 					detailsContainer.classList.add(classes.appear);
 				}
+
+				console.log('imgContainer', imgContainer);
+				console.log('classes.scaleImg', classes.scaleImg);
+				console.log(
+					'imgContainer.classList.contains(classes.scaleImg)',
+					imgContainer.classList.contains(classes.scaleImg)
+				);
+				if (!imgContainer.classList.contains(classes.scaleImg)) {
+					imgContainer.classList.add(classes.scaleImg);
+				}
+				if (!detailsContainer.classList.contains(classes.colorfulHeader)) {
+					detailsContainer.classList.add(classes.colorfulHeader);
+				}
 			}
+			// else {
+			// 	if (imgContainer.classList.contains(classes.scaleImg)) {
+			// 		imgContainer.classList.remove(classes.scaleImg);
+			// 	}
+			// }
 			// }
 		});
 	}, imgTextSectionOptions);
@@ -91,14 +109,17 @@ const ImgTextSection = ({
 			}
 		>
 			<div
-				className={`item-shine w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}
+				className={`overflow-hidden relative w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}
 			>
+				<div
+					className={`transition-all duration-300 bg-gradient-to-b absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 hover:bg-opacity-50 ${classes.wrapper}`}
+				/>
 				<CustomNextImage
 					src={item.image.src}
 					alt={item.image.alt}
 					width={800}
 					height={1000}
-					className='w-full'
+					className='w-full transition-all duration-300'
 				/>
 			</div>
 			<div
@@ -115,7 +136,7 @@ const ImgTextSection = ({
 				</div>
 				<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
 				<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-left'>
-					<h3 className='text-4xl lg:text-8xl font-medium'>
+					<h3 className='text-4xl lg:text-8xl font-medium py-2'>
 						{/* max-w-[75%] */}
 						{item.header.text}
 					</h3>

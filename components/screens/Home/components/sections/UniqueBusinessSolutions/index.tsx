@@ -54,7 +54,7 @@ const testimonialsImages = [
 	},
 ];
 
-const WebsiteAppsDesignSection = () => {
+const UniqueBusinessSolutionsSection = () => {
 	return (
 		<div
 			style={{
@@ -68,13 +68,13 @@ const WebsiteAppsDesignSection = () => {
 					className={`text-7xl sm:text-7xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
 					<span className='md:my-2' style={{ '--index': '0' } as CSSProperties}>
-						<p className='md:py-2'>Websites.</p>
+						<p className='md:py-2'>Unique</p>
 					</span>
 					<span className='md:my-2' style={{ '--index': '1' } as CSSProperties}>
-						<p className='md:py-2'>Apps.</p>
+						<p className='md:py-2'>Business</p>
 					</span>
 					<span className='md:my-2' style={{ '--index': '3' } as CSSProperties}>
-						<p className='md:py-2'>Design.</p>
+						<p className='md:py-2'>Solutions</p>
 					</span>
 				</h2>
 				<div className='py-12 md:py-16' />
@@ -95,7 +95,7 @@ const WebsiteAppsDesignSection = () => {
 				<div className='py-8 md:py-12' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>
 					{testimonialsImages.map((image) => (
-						<div key={image.src} className='w-44 h-20 item-shine'>
+						<div key={image.src} className='w-44 h-20'>
 							<CustomNextImage
 								src={image.src}
 								alt={image.alt}
@@ -115,7 +115,7 @@ const WebsiteAppsDesignSection = () => {
 						// justify-around
 					>
 						{testimonialsImages.map((image) => (
-							<div key={image.src} className='w-44 h-20 item-shine'>
+							<div key={image.src} className='w-44 h-20'>
 								<CustomNextImage
 									src={image.src}
 									alt={image.alt}
@@ -133,4 +133,4 @@ const WebsiteAppsDesignSection = () => {
 	);
 };
 
-export default WebsiteAppsDesignSection;
+export default UniqueBusinessSolutionsSection;

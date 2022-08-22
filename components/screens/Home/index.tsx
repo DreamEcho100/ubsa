@@ -1,13 +1,13 @@
 import CommonLayout from '@components/layouts/Common';
 import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
 import AllServicesSections from './components/sections/AllServices';
-import WebsiteAppsDesignSection from './components/sections/WebsiteAppsDesign';
+import UniqueBusinessSolutionsSection from './components/sections/UniqueBusinessSolutions';
 
 const HomeScreen = () => {
 	return (
 		<CommonLayout>
 			<main className='leading-relaxed min-full-content-page mt-main-nav-page'>
-				<WebsiteAppsDesignSection />
+				<UniqueBusinessSolutionsSection />
 				<AllServicesSections />
 				<ShowCaseAndNewsSections />
 			</main>
