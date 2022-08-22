@@ -6,7 +6,8 @@ import UniqueBusinessSolutionsSection from './components/sections/UniqueBusiness
 const HomeScreen = () => {
 	return (
 		<CommonLayout>
-			<main className='leading-relaxed min-full-content-page mt-main-nav-page'>
+			<main className='leading-relaxed min-full-content-page'>
+				{/* mt-main-nav-page */}
 				<UniqueBusinessSolutionsSection />
 				<AllServicesSections />
 				<ShowCaseAndNewsSections />

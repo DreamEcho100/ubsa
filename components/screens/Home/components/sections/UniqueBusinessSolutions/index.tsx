@@ -1,7 +1,33 @@
 import CustomNextImage from '@components/common/CustomNextImage';
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useRef } from 'react';
 
 import classes from './index.module.css';
+
+const uniqueBusinessSolutionsSectionOptions = {
+	// rootMargin: "-200px 0px 0px 0px"
+	threshold: 0.1, // half of item height
+};
+
+const uniqueBusinessSolutionsSectionObserver =
+	typeof window !== 'undefined' &&
+	typeof window !== 'undefined' &&
+	new IntersectionObserver(function (
+		entries,
+		uniqueBusinessSolutionsSectionObserver
+	) {
+		entries.forEach((entry) => {
+			const mainHeader = document.getElementById('main-header');
+
+			if (!mainHeader) return;
+
+			if (entry.isIntersecting) {
+				mainHeader.style.backgroundColor = 'transparent';
+			} else {
+				mainHeader.style.backgroundColor = '#111';
+			}
+		});
+	},
+	uniqueBusinessSolutionsSectionOptions);
 
 const testimonialsImages = [
 	{
@@ -55,8 +81,24 @@ const testimonialsImages = [
 ];
 
 const UniqueBusinessSolutionsSection = () => {
+	const elemRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (!elemRef.current || !uniqueBusinessSolutionsSectionObserver) return;
+
+		const elem = elemRef.current;
+
+		uniqueBusinessSolutionsSectionObserver.observe(elem);
+
+		() => {
+			uniqueBusinessSolutionsSectionObserver.unobserve(elem);
+			// imgTextSectionObserver.disconnect();
+		};
+	}, []);
+
 	return (
 		<div
+			ref={elemRef}
 			style={{
 				backgroundImage:
 					'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',

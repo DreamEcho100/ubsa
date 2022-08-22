@@ -11,7 +11,6 @@ const imgTextSectionObserver =
 	typeof window !== 'undefined' &&
 	typeof window !== 'undefined' &&
 	new IntersectionObserver(function (entries, imgTextSectionObserver) {
-		console.log('imgTextSectionObserver', imgTextSectionObserver);
 		entries.forEach((entry) => {
 			// if (window.innerWidth > 1024) {
 			// entry.target
@@ -31,12 +30,6 @@ const imgTextSectionObserver =
 					detailsContainer.classList.add(classes.appear);
 				}
 
-				console.log('imgContainer', imgContainer);
-				console.log('classes.scaleImg', classes.scaleImg);
-				console.log(
-					'imgContainer.classList.contains(classes.scaleImg)',
-					imgContainer.classList.contains(classes.scaleImg)
-				);
 				if (!imgContainer.classList.contains(classes.scaleImg)) {
 					imgContainer.classList.add(classes.scaleImg);
 				}

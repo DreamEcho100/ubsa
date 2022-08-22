@@ -165,10 +165,12 @@ const MainHeader = () => {
 
 	return (
 		<header
-			className={`z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto bg-black text-white  text-md font-medium ${classes.mainHeader}`}
+			id='main-header'
+			className={`transition-all duration-300 z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto bg-black text-white  text-md font-medium ${classes.mainHeader}`}
 		>
 			<div className='w-full h-full max-w-[1400px] mx-auto flex justify-between items-center px-4'>
-				<div className='bg-zinc-700 px-4 py-1 rounded-lg'>
+				<div className='px-4 py-1 rounded-lg'>
+					{/* bg-zinc-700 bg-transparent */}
 					<h1>
 						<a
 							href={mainHeaderData.logo.href}
