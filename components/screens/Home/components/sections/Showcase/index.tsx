@@ -64,7 +64,7 @@ const Card = ({
 
 const ShowcaseSection = () => {
 	return (
-		<section className='px-2 py-8 md:py-16'>
+		<section className='px-2 py-24 md:py-28'>
 			<header className='flex flex-col items-center justify-center text-center p-4'>
 				<h2
 					className='text-5xl sm:text-6xl md:text-8xl capitalize font-bold'

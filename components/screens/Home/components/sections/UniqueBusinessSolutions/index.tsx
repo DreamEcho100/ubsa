@@ -182,7 +182,7 @@ const UniqueBusinessSolutionsSection = () => {
 						))}
 					</div>
 				</div>
-				<div className='py-24' />
+				<div className='py-12' />
 			</div>
 		</div>
 	);
