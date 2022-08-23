@@ -81,7 +81,7 @@ const ShowcaseSection = () => {
 				>
 					We employ technologies that top industry companies use
 				</h2>
-				<p className='mx-auto max-w-[800px] text-lg sm:text-xl md:text-3xl font-bold my-8 md:my-16'>
+				<p className='mx-auto max-w-[800px] text-2xl sm:text-3xl md:text-4xl font-bold my-8 md:my-16'>
 					Check some of the more successful global businesses, websites
 					programmed in next.js.
 				</p>
