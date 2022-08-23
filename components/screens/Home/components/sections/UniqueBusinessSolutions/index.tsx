@@ -137,18 +137,15 @@ const UniqueBusinessSolutionsSection = () => {
 				</h2>
 				<div className='py-12 md:py-16' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
-					While very diverse, our aesthetic and advance approach often involves
-					distinct sense of play and global vision, aiming to put the fun in
-					functional. Strategically, our work aims to elevate brands offerings
-					by distilling core messaging down to its clearest and fresh visual
-					values.
+					We help online businesses increase website traffic and revenue by
+					enhancing their website design, functionalities, user experience, and
+					SEO using the next.js programming technologies.
 				</p>
 				<div className='py-12 md:py-16' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
-					Our aim is to develop and deliver web applications that bring your
-					brand/app closer to your customer — and to yourself. We understand web
-					&amp; app design &amp; development like the back of our hands. We
-					deliver on time and without any financial or technical surprises.
+					A website is a core part of an online business, and it&apos;s easy to
+					build one nowadays, but the challenge is to win the competition over
+					other businesses. We can help you with that.
 				</p>
 				<div className='py-8 md:py-12' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>

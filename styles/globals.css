@@ -47,7 +47,7 @@ main {
 }
 body {
 	--main-max-width: 200rem;
-	--nav-height: 6rem;
+	--nav-height: 4rem;
 
 	overflow-x: hidden;
 	font-family: 'Roboto', sans-serif;

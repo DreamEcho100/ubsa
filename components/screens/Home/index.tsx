@@ -2,6 +2,7 @@ import CommonLayout from '@components/layouts/Common';
 import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
 import AllServicesSections from './components/sections/AllServices';
 import UniqueBusinessSolutionsSection from './components/sections/UniqueBusinessSolutions';
+import ShowcaseSection from './components/sections/Showcase';
 
 const HomeScreen = () => {
 	return (
@@ -9,7 +10,8 @@ const HomeScreen = () => {
 			<main className='leading-relaxed min-full-content-page'>
 				{/* mt-main-nav-page */}
 				<UniqueBusinessSolutionsSection />
-				<AllServicesSections />
+				<ShowcaseSection />
+				{/* <AllServicesSections /> */}
 				<ShowCaseAndNewsSections />
 			</main>
 		</CommonLayout>
