@@ -116,7 +116,7 @@ const ImgTextSection = ({
 				/>
 			</div>
 			<div
-				className={`w-full md:w-4/5 lg:w-1/2 p-4 relative ${classes.detailsContainer}`}
+				className={`w-full mx-auto max-w-[40rem] sm:max-w-[30rem] md:max-w-[80%] lg:max-w-[50%] p-4 relative ${classes.detailsContainer}`}
 			>
 				<div className='lg:p-4 lg:hidden absolute top-0 left-0 w-full h-full z-[1]'>
 					<CustomNextImage

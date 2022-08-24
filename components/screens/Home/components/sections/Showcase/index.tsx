@@ -148,7 +148,7 @@ const ShowcaseSection = () => {
 				</p>
 			</header>
 			<div className='flex flex-col items-center md:flex-row'>
-				<div className='aspect-square w-11/12 md:w-2/3'>
+				<div className='aspect-square w-11/12 sm:w-3/5 md:w-2/3'>
 					{[
 						{
 							img: { src: './images/showcase/hulu.png', alt: 'hulu' },
@@ -164,7 +164,7 @@ const ShowcaseSection = () => {
 						<Card key={item.h3.text} item={item} size='md' />
 					))}
 				</div>
-				<div className='aspect-square w-11/12 md:w-1/3'>
+				<div className='aspect-square w-11/12 sm:w-3/5 md:w-1/3'>
 					{[
 						{
 							img: { src: './images/showcase/twitch.png', alt: 'twitch' },
