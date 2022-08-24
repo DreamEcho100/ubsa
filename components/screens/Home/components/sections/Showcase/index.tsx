@@ -76,7 +76,10 @@ const Card = ({
 	}, []);
 
 	return (
-		<div ref={elemRef} className='relative w-full aspect-square max-w-full p-4'>
+		<div
+			ref={elemRef}
+			className='relative w-full aspect-square max-w-full p-2 lg:p-4'
+		>
 			<a
 				href={item.a.href}
 				className='relative w-full h-full'
@@ -96,21 +99,21 @@ const Card = ({
 					}`}
 				>
 					<div
-						className={`io-container-inner transition-all duration-300 w-full p-4 ${
+						className={`io-container-inner transition-all duration-300 w-full p-8 md:p-4 ${
 							size === 'bg' ? 'md:p-16' : 'md:p-8'
 						} flex-col items-center justify-center text-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-75 ${
 							isMobileOrTablet ? 'io-isMobileOrTablet' : 'hidden'
 						}`}
 					>
 						<h3
-							className={`text-2xl ${
+							className={`text-3xl ${
 								size === 'bg' ? 'md:text-8xl' : 'md:text-4xl'
 							} text-zinc-100`}
 						>
 							{item.h3.text}
 						</h3>
 						<span
-							className={`font-medium text-lg ${
+							className={`font-medium text-xl ${
 								size === 'bg' ? 'md:text-4xl' : 'md:text-1xl lg:md:text-2xl'
 							} text-sky-700 hover:text-sky-500`}
 						>
@@ -125,7 +128,7 @@ const Card = ({
 
 const ShowcaseSection = () => {
 	return (
-		<section className='px-2 py-18 max-w-[1400px] mx-auto'>
+		<section className='px-2 py-16 max-w-[1400px] mx-auto'>
 			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
 					className='text-5xl sm:text-6xl md:text-8xl capitalize font-bold'
