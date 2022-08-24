@@ -9,7 +9,7 @@ const ReviewsSlider = (props: Props) => {
 		<section className='flex flex-col p-8 md:py-16 max-w-[1400px] mx-auto'>
 			<header className='my-4'>
 				<h2 className='text-7xl'>Reviews that speak for themselves.</h2>
-				<p className='mt-8 mb-12 text-2xl'>
+				<p className='mt-8 mb-12'>
 					We&apos;re not ones to brag, so we&apos;ll let our customer reviews do
 					all the talking.
 				</p>
@@ -53,7 +53,7 @@ const ReviewsSlider = (props: Props) => {
 										))}
 								</span>
 								<span className='p-1' />
-								<h4 className='text-2xl font-bold'>{name}</h4>
+								<h4 className='text-h4 font-bold'>{name}</h4>
 								<small className='font-light text-lg'>{username}</small>
 								<p className='font-light my-2'>{content}</p>
 								<p>

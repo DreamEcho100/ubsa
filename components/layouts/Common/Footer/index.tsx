@@ -73,7 +73,7 @@ const MainFooter = () => {
 					if (item.__type === 'NAV_LINKS')
 						return (
 							<div key={item.header.text} className='m-2'>
-								<h3 className='font-bold text-white text-2xl mb-12'>
+								<h3 className='font-bold text-white text-h3 mb-12'>
 									{item.header.text}
 								</h3>
 								<nav>
@@ -105,7 +105,7 @@ const MainFooter = () => {
 									</nav> */}
 								{item.sections.map((subItem) => (
 									<address key={subItem.header.text} className='mb-16'>
-										<h3 className='font-bold text-white text-2xl mb-12'>
+										<h3 className='font-bold text-white mb-12'>
 											{subItem.header.text}
 										</h3>
 										<ul className='text-lg'>
@@ -123,7 +123,7 @@ const MainFooter = () => {
 					if (item.__type === 'CONTACT_LIST_AND_NECESSARY_LINKS')
 						return (
 							<div key={itemIndex} className='m-2'>
-								<h3 className='font-bold text-white text-2xl mb-12'>
+								<h3 className='font-bold text-white text-h3 mb-12'>
 									{item.header.text}
 								</h3>
 								<ul className='text-lg'>

@@ -13,7 +13,7 @@ const AllServicesSections = () => {
 		<div className='bg-zinc-100 text-black bg-opacity-95 bg-contain bg-no-repeat'>
 			<div className='max-w-[1400px] mx-auto px-8 translate-y-[-8rem]'>
 				<div className='px-12 py-16 md:px-16 md:py-20 text-zinc-100 bg-blue-600 text-center md:text-left flex flex-col items-center md:flex-row md:justify-around rounded-md md:rounded-xl'>
-					<div className='text-2xl md:text-3xl font-light'>
+					<div className='font-light'>
 						<p className='max-w-[800px]'>
 							&quot;Exerge IT took the time to become well-versed in the
 							intricacies of our business, and instead of reveals at set
@@ -31,7 +31,7 @@ const AllServicesSections = () => {
 							className='rounded-full shadow-2xl'
 						/>
 						<div className='py-2' />
-						<p className='text-xl font-medium'>Ron Peterson</p>
+						<p className='font-medium'>Ron Peterson</p>
 						<p>Mad Marketing</p>
 					</div>
 				</div>
@@ -82,8 +82,8 @@ const AllServicesSections = () => {
 							<div className='my-1 text-4xl text-sky-600'>{item.icon}</div>
 							<div className='px-4' />
 							<div className='flex flex-col'>
-								<h3 className=''>{item.title}</h3>
-								<p className='text-base text-gray-500 md:max-w-[15rem]'>
+								<h3 className='text-h3'>{item.title}</h3>
+								<p className='text-gray-500 md:max-w-[15rem]'>
 									{item.description}
 								</p>
 							</div>

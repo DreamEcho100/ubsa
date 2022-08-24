@@ -8,7 +8,7 @@ import ReviewsSlider from './components/sections/ReviewsSlider';
 const HomeScreen = () => {
 	return (
 		<CommonLayout>
-			<main className='leading-relaxed min-full-content-page'>
+			<main className='min-full-content-page text-[1.25rem] leading-relaxed'>
 				{/* mt-main-nav-page */}
 				<UniqueBusinessSolutionsSection />
 				<ShowcaseSection />

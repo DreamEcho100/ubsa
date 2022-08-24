@@ -124,15 +124,15 @@ const ImgTextSection = ({
 						alt={item.image.alt}
 						width={800}
 						height={1000}
-						className='w-full h-full'
+						className='w-full h-full object-cover'
 					/>
 				</div>
 				<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
 				<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-left'>
-					<h3 className='text-4xl lg:text-8xl font-medium py-2'>
+					<h2 className='text-h2 lg:text-8xl font-medium py-2'>
 						{/* max-w-[75%] */}
 						{item.header.text}
-					</h3>
+					</h2>
 					<p className='my-8 max-w-[400px] drop-shadow-'>{item.description}</p>
 					<button className='transition-all duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
 						<a href={item.button.href}>{item.button.text}</a>
@@ -215,7 +215,7 @@ const NewsCard = ({
 		>
 			<small>
 				<time dateTime={new Date(item.date).toISOString()}>{item.date}</time>
-				<h3 className='text-2xl md:text-3xl'>
+				<h3 className='text-h3 md:text-3xl'>
 					<a href={item.header.href}>{item.header.text}</a>
 				</h3>
 			</small>
@@ -267,7 +267,7 @@ const ShowCaseAndNewsSections = () => {
 			))}
 			<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
 				<header>
-					<h2 className='text-7xl'>News</h2>
+					<h2 className='text-h2'>News</h2>
 				</header>
 				<div className='flex flex-wrap mt-8 md:justify-between items-center'>
 					{[

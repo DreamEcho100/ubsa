@@ -106,7 +106,7 @@ const Card = ({
 						}`}
 					>
 						<h3
-							className={`text-3xl ${
+							className={`text-h3 ${
 								size === 'bg' ? 'md:text-8xl' : 'md:text-4xl'
 							} text-zinc-100`}
 						>
@@ -131,7 +131,7 @@ const ShowcaseSection = () => {
 		<section className='px-2 py-16 max-w-[1400px] mx-auto'>
 			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
-					className='text-5xl sm:text-6xl md:text-8xl capitalize font-bold'
+					className='text-h2 sm:text-6xl md:text-8xl capitalize font-bold'
 					style={
 						{
 							'--linearGradient': '',
@@ -145,7 +145,7 @@ const ShowcaseSection = () => {
 				>
 					We employ technologies that top industry companies use
 				</h2>
-				<p className='mx-auto max-w-[800px] text-2xl sm:text-3xl md:text-4xl font-bold my-8 md:my-16'>
+				<p className='mx-auto max-w-[800px] sm:text-3xl md:text-4xl font-bold my-8 md:my-16'>
 					Check some of the more successful global businesses, websites
 					programmed in next.js.
 				</p>
