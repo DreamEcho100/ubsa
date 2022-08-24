@@ -93,7 +93,7 @@ const Card = ({
 					width={400}
 					height={400}
 					className='absolute top-0 left-0 w-full h-full -z-10'
-					priority
+					// priority
 				/>
 				<div
 					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
