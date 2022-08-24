@@ -130,7 +130,7 @@ const SubMenuOnSmallerScreens = ({
 						item.list.map((item) => (
 							<div key={item.header.h2.text} className='p-4 px-0 flex w-full'>
 								<div key={item.header.h2.text} className='flex flex-col w-full'>
-									<h2 className='text-h2 font-semibold'>
+									<h2 className='text-h5 font-semibold'>
 										<span className='px-2' />
 										{item.header.h2.text}
 									</h2>
@@ -259,7 +259,7 @@ const MainHeader = () => {
 																key={item.header.h2.text}
 																className={classes.container}
 															>
-																<h2 className='text-h2 font-semibold'>
+																<h2 className='text-h5 font-semibold'>
 																	{item.header.h2.text}
 																</h2>
 																<ul>

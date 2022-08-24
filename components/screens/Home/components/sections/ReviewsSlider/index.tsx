@@ -6,18 +6,20 @@ type Props = {};
 
 const ReviewsSlider = (props: Props) => {
 	return (
-		<section className='flex flex-col p-8 md:py-16 max-w-[1400px] mx-auto'>
+		<section className='main-content-section flex flex-col p-8 md:py-16 max-w-[1400px]'>
 			<header className='my-4'>
-				<h2 className='text-7xl'>Reviews that speak for themselves.</h2>
+				<h2 className='text-7xl font-bold'>
+					Reviews that speak for themselves.
+				</h2>
 				<p className='mt-8 mb-12'>
 					We&apos;re not ones to brag, so we&apos;ll let our customer reviews do
 					all the talking.
 				</p>
-				<button className='transition-all duration-300 mu-16 px-8 py-4 bg-black text-white border border-black hover:bg-zinc-50 hover:text-zinc-900 focus:bg-zinc-50 focus:text-zinc-900'>
+				{/* <button className='transition-all duration-300 mu-16 px-8 py-4 bg-black text-white border border-black hover:bg-zinc-50 hover:text-zinc-900 focus:bg-zinc-50 focus:text-zinc-900'>
 					MORE REVIEWS THIS WAY
-				</button>
+				</button> */}
 			</header>
-			<div className='mt-16 mb-8'>
+			<div className='mb-8'>
 				<Slider
 					outerSliderClassName='min-w-full overflow-hidden'
 					innerSliderClassName='flex w-fit'

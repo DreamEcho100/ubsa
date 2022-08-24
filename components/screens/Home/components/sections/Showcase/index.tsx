@@ -87,11 +87,13 @@ const Card = ({
 				rel='noopener noreferrer'
 			>
 				<CustomNextImage
-					src={item.img.src}
+					// src={`//images.weserv.nl/?url=${item.img.src}&w=${800}`}
+					src={`//images.weserv.nl/?url=${item.img.src}&w=${800}`}
 					alt={item.img.alt}
 					width={400}
 					height={400}
 					className='absolute top-0 left-0 w-full h-full -z-10'
+					priority
 				/>
 				<div
 					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
@@ -126,9 +128,12 @@ const Card = ({
 	);
 };
 
+const imgbaseUrl =
+	'https://res.cloudinary.com/mazecode-image-video-usoc/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1661356443';
+
 const ShowcaseSection = () => {
 	return (
-		<section className='px-2 py-16 max-w-[1400px] mx-auto'>
+		<section className='main-content-section px-2 py-16 max-w-[1400px]'>
 			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
 					className='text-h2 sm:text-6xl md:text-8xl capitalize font-bold'
@@ -154,12 +159,12 @@ const ShowcaseSection = () => {
 				<div className='aspect-square w-11/12 sm:w-3/5 md:w-2/3'>
 					{[
 						{
-							img: { src: './images/showcase/hulu.png', alt: 'hulu' },
+							img: { src: `${imgbaseUrl}/hulu_swlpgt.jpg`, alt: 'hulu' },
 							a: { href: 'https://www.hulu.com', text: 'https://www.hulu.com' },
 							h3: { text: 'hulu' },
 						},
 						{
-							img: { src: './images/showcase/vice.png', alt: 'vice' },
+							img: { src: `${imgbaseUrl}/vice_h2nx1b.jpg`, alt: 'vice' },
 							a: { href: 'https://www.vice.com', text: 'https://www.vice.com' },
 							h3: { text: 'vice' },
 						},
@@ -170,7 +175,7 @@ const ShowcaseSection = () => {
 				<div className='aspect-square w-11/12 sm:w-3/5 md:w-1/3'>
 					{[
 						{
-							img: { src: './images/showcase/twitch.png', alt: 'twitch' },
+							img: { src: `${imgbaseUrl}/twitch_absljp.jpg`, alt: 'twitch' },
 							a: {
 								href: 'https://www.twitch.com',
 								text: 'https://www.twitch.com',
@@ -178,12 +183,12 @@ const ShowcaseSection = () => {
 							h3: { text: 'twitch' },
 						},
 						{
-							img: { src: './images/showcase/nike.png', alt: 'nike' },
+							img: { src: `${imgbaseUrl}/nike_cqzoi8.jpg`, alt: 'nike' },
 							a: { href: 'https://www.nike.com', text: 'https://www.nike.com' },
 							h3: { text: 'nike' },
 						},
 						{
-							img: { src: './images/showcase/tiktok.png', alt: 'tiktok' },
+							img: { src: `${imgbaseUrl}/tiktok_p9hyax.jpg`, alt: 'tiktok' }, // './images/showcase/tiktok.png'
 							a: {
 								href: 'https://www.tiktok.com',
 								text: 'https://www.tiktok.com',
@@ -191,7 +196,7 @@ const ShowcaseSection = () => {
 							h3: { text: 'tiktok' },
 						},
 						{
-							img: { src: './images/showcase/hbomax.png', alt: 'hbomax' },
+							img: { src: `${imgbaseUrl}/hbomax_uxwhez.jpg`, alt: 'hbomax' },
 							a: {
 								href: 'https://www.hbomax.com',
 								text: 'https://www.hbomax.com',
@@ -206,7 +211,7 @@ const ShowcaseSection = () => {
 			{/* <div className='w-4/5 md:w-full'>
 				<Card
 					item={{
-						img: { src: './images/showcase/hbomax.png', alt: 'hbomax' },
+						img: { src: `${imgbaseUrl}/tiktok_p9hyax.jpg`, alt: 'hbomax' },
 						a: {
 							href: 'https://www.hbomax.com',
 							text: 'https://www.hbomax.com',

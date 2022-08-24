@@ -225,83 +225,85 @@ const NewsCard = ({
 
 const ShowCaseAndNewsSections = () => {
 	return (
-		<section className='bg-black bg-opacity-90 text-slate-100 overflow-hidden py-8 max-w-[1400px] mx-auto'>
-			{[
-				{
-					button: { text: 'Read More', href: '#' },
-					header: { text: 'Branding & Design PISES' },
-					description:
-						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
-					image: {
-						src: 'https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg',
-						alt: '',
+		<section className='main-content-section bg-black bg-opacity-90 text-slate-100'>
+			<div className='overflow-hidden py-8max-w-[1400px]'>
+				{[
+					{
+						button: { text: 'Read More', href: '#' },
+						header: { text: 'Branding & Design PISES' },
+						description:
+							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+						image: {
+							src: 'https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg',
+							alt: '',
+						},
 					},
-				},
-				{
-					button: { text: 'Read More', href: '#' },
-					header: { text: 'AGICO CRM & Call Center' },
-					description:
-						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
-					image: {
-						src: 'https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg',
-						alt: '',
+					{
+						button: { text: 'Read More', href: '#' },
+						header: { text: 'AGICO CRM & Call Center' },
+						description:
+							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+						image: {
+							src: 'https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg',
+							alt: '',
+						},
 					},
-				},
-				{
-					button: { text: 'Read More', href: '#' },
-					header: { text: 'Renergent Energy' },
-					description:
-						'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
-					image: {
-						src: 'https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg',
-						alt: '',
+					{
+						button: { text: 'Read More', href: '#' },
+						header: { text: 'Renergent Energy' },
+						description:
+							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+						image: {
+							src: 'https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg',
+							alt: '',
+						},
 					},
-				},
-			].map((item, itemIndex, itemsArr) => (
-				<ImgTextSection
-					key={itemIndex}
-					item={item}
-					itemIndex={itemIndex}
-					itemsLength={itemsArr.length}
-				/>
-			))}
-			<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
-				<header>
-					<h2 className='text-h2'>News</h2>
-				</header>
-				<div className='flex flex-wrap mt-8 md:justify-between items-center'>
-					{[
-						{
-							date: 'April 11, 2022',
-							header: {
-								text: 'Top 4 Reasons Why Golf Courses or Country Clubs Need a Website',
-								href: '#',
+				].map((item, itemIndex, itemsArr) => (
+					<ImgTextSection
+						key={itemIndex}
+						item={item}
+						itemIndex={itemIndex}
+						itemsLength={itemsArr.length}
+					/>
+				))}
+				<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
+					<header>
+						<h2 className='text-h2'>News</h2>
+					</header>
+					<div className='flex flex-wrap mt-8 md:justify-between items-center'>
+						{[
+							{
+								date: 'April 11, 2022',
+								header: {
+									text: 'Top 4 Reasons Why Golf Courses or Country Clubs Need a Website',
+									href: '#',
+								},
 							},
-						},
-						{
-							date: 'September 27, 2019',
-							header: {
-								text: '5 Advantages of a good real estate management software',
-								href: '#',
+							{
+								date: 'September 27, 2019',
+								header: {
+									text: '5 Advantages of a good real estate management software',
+									href: '#',
+								},
 							},
-						},
-						{
-							date: 'September 24, 2019',
-							header: {
-								text: 'How to Manage Clients In A Better Way | 5 Professional Tips',
-								href: '#',
+							{
+								date: 'September 24, 2019',
+								header: {
+									text: 'How to Manage Clients In A Better Way | 5 Professional Tips',
+									href: '#',
+								},
 							},
-						},
-						{
-							date: 'September 5, 2019',
-							header: {
-								text: 'Clutch Announces Exerge as The Top B2B Company in The Middle East',
-								href: '#',
+							{
+								date: 'September 5, 2019',
+								header: {
+									text: 'Clutch Announces Exerge as The Top B2B Company in The Middle East',
+									href: '#',
+								},
 							},
-						},
-					].map((item, itemIndex) => (
-						<NewsCard key={itemIndex} item={item} itemIndex={itemIndex} />
-					))}
+						].map((item, itemIndex) => (
+							<NewsCard key={itemIndex} item={item} itemIndex={itemIndex} />
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

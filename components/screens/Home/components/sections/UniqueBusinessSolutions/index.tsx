@@ -112,18 +112,18 @@ const UniqueBusinessSolutionsSection = () => {
 	// }, []);
 
 	return (
-		<div
+		<section
 			// ref={elemRef}
 			style={{
 				backgroundImage:
 					'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
 			}}
-			className='bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
+			className='main-content-section bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
 			<div className='py-8 md:py-12' />
 			<div className='max-w-[1400px] mx-auto p-8'>
 				<h2
-					className={`text-7xl md:text-8xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
+					className={`text-5xl sm:text-7xl md:text-8xl lg:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
 					<span className='md:my-2' style={{ '--index': '0' } as CSSProperties}>
 						<p className='leading-tight lg:leading-snug'>Unique</p>
@@ -135,13 +135,13 @@ const UniqueBusinessSolutionsSection = () => {
 						<p className='leading-tight lg:leading-snug'>Solutions</p>
 					</span>
 				</h2>
-				<div className='py-4 md:py-8 lg:py-12' />
+				<div className='py-8 md:py-12 lg:py-12' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					We help online businesses increase website traffic and revenue by
 					enhancing their website design, functionalities, user experience, and
 					SEO using the next.js programming technologies.
 				</p>
-				<div className='py-4 md:py-8 lg:py-12' />
+				<div className='py-8 md:py-12 lg:py-12' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					A website is a core part of an online business, and it&apos;s easy to
 					build one nowadays, but the challenge is to win the competition over
@@ -182,9 +182,9 @@ const UniqueBusinessSolutionsSection = () => {
 						))}
 					</div>
 				</div>
-				<div className='py-12' />
+				<div className='py-4 md:py-8' />
 			</div>
-		</div>
+		</section>
 	);
 };
 
