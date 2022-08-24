@@ -123,7 +123,7 @@ const UniqueBusinessSolutionsSection = () => {
 			<div className='py-8 md:py-12' />
 			<div className='max-w-[1400px] mx-auto p-8'>
 				<h2
-					className={`text-7xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
+					className={`text-8xl md:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
 					<span className='md:my-2' style={{ '--index': '0' } as CSSProperties}>
 						<p className='leading-tight lg:leading-snug'>Unique</p>
