@@ -26,6 +26,21 @@ a {
 } */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
 
+@media screen and (max-width: 450px) {
+	html {
+		min-width: 400vw;
+	}
+
+	body {
+		margin: 0 auto;
+	}
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 *,
 *::before,
 *::after {

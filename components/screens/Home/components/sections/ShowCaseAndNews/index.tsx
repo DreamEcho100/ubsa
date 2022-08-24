@@ -225,7 +225,7 @@ const NewsCard = ({
 
 const ShowCaseAndNewsSections = () => {
 	return (
-		<div className='bg-black bg-opacity-90 text-slate-100 overflow-hidden py-8'>
+		<section className='bg-black bg-opacity-90 text-slate-100 overflow-hidden py-8 max-w-[1400px] mx-auto'>
 			{[
 				{
 					button: { text: 'Read More', href: '#' },
@@ -304,7 +304,7 @@ const ShowCaseAndNewsSections = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

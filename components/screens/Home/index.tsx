@@ -3,6 +3,7 @@ import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
 import AllServicesSections from './components/sections/AllServices';
 import UniqueBusinessSolutionsSection from './components/sections/UniqueBusinessSolutions';
 import ShowcaseSection from './components/sections/Showcase';
+import ReviewsSlider from './components/sections/ReviewsSlider';
 
 const HomeScreen = () => {
 	return (
@@ -11,6 +12,7 @@ const HomeScreen = () => {
 				{/* mt-main-nav-page */}
 				<UniqueBusinessSolutionsSection />
 				<ShowcaseSection />
+				<ReviewsSlider />
 				{/* <AllServicesSections /> */}
 				<ShowCaseAndNewsSections />
 			</main>

@@ -1,6 +1,52 @@
 import CustomNextImage from '@components/common/CustomNextImage';
 import { useSharedMainState } from '@components/layouts/Main/context';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useRef } from 'react';
+
+const cardOptions = {
+	// rootMargin: "-200px 0px 0px 0px"
+	threshold: 0.95, // half of item height
+};
+
+const cardObserver =
+	typeof window !== 'undefined' &&
+	typeof window !== 'undefined' &&
+	new IntersectionObserver(function (entries, cardObserver) {
+		entries.forEach((entry) => {
+			const mainHeader = document.getElementById('main-header');
+
+			if (!mainHeader) return;
+
+			const outerContainer = entry.target.querySelector('.io-container-outer');
+			const innerContainer = entry.target.querySelector('.io-container-inner');
+			// bg-black bg-opacity-60
+
+			if (!outerContainer || !innerContainer) return;
+
+			if (entry.isIntersecting) {
+				// mainHeader.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+				// document.body.style.setProperty('--nav-height', '6rem');
+				outerContainer.classList.add('bg-black', 'bg-opacity-60');
+				innerContainer.classList.add('flex', 'bg-black', 'bg-opacity-75');
+				innerContainer.classList.remove('hidden');
+			} else {
+				outerContainer.classList.remove('bg-black', 'bg-opacity-60');
+				innerContainer.classList.remove('flex', 'bg-black', 'bg-opacity-75');
+				innerContainer.classList.add('hidden');
+				// mainHeader.style.backgroundColor = 'rgba(0, 0, 0)';
+				// document.body.style.setProperty('--nav-height', '3rem');
+			}
+
+			// const headerBg = mainHeader.querySelector('.header-bg') as HTMLDivElement;
+
+			// if (!headerBg) return;
+
+			// if (entry.isIntersecting) {
+			// 	headerBg.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+			// } else {
+			// 	headerBg.style.backgroundColor = 'rgba(0, 0, 0)';
+			// }
+		});
+	}, cardOptions);
 
 const Card = ({
 	item,
@@ -14,8 +60,23 @@ const Card = ({
 	size?: 'sm' | 'md' | 'bg';
 }) => {
 	const [{ isMobileOrTablet }] = useSharedMainState();
+	const elemRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (!elemRef.current || !cardObserver) return;
+
+		const elem = elemRef.current;
+
+		cardObserver.observe(elem);
+
+		() => {
+			cardObserver.unobserve(elem);
+			// imgTextSectionObserver.disconnect();
+		};
+	}, []);
+
 	return (
-		<div className='relative w-full aspect-square max-w-full p-4'>
+		<div ref={elemRef} className='relative w-full aspect-square max-w-full p-4'>
 			<a
 				href={item.a.href}
 				className='relative w-full h-full'
@@ -30,15 +91,15 @@ const Card = ({
 					className='absolute top-0 left-0 w-full h-full -z-10'
 				/>
 				<div
-					className={`transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
-						isMobileOrTablet ? 'bg-black bg-opacity-60' : ''
+					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
+						isMobileOrTablet ? 'io-isMobileOrTablet' : ''
 					}`}
 				>
 					<div
-						className={`transition-all duration-300 w-full p-4 ${
+						className={`io-container-inner transition-all duration-300 w-full p-4 ${
 							size === 'bg' ? 'md:p-16' : 'md:p-8'
 						} flex-col items-center justify-center text-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-75 ${
-							isMobileOrTablet ? 'flex bg-black bg-opacity-75' : 'hidden'
+							isMobileOrTablet ? 'io-isMobileOrTablet' : 'hidden'
 						}`}
 					>
 						<h3
@@ -64,8 +125,8 @@ const Card = ({
 
 const ShowcaseSection = () => {
 	return (
-		<section className='px-2 py-24 md:py-28'>
-			<header className='flex flex-col items-center justify-center text-center p-4'>
+		<section className='px-2 py-18 max-w-[1400px] mx-auto'>
+			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
 					className='text-5xl sm:text-6xl md:text-8xl capitalize font-bold'
 					style={
@@ -90,12 +151,12 @@ const ShowcaseSection = () => {
 				<div className='aspect-square w-11/12 md:w-2/3'>
 					{[
 						{
-							img: { src: './images/showcase/hulu.avif', alt: 'hulu' },
+							img: { src: './images/showcase/hulu.png', alt: 'hulu' },
 							a: { href: 'https://www.hulu.com', text: 'https://www.hulu.com' },
 							h3: { text: 'hulu' },
 						},
 						{
-							img: { src: './images/showcase/vice.avif', alt: 'vice' },
+							img: { src: './images/showcase/vice.png', alt: 'vice' },
 							a: { href: 'https://www.vice.com', text: 'https://www.vice.com' },
 							h3: { text: 'vice' },
 						},
@@ -106,7 +167,7 @@ const ShowcaseSection = () => {
 				<div className='aspect-square w-11/12 md:w-1/3'>
 					{[
 						{
-							img: { src: './images/showcase/twitch.avif', alt: 'twitch' },
+							img: { src: './images/showcase/twitch.png', alt: 'twitch' },
 							a: {
 								href: 'https://www.twitch.com',
 								text: 'https://www.twitch.com',
@@ -114,12 +175,12 @@ const ShowcaseSection = () => {
 							h3: { text: 'twitch' },
 						},
 						{
-							img: { src: './images/showcase/nike.avif', alt: 'nike' },
+							img: { src: './images/showcase/nike.png', alt: 'nike' },
 							a: { href: 'https://www.nike.com', text: 'https://www.nike.com' },
 							h3: { text: 'nike' },
 						},
 						{
-							img: { src: './images/showcase/tiktok.avif', alt: 'tiktok' },
+							img: { src: './images/showcase/tiktok.png', alt: 'tiktok' },
 							a: {
 								href: 'https://www.tiktok.com',
 								text: 'https://www.tiktok.com',
@@ -127,7 +188,7 @@ const ShowcaseSection = () => {
 							h3: { text: 'tiktok' },
 						},
 						{
-							img: { src: './images/showcase/hbomax.avif', alt: 'hbomax' },
+							img: { src: './images/showcase/hbomax.png', alt: 'hbomax' },
 							a: {
 								href: 'https://www.hbomax.com',
 								text: 'https://www.hbomax.com',
@@ -142,7 +203,7 @@ const ShowcaseSection = () => {
 			{/* <div className='w-4/5 md:w-full'>
 				<Card
 					item={{
-						img: { src: './images/showcase/hbomax.avif', alt: 'hbomax' },
+						img: { src: './images/showcase/hbomax.png', alt: 'hbomax' },
 						a: {
 							href: 'https://www.hbomax.com',
 							text: 'https://www.hbomax.com',
