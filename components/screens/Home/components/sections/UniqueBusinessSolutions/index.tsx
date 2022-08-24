@@ -123,16 +123,16 @@ const UniqueBusinessSolutionsSection = () => {
 			<div className='py-8 md:py-12' />
 			<div className='max-w-[1400px] mx-auto p-8'>
 				<h2
-					className={`text-5xl sm:text-7xl md:text-8xl lg:text-9xl flex flex-col leading-relaxed font-medium ${classes.h2}`}
+					className={`text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
-					<span className='md:my-2' style={{ '--index': '0' } as CSSProperties}>
-						<p className='leading-tight lg:leading-snug'>Unique</p>
+					<span className='py-2' style={{ '--index': '0' } as CSSProperties}>
+						<p className='leading-none'>Unique</p>
 					</span>
-					<span className='md:my-2' style={{ '--index': '1' } as CSSProperties}>
-						<p className='leading-tight lg:leading-snug'>Business</p>
+					<span className='py-2' style={{ '--index': '1' } as CSSProperties}>
+						<p className='leading-none'>Business</p>
 					</span>
-					<span className='md:my-2' style={{ '--index': '3' } as CSSProperties}>
-						<p className='leading-tight lg:leading-snug'>Solutions</p>
+					<span className='py-2' style={{ '--index': '3' } as CSSProperties}>
+						<p className='leading-none'>Solutions</p>
 					</span>
 				</h2>
 				<div className='py-8 md:py-12 lg:py-12' />

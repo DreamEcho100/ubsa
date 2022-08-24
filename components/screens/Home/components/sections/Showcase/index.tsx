@@ -88,11 +88,11 @@ const Card = ({
 			>
 				<CustomNextImage
 					// src={`//images.weserv.nl/?url=${item.img.src}&w=${800}`}
-					src={`//images.weserv.nl/?url=${item.img.src}&w=${800}`}
+					src={`//images.weserv.nl/?url=${item.img.src}&w=${1000}`}
 					alt={item.img.alt}
 					width={400}
 					height={400}
-					className='absolute top-0 left-0 w-full h-full -z-10'
+					className='absolute top-0 left-0 w-full h-full -z-10 object-cover'
 					// priority
 				/>
 				<div
