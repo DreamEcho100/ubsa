@@ -226,7 +226,7 @@ const NewsCard = ({
 const ShowCaseAndNewsSections = () => {
 	return (
 		<section className='main-content-section bg-black bg-opacity-90 text-slate-100'>
-			<div className='overflow-hidden py-8max-w-[1400px]'>
+			<div className='overflow-hidden py-8 max-w-[1400px]'>
 				{[
 					{
 						button: { text: 'Read More', href: '#' },

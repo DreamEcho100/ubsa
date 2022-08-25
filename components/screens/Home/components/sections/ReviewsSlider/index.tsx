@@ -2,9 +2,9 @@ import Slider from '@components/common/Slider';
 import { Fragment } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-type Props = {};
+import classes from './index.module.css';
 
-const ReviewsSlider = (props: Props) => {
+const ReviewsSlider = () => {
 	return (
 		<section className='main-content-section flex flex-col p-8 md:py-16 max-w-[1400px]'>
 			<header className='my-4'>
@@ -22,7 +22,8 @@ const ReviewsSlider = (props: Props) => {
 			<div className='mb-8'>
 				<Slider
 					outerSliderClassName='min-w-full overflow-hidden'
-					innerSliderClassName='flex w-fit'
+					innerSliderClassName={`flex w-fit ${classes.innerSlider}`}
+					autoMove
 				>
 					{'break'
 						.repeat(10 - 1)

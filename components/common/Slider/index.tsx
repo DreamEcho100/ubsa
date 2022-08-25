@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import type { TouchEvent, MouseEvent, ReactNode } from 'react';
 
 interface Props {
-	children: React.ReactNode;
+	children: ReactNode;
 	outerSliderClassName?: string;
 	innerSliderClassName?: string;
+	autoMove?: boolean;
 }
 
 interface IPosRef {
@@ -13,19 +15,23 @@ interface IPosRef {
 	oldXTranslate: number;
 	currXTranslate: number;
 	sliderXPos: number;
-	// {[key: string]: string | number | boolean | null}
-	//HTMLDivElement['getBoundingClientRect'];
-	// ClientRect | DOMRect
 	outerSliderCoordination?: DOMRect;
 	innerSliderCoordination?: DOMRect;
 	firstSliderCoordination?: DOMRect;
 	lastSliderCoordination?: DOMRect;
+	autoMove: {
+		active: boolean;
+		intervalId?: number;
+		xDir: number;
+		step: number;
+	};
 }
 
 const Slider = ({
 	children,
 	outerSliderClassName,
 	innerSliderClassName,
+	autoMove,
 }: Props) => {
 	const outerSliderRef = useRef<HTMLDivElement>(null);
 	const innerSliderRef = useRef<HTMLDivElement>(null);
@@ -46,10 +52,14 @@ const Slider = ({
 			innerSliderRef.current?.children[
 				innerSliderRef.current?.children?.length - 1
 			]?.getBoundingClientRect(),
+		autoMove: {
+			active: false,
+			xDir: 1,
+			step: 1,
+		},
 	});
 
-	const getPositionX = (event: React.TouchEvent | React.MouseEvent): number => {
-		// event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+	const getPositionX = (event: TouchEvent | MouseEvent): number => {
 		if (event.nativeEvent instanceof TouchEvent) {
 			return event.nativeEvent.touches[0].clientX;
 		}
@@ -67,9 +77,6 @@ const Slider = ({
 			outerSliderRef.current?.getBoundingClientRect();
 
 		if (num > 0) {
-			// posRef.current.firstSliderCoordination =
-			// 	innerSliderRef.current.children[0].getBoundingClientRect();
-
 			posRef.current.innerSliderCoordination =
 				innerSliderRef.current.getBoundingClientRect();
 
@@ -78,27 +85,6 @@ const Slider = ({
 				posRef.current.outerSliderCoordination.x
 			)
 				return true;
-
-			// else {
-			// 	console.log(
-			// 		'posRef.current.firstSliderCoordination.x',
-			// 		posRef.current.firstSliderCoordination.x
-			// 	);
-			// 	console.log('num', num);
-			// 	console.log(
-			// 		'posRef.current.outerSliderCoordination.x',
-			// 		posRef.current.outerSliderCoordination.x
-			// 	);
-			// 	console.log(false);
-			// }
-
-			// if (
-			// 	posRef.current.firstSliderCoordination.left +
-			// 		posRef.current.firstSliderCoordination.width * 0.05 +
-			// 		num >
-			// 	posRef.current.outerSliderCoordination.right
-			// )
-			// 	return true;
 		} else if (num < 0) {
 			posRef.current.lastSliderCoordination =
 				innerSliderRef.current.children[
@@ -115,56 +101,22 @@ const Slider = ({
 
 			posRef.current.innerSliderCoordination =
 				innerSliderRef.current.getBoundingClientRect();
-
-			// if (
-			// 	posRef.current.innerSliderCoordination.x +
-			// 		posRef.current.innerSliderCoordination.width -
-			// 		num <=
-			// 	posRef.current.outerSliderCoordination.x +
-			// 		posRef.current.outerSliderCoordination.width
-			// )
-			// 	return true;
-			// else {
-			// 	console.log(false);
-			// 	console.log(
-			// 		'posRef.current.innerSliderCoordination',
-			// 		posRef.current.innerSliderCoordination
-			// 	);
-			// 	console.log(
-			// 		'posRef.current.innerSliderCoordination.x',
-			// 		posRef.current.innerSliderCoordination.x
-			// 	);
-			// 	console.log(
-			// 		'posRef.current.innerSliderCoordination.width',
-			// 		posRef.current.innerSliderCoordination.width
-			// 	);
-			// 	console.log('num', num);
-			// 	console.log(
-			// 		'posRef.current.outerSliderCoordination.x',
-			// 		posRef.current.outerSliderCoordination.x
-			// 	);
-			// 	console.log(
-			// 		'posRef.current.outerSliderCoordination.width',
-			// 		posRef.current.outerSliderCoordination.width
-			// 	);
-			// }
 		}
 
 		return false;
 	};
-	const sliderDragAnimation = () => {
+	const sliderDragAnimation = useCallback(() => {
 		setSliderPosition();
 		if (posRef.current.isDragging)
 			return requestAnimationFrame(sliderDragAnimation);
 		return 0;
-	};
-
+	}, []);
 	const setSliderPosition = () => {
 		if (!innerSliderRef.current) return;
 		innerSliderRef.current.style.transform = `translateX(${posRef.current.sliderXPos}px)`;
 	};
 
-	const touchStart = (event: React.TouchEvent | React.MouseEvent) => {
+	const touchStart = (event: TouchEvent | MouseEvent) => {
 		// event.preventDefault();
 
 		if (!outerSliderRef.current) return;
@@ -175,7 +127,7 @@ const Slider = ({
 		// outerSliderRef.current.style.cursor = 'grabbing';
 	};
 
-	const touchEnd = (event: React.TouchEvent | React.MouseEvent) => {
+	const touchEnd = (event: TouchEvent | MouseEvent) => {
 		// event.preventDefault();
 
 		if (
@@ -189,16 +141,17 @@ const Slider = ({
 			event.preventDefault();
 
 			posRef.current.isDragging = false;
-			// outerSliderRef.current.style.cursor = 'grab';
 			outerSliderMaskRef.current.style.pointerEvents = 'none';
 			outerSliderMaskRef.current.style.cursor = 'grab';
 			cancelAnimationFrame(posRef.current.sliderDragAnimationID);
 		}
 
 		posRef.current.isPointing = false;
+
+		posRef.current.autoMove.intervalId = requestAnimationFrame(handleAutoMove);
 	};
 
-	const touchMove = (event: React.TouchEvent | React.MouseEvent) => {
+	const touchMove = (event: TouchEvent | MouseEvent) => {
 		event.preventDefault();
 
 		if (!outerSliderMaskRef.current) return;
@@ -212,9 +165,41 @@ const Slider = ({
 		posRef.current.isDragging = true;
 		outerSliderMaskRef.current.style.pointerEvents = 'auto';
 		outerSliderMaskRef.current.style.cursor = 'grabbing';
-		// innerSliderRef.style.cursor = 'grabbing';
 
 		posRef.current.currXTranslate = getPositionX(event);
+
+		const temp = posRef.current.currXTranslate - posRef.current.oldXTranslate;
+
+		posRef.current.sliderXPos += temp;
+
+		if (temp > 1) posRef.current.autoMove.xDir = 1;
+		else if (temp < 1) posRef.current.autoMove.xDir = -1;
+
+		posRef.current.sliderDragAnimationID =
+			requestAnimationFrame(sliderDragAnimation);
+
+		posRef.current.oldXTranslate = posRef.current.currXTranslate;
+	};
+
+	const handleAutoMove = useCallback(() => {
+		if (!outerSliderMaskRef.current || !innerSliderRef.current) return;
+
+		if (posRef.current.isPointing) {
+			return (
+				posRef.current.autoMove.intervalId &&
+				cancelAnimationFrame(posRef.current.autoMove.intervalId)
+			);
+		}
+
+		const stepDir = posRef.current.autoMove.step * posRef.current.autoMove.xDir;
+
+		if (checkSliderBoundary(stepDir)) {
+			posRef.current.autoMove.xDir *= -1;
+
+			posRef.current.currXTranslate += stepDir;
+		}
+
+		posRef.current.currXTranslate += stepDir;
 
 		posRef.current.sliderXPos +=
 			posRef.current.currXTranslate - posRef.current.oldXTranslate;
@@ -223,7 +208,24 @@ const Slider = ({
 			requestAnimationFrame(sliderDragAnimation);
 
 		posRef.current.oldXTranslate = posRef.current.currXTranslate;
-	};
+
+		posRef.current.autoMove.intervalId = requestAnimationFrame(handleAutoMove);
+	}, [sliderDragAnimation]);
+	useEffect(() => {
+		posRef.current.autoMove.active = !!autoMove;
+
+		if (!posRef.current.autoMove.active) {
+			return;
+		}
+
+		posRef.current.autoMove.intervalId = requestAnimationFrame(handleAutoMove);
+
+		let intervalId = posRef.current.autoMove.intervalId;
+
+		return () => {
+			cancelAnimationFrame(intervalId);
+		};
+	}, [autoMove, handleAutoMove]);
 
 	return (
 		<div
@@ -252,7 +254,7 @@ const Slider = ({
 					pointerEvents: 'none',
 				}}
 				ref={outerSliderMaskRef}
-				onContextMenu={(event: React.MouseEvent<HTMLDivElement>) => {
+				onContextMenu={(event: MouseEvent<HTMLDivElement>) => {
 					event.preventDefault();
 					event.stopPropagation();
 					return false;

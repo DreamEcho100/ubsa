@@ -1,9 +1,9 @@
-import CommonLayout from '@components/layouts/Common';
-import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
 // import AllServicesSections from './components/sections/AllServices';
-import UniqueBusinessSolutionsSection from './components/sections/UniqueBusinessSolutions';
-import ShowcaseSection from './components/sections/Showcase';
+import CommonLayout from '@components/layouts/Common';
 import ReviewsSlider from './components/sections/ReviewsSlider';
+import ShowcaseSection from './components/sections/Showcase';
+import ShowCaseAndNewsSections from './components/sections/ShowCaseAndNews';
+import UniqueBusinessSolutionsSection from './components/sections/UniqueBusinessSolutions';
 
 const HomeScreen = () => {
 	return (

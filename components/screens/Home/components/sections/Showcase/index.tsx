@@ -1,6 +1,6 @@
 import CustomNextImage from '@components/common/CustomNextImage';
 import { useSharedMainState } from '@components/layouts/Main/context';
-import React, { CSSProperties, useEffect, useRef } from 'react';
+import { CSSProperties, useEffect, useRef } from 'react';
 
 const cardOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
@@ -139,7 +139,7 @@ const ShowcaseSection = () => {
 					className='text-h2 sm:text-6xl md:text-8xl capitalize font-bold'
 					style={
 						{
-							'--linearGradient': '',
+							'--linearGradient': 'linear-gradient(to right, rgb(0, 0, 0)',
 							backgroundImage:
 								'var(--linearGradient, linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.7)))',
 							backgroundClip: 'text',
@@ -155,7 +155,7 @@ const ShowcaseSection = () => {
 					programmed in next.js.
 				</p>
 			</header>
-			<div className='flex flex-col items-center md:flex-row'>
+			<div className='max-w-[1024px] mx-auto flex flex-col items-center md:flex-row lg:px-8'>
 				<div className='aspect-square w-11/12 sm:w-3/5 md:w-2/3'>
 					{[
 						{
