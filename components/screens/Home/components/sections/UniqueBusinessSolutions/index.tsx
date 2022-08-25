@@ -161,7 +161,7 @@ const UniqueBusinessSolutionsSection = () => {
 						</div>
 					))}
 				</div>
-				<div className={`lg:hidden overflow-hidden ${classes.slider}`}>
+				<div className='lg:hidden overflow-hidden'>
 					<div
 						className={`flex items-center ${classes.sliderTrack}`}
 						style={

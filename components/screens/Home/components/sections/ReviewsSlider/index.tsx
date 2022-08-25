@@ -1,5 +1,5 @@
 import Slider from '@components/common/Slider';
-import { Fragment } from 'react';
+import { CSSProperties, Fragment } from 'react';
 import { FaStar } from 'react-icons/fa';
 
 import classes from './index.module.css';
@@ -20,56 +20,57 @@ const ReviewsSlider = () => {
 				</button> */}
 			</header>
 			<div className='mb-8'>
-				<Slider
-					outerSliderClassName='min-w-full overflow-hidden'
-					innerSliderClassName={`flex w-fit ${classes.innerSlider}`}
-					autoMove
-				>
-					{'break'
-						.repeat(10 - 1)
-						.split('break')
-						.map(() => ({
-							stars: 5,
-							username: 'John Doe',
-							name: 'Eng. John Doe',
-							content:
-								'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio id illo sapiente est assumenda adipisci, amet tenetur nam accusantium mollitia deleniti.',
-							url: 'example.com',
-						}))
-						.map(({ stars, name, username, content, url }, itemIndex) => (
-							<div
-								key={`${username}-${itemIndex}`}
-								className='w-80 m-4 p-8 flex flex-col'
-								style={{
-									boxShadow: '0 0 1rem rgba(0, 0, 0, 0.5)',
-								}}
-							>
-								<span className='flex text-yellow-300 text-lg'>
-									{'break'
-										.repeat(stars - 1)
-										.split('break')
-										.map((item, index) => (
-											<Fragment key={index}>
-												<FaStar key={index} />
-												<span className='px-1' />
-											</Fragment>
-										))}
-								</span>
-								<span className='p-1' />
-								<h4 className='text-h4 font-bold'>{name}</h4>
-								<small className='font-light text-lg'>{username}</small>
-								<p className='font-light my-2'>{content}</p>
-								<p>
-									<a
-										href={url}
-										className=' transition-all duration-150 text-sky-600 hover:text-sky-400 focus:border-b focus:border-spacing-2 focus:border-b-sky-500'
-									>
-										{url}
-									</a>
-								</p>
-							</div>
-						))}
-				</Slider>
+				<div className='min-w-full carousal-x'>
+					<div
+						style={{ '--itemsLength': 10 } as CSSProperties}
+						className='carousal-x-track flex w-fit'
+					>
+						{'break'
+							.repeat(10 - 1)
+							.split('break')
+							.map(() => ({
+								stars: 5,
+								username: 'John Doe',
+								name: 'Eng. John Doe',
+								content:
+									'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio id illo sapiente est assumenda adipisci, amet tenetur nam accusantium mollitia deleniti.',
+								url: 'example.com',
+							}))
+							.map(({ stars, name, username, content, url }, itemIndex) => (
+								<div
+									key={`${username}-${itemIndex}`}
+									className='w-80 m-4 p-8 flex flex-col'
+									style={{
+										boxShadow: '0 0 1rem rgba(0, 0, 0, 0.5)',
+									}}
+								>
+									<span className='flex text-yellow-300 text-lg'>
+										{'break'
+											.repeat(stars - 1)
+											.split('break')
+											.map((item, index) => (
+												<Fragment key={index}>
+													<FaStar key={index} />
+													<span className='px-1' />
+												</Fragment>
+											))}
+									</span>
+									<span className='p-1' />
+									<h4 className='text-h4 font-bold'>{name}</h4>
+									<small className='font-light text-lg'>{username}</small>
+									<p className='font-light my-2'>{content}</p>
+									<p>
+										<a
+											href={url}
+											className=' transition-all duration-150 text-sky-600 hover:text-sky-400 focus:border-b focus:border-spacing-2 focus:border-b-sky-500'
+										>
+											{url}
+										</a>
+									</p>
+								</div>
+							))}
+					</div>
+				</div>
 			</div>
 		</section>
 	);
