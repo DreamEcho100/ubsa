@@ -87,8 +87,8 @@ const Card = ({
 				rel='noopener noreferrer'
 			>
 				<CustomNextImage
-					// src={`//images.weserv.nl/?url=${item.img.src}&w=${800}`}
-					src={`//images.weserv.nl/?url=${item.img.src}&w=${1000}`}
+					// src={`//images.weserv.nl/?url=${item.img.src}&w=${1000}`}
+					src={item.img.src}
 					alt={item.img.alt}
 					width={400}
 					height={400}
@@ -155,16 +155,22 @@ const ShowcaseSection = () => {
 					programmed in next.js.
 				</p>
 			</header>
-			<div className='max-w-[1024px] mx-auto flex flex-col items-center md:flex-row lg:px-8'>
+			<div className='flex flex-col items-center md:flex-row lg:px-8'>
 				<div className='aspect-square w-11/12 sm:w-3/5 md:w-2/3'>
 					{[
 						{
-							img: { src: `${imgbaseUrl}/hulu_swlpgt.jpg`, alt: 'hulu' },
+							img: {
+								src: '/images/showcase/hulu.png' /*`${imgbaseUrl}/hulu_swlpgt.jpg`*/,
+								alt: 'hulu',
+							},
 							a: { href: 'https://www.hulu.com', text: 'https://www.hulu.com' },
 							h3: { text: 'hulu' },
 						},
 						{
-							img: { src: `${imgbaseUrl}/vice_h2nx1b.jpg`, alt: 'vice' },
+							img: {
+								src: '/images/showcase/vice.png' /*`${imgbaseUrl}/vice_h2nx1b.jpg`*/,
+								alt: 'vice',
+							},
 							a: { href: 'https://www.vice.com', text: 'https://www.vice.com' },
 							h3: { text: 'vice' },
 						},
@@ -175,7 +181,10 @@ const ShowcaseSection = () => {
 				<div className='aspect-square w-11/12 sm:w-3/5 md:w-1/3'>
 					{[
 						{
-							img: { src: `${imgbaseUrl}/twitch_absljp.jpg`, alt: 'twitch' },
+							img: {
+								src: '/images/showcase/twitch.png' /*`${imgbaseUrl}/twitch_absljp.jpg`*/,
+								alt: 'twitch',
+							},
 							a: {
 								href: 'https://www.twitch.com',
 								text: 'https://www.twitch.com',
@@ -183,12 +192,18 @@ const ShowcaseSection = () => {
 							h3: { text: 'twitch' },
 						},
 						{
-							img: { src: `${imgbaseUrl}/nike_cqzoi8.jpg`, alt: 'nike' },
+							img: {
+								src: '/images/showcase/nike.png' /*`${imgbaseUrl}/nike_cqzoi8.jpg`*/,
+								alt: 'nike',
+							},
 							a: { href: 'https://www.nike.com', text: 'https://www.nike.com' },
 							h3: { text: 'nike' },
 						},
 						{
-							img: { src: `${imgbaseUrl}/tiktok_p9hyax.jpg`, alt: 'tiktok' }, // './images/showcase/tiktok.png'
+							img: {
+								src: '/images/showcase/tiktok.png' /*`${imgbaseUrl}/tiktok_p9hyax.jpg`*/,
+								alt: 'tiktok',
+							}, // './images/showcase/tiktok.png'
 							a: {
 								href: 'https://www.tiktok.com',
 								text: 'https://www.tiktok.com',
@@ -196,7 +211,10 @@ const ShowcaseSection = () => {
 							h3: { text: 'tiktok' },
 						},
 						{
-							img: { src: `${imgbaseUrl}/hbomax_uxwhez.jpg`, alt: 'hbomax' },
+							img: {
+								src: '/images/showcase/hbomax.png' /*`${imgbaseUrl}/hbomax_uxwhez.jpg`*/,
+								alt: 'hbomax',
+							},
 							a: {
 								href: 'https://www.hbomax.com',
 								text: 'https://www.hbomax.com',
