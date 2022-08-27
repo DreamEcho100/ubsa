@@ -131,17 +131,17 @@ button[disabled] {
 	.carousal-x {
 		overflow-x: hidden;
 	}
-	.carousal-x:hover,
+	/* .carousal-x:hover,
 	.carousal-x:focus-within {
 		overflow-x: auto;
-	}
+	} */
 	.carousal-x-track:not(.no-carousal-x-track) {
 		width: max-content;
 		animation: slideToLeft calc(var(--itemsLength) * 4s) linear infinite;
 	}
-	.carousal-x-track:hover {
+	/* .carousal-x-track:hover {
 		animation-play-state: paused;
-	}
+	} */
 
 	@keyframes slideToLeft {
 		0% {

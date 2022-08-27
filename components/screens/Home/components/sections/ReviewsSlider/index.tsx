@@ -22,7 +22,7 @@ const ReviewsSlider = () => {
 			<div className='mb-8'>
 				<div className='min-w-full carousal-x'>
 					<div
-						style={{ '--itemsLength': 10 } as CSSProperties}
+						style={{ '--itemsLength': 5 } as CSSProperties}
 						className='carousal-x-track flex w-fit'
 					>
 						{'break'
