@@ -93,7 +93,7 @@ const Card = ({
 					width={400}
 					height={400}
 					className='absolute top-0 left-0 w-full h-full -z-10 object-cover'
-					// priority
+					priority
 				/>
 				<div
 					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
@@ -160,7 +160,7 @@ const ShowcaseSection = () => {
 					{[
 						{
 							img: {
-								src: '/images/showcase/hulu.png' /*`${imgbaseUrl}/hulu_swlpgt.jpg`*/,
+								src: 'https://techcult.com/wp-content/uploads/2022/08/go-to-hulu-website-on-a-browser.png', // '/images/showcase/hulu.png' /*`${imgbaseUrl}/hulu_swlpgt.jpg`*/,
 								alt: 'hulu',
 							},
 							a: { href: 'https://www.hulu.com', text: 'https://www.hulu.com' },
