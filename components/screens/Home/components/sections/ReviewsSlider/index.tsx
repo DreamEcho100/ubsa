@@ -5,6 +5,10 @@ import { FaStar } from 'react-icons/fa';
 import classes from './index.module.css';
 
 const ReviewsSlider = () => {
+	const sliderItems = {
+		length: 10,
+		mult: 10,
+	};
 	return (
 		<section className='main-content-section flex flex-col p-8 md:py-16 max-w-[1400px]'>
 			<header className='my-4'>
@@ -22,11 +26,15 @@ const ReviewsSlider = () => {
 			<div className='mb-8'>
 				<div className='min-w-full carousal-x'>
 					<div
-						style={{ '--itemsLength': 5 } as CSSProperties}
+						style={
+							{
+								'--itemsLength': sliderItems.length * sliderItems.mult * 0.5,
+							} as CSSProperties
+						}
 						className='carousal-x-track flex w-fit'
 					>
 						{'break'
-							.repeat(10 - 1)
+							.repeat(sliderItems.length * sliderItems.mult - 1)
 							.split('break')
 							.map(() => ({
 								stars: 5,

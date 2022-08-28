@@ -137,7 +137,7 @@ button[disabled] {
 	} */
 	.carousal-x-track:not(.no-carousal-x-track) {
 		width: max-content;
-		animation: slideToLeft calc(var(--itemsLength) * 4s) linear infinite;
+		animation: slideToLeft calc(var(--itemsLength) * 8s) linear infinite;
 	}
 	/* .carousal-x-track:hover {
 		animation-play-state: paused;
