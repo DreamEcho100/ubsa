@@ -115,6 +115,7 @@ const ImgTextSection = ({
 					className='w-full transition-all duration-300'
 				/>
 			</div>
+			<div className='hidden lg:block p-2' />
 			<div
 				className={`w-full mx-auto max-w-[40rem] sm:max-w-[30rem] md:max-w-[80%] lg:max-w-[50%] p-4 relative ${classes.detailsContainer}`}
 			>
@@ -129,7 +130,7 @@ const ImgTextSection = ({
 				</div>
 				<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
 				<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-left'>
-					<h2 className='text-h2 lg:text-8xl font-medium py-2'>
+					<h2 className='text-h2 lg:text-h1 font-medium py-2'>
 						{/* max-w-[75%] */}
 						{item.header.text}
 					</h2>
@@ -229,32 +230,34 @@ const ShowCaseAndNewsSections = () => {
 			<div className='overflow-hidden py-8 max-w-[1400px] mx-auto'>
 				{[
 					{
-						button: { text: 'Read More', href: '#' },
-						header: { text: 'Branding & Design PISES' },
+						button: { text: 'Get in Touch', href: '#' },
+						header: { text: 'Super Fast & Smooth Loading Speed' },
 						description:
-							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+							"We use our programming skills and techniques to create websites that run over 20X faster than the average. Don't worry about the loading time of your product or portfolio images for your customers anymore. We make the highest-resolution images and animations load up quickly for your website visitors.",
 						image: {
-							src: 'https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg',
+							src: '/images/services/1.png', // https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg
 							alt: '',
 						},
 					},
 					{
-						button: { text: 'Read More', href: '#' },
-						header: { text: 'AGICO CRM & Call Center' },
+						button: { text: 'Get in Touch', href: '#' },
+						header: {
+							text: 'Optimized for High Conversation Rate & Better SEO Scores',
+						},
 						description:
-							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+							'We consider every detailed aspect when it comes to user experience and SEO optimization. The way we put the design elements and custom animations, together, or enhance web performance speed and functionalities, can immediately show you direct increase in web traffic, leads, conversion rates, and SEO scores.',
 						image: {
-							src: 'https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg',
+							src: '/images/services/2.png', // https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg
 							alt: '',
 						},
 					},
 					{
-						button: { text: 'Read More', href: '#' },
-						header: { text: 'Renergent Energy' },
+						button: { text: 'Get in Touch', href: '#' },
+						header: { text: 'Extra Web Security and Functionalities' },
 						description:
-							'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dignissimos iste ab ea, consequatur exercitationem? Cupiditate repudiandae, maxime facilis molestias explicabo, perferendis eaque doloremque nostrum asperiores quis, ducimus expedita fugit?',
+							'Our team is confident in bringing your custom web ideas to life. Whether you want to implement a whole new custom functionality or feature on your website or A/B different possibilities, we assure to make it happen.',
 						image: {
-							src: 'https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg',
+							src: '/images/services/3.png', // https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg
 							alt: '',
 						},
 					},
@@ -266,48 +269,54 @@ const ShowCaseAndNewsSections = () => {
 						itemsLength={itemsArr.length}
 					/>
 				))}
-				<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
-					<header>
-						<h2 className='text-h2'>News</h2>
-					</header>
-					<div className='flex flex-wrap mt-8 md:justify-between items-center'>
-						{[
-							{
-								date: 'April 11, 2022',
-								header: {
-									text: 'Top 4 Reasons Why Golf Courses or Country Clubs Need a Website',
-									href: '#',
-								},
-							},
-							{
-								date: 'September 27, 2019',
-								header: {
-									text: '5 Advantages of a good real estate management software',
-									href: '#',
-								},
-							},
-							{
-								date: 'September 24, 2019',
-								header: {
-									text: 'How to Manage Clients In A Better Way | 5 Professional Tips',
-									href: '#',
-								},
-							},
-							{
-								date: 'September 5, 2019',
-								header: {
-									text: 'Clutch Announces Exerge as The Top B2B Company in The Middle East',
-									href: '#',
-								},
-							},
-						].map((item, itemIndex) => (
-							<NewsCard key={itemIndex} item={item} itemIndex={itemIndex} />
-						))}
-					</div>
-				</div>
+				{/* <News /> */}
 			</div>
 		</section>
 	);
 };
 
 export default ShowCaseAndNewsSections;
+
+const News = () => {
+	return (
+		<div className='max-w-[1400px] mx-auto font-medium mt-16 p-8'>
+			<header>
+				<h2 className='text-h2'>News</h2>
+			</header>
+			<div className='flex flex-wrap mt-8 md:justify-between items-center'>
+				{[
+					{
+						date: 'April 11, 2022',
+						header: {
+							text: 'Top 4 Reasons Why Golf Courses or Country Clubs Need a Website',
+							href: '#',
+						},
+					},
+					{
+						date: 'September 27, 2019',
+						header: {
+							text: '5 Advantages of a good real estate management software',
+							href: '#',
+						},
+					},
+					{
+						date: 'September 24, 2019',
+						header: {
+							text: 'How to Manage Clients In A Better Way | 5 Professional Tips',
+							href: '#',
+						},
+					},
+					{
+						date: 'September 5, 2019',
+						header: {
+							text: 'Clutch Announces Exerge as The Top B2B Company in The Middle East',
+							href: '#',
+						},
+					},
+				].map((item, itemIndex) => (
+					<NewsCard key={itemIndex} item={item} itemIndex={itemIndex} />
+				))}
+			</div>
+		</div>
+	);
+};

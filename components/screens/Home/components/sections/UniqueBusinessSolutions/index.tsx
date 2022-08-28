@@ -121,7 +121,7 @@ const UniqueBusinessSolutionsSection = () => {
 			className='main-content-section bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
 			<div className='py-8 md:py-12' />
-			<div className='max-w-[1400px] mx-auto p-8'>
+			<div className='max-w-[1400px] mx-auto px-8 py-4'>
 				<h2
 					className={`text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
@@ -135,19 +135,29 @@ const UniqueBusinessSolutionsSection = () => {
 						<p className='leading-none'>Solutions</p>
 					</span>
 				</h2>
-				<div className='py-8 md:py-12 lg:py-12' />
+				<div className='py-6 md:py-10' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					We help online businesses increase website traffic and revenue by
 					enhancing their website design, functionalities, user experience, and
 					SEO using the next.js programming technologies.
 				</p>
-				<div className='py-8 md:py-12 lg:py-12' />
+				<div className='py-6 md:py-10' />
 				<p className='text-2xl sm:text-3xl md:text-4xl leading-relaxed'>
 					A website is a core part of an online business, and it&apos;s easy to
 					build one nowadays, but the challenge is to win the competition over
 					other businesses. We can help you with that.
 				</p>
-				<div className='py-8 md:py-12' />
+				<div className='py-6 md:py-10' />
+				<div className='flex items-center justify-center'>
+					<button
+						className='transition-all duration-300 font-bold bg-zinc-100 text-zinc-900 border-2 border-zinc-900 px-6 py-4 
+					hover:bg-zinc-900 hover:text-zinc-100 hover:border-zinc-100
+					focus:bg-zinc-900 focus:text-zinc-100 focus:border-zinc-100'
+					>
+						<a href='#'>Contact us</a>
+					</button>
+				</div>
+				<div className='py-6 md:py-10' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>
 					{testimonialsImages.map((image) => (
 						<div key={image.src} className='w-44 h-20'>

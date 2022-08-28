@@ -161,7 +161,7 @@ button[disabled] {
 	}
 
 	.text-h1 {
-		font-size: 4rem;
+		font-size: 5rem;
 		line-height: 1.2;
 	}
 	.text-h2 {
@@ -183,7 +183,7 @@ button[disabled] {
 
 	@media screen and (max-width: 640px) {
 		.text-h1 {
-			font-size: 3.8rem;
+			font-size: 4rem;
 		}
 		.text-h2 {
 			font-size: 3.2rem;
