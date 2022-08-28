@@ -28,7 +28,7 @@ const ReviewsSlider = () => {
 					<div
 						style={
 							{
-								'--itemsLength': sliderItems.length * sliderItems.mult * 0.5,
+								'--itemsLength': sliderItems.length * sliderItems.mult,
 							} as CSSProperties
 						}
 						className='carousal-x-track flex w-fit'
