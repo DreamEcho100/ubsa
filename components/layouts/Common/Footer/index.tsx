@@ -10,6 +10,8 @@
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 import { Fragment } from 'react';
+import CustomNextImage from '@components/common/CustomNextImage';
+import Link from 'next/link';
 
 const mainFooterData = {
 	generalLinks: [
@@ -168,21 +170,84 @@ const GeneralLinks = ({
 const MainFooter = () => {
 	const { generalLinks, socialLinks } = mainFooterData;
 	return (
-		<footer className='w-full bg-black text-zinc-500 font-bold text-lg px-8 py-8'>
-			<div className='w-full flex justify-between lg:flex-row'>
-				<div className='my-2 flex '>
-					<small>&copy; 2022 Exerge. All rights reserved</small>
+		<footer className='w-full bg-black text-zinc-200 font-bold text-lg px-8 py-8 flex flex-col'>
+			<hr className='bg-zinc-800 p-[0.1rem] border-0' />
+			<div className='flex flex-col my-6'>
+				<div className='w-full flex justify-start items-start'>
+					{[
+						{
+							src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
+							alt: 'Next.js',
+							title: 'Next.js',
+							className: 'rounded-full bg-white',
+							style: {
+								backgroundImage: 'radial-gradient(white, white, black, black)',
+							},
+						},
+						{
+							src: '/svgs/react-seeklogo.com.svg',
+							alt: 'React.js',
+							title: 'React.js',
+						},
+						{
+							src: '/svgs/typescript-seeklogo.com.svg',
+							alt: 'TypeScript',
+							title: 'TypeScript',
+						},
+						{
+							src: '/svgs/javascript-js-seeklogo.com.svg',
+							alt: 'JavaScript',
+							title: 'JavaScript',
+						},
+						// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
+						// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
+					].map(({ src, alt, className, style = {}, ...props }, index, arr) => (
+						<Fragment key={src}>
+							<span className={`${className}`} style={style} {...props}>
+								<CustomNextImage src={src} alt={alt} width={50} height={50} />
+							</span>
+							{index !== arr.length - 1 && <span className='px-1' />}
+						</Fragment>
+					))}
 				</div>
-				<div className='my-2 flex w-full justify-center items-center lg:flex-row lg:w-fit'>
-					<nav>
-						<ul className='flex'>
-							{socialLinks.map((listItem, listItemIndex) => (
-								<li key={listItemIndex} className='m-2'>
-									<a href={listItem.href}>{listItem.icon}</a>
-								</li>
-							))}
-						</ul>
-					</nav>
+				<div className='py-2' />
+				<p>Unique Business Solutions Agency</p>
+			</div>
+			<div className='flex flex-col'>
+				<div className='w-full flex justify-between lg:flex-row'>
+					<div className='my-2 flex '>
+						<small>
+							&copy;2022 Ubsa Technologies, Inc. All rights reserved
+						</small>
+						<span className='px-4' />
+						<small>
+							<Link href='/privacy_policy/'>Privacy Policy</Link>
+						</small>
+						<span className='px-4' />
+						<small>
+							<Link href='/terms_of_use/'>Terms of use</Link>
+						</small>
+					</div>
+					<div className='my-2 flex w-full justify-center items-center lg:flex-row lg:w-fit'>
+						<nav>
+							<ul className='flex'>
+								{socialLinks.map((listItem, listItemIndex) => (
+									<li key={listItemIndex} className='m-2'>
+										<a href={listItem.href}>{listItem.icon}</a>
+									</li>
+								))}
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div className=''>
+					<p>
+						<small>
+							All product and company names are trademarks or registered
+							trademarks of their respective holders. Use of them does not imply
+							any affiliation with or endorsement by them.
+						</small>
+					</p>
 				</div>
 			</div>
 		</footer>

@@ -65,6 +65,7 @@ body {
 	--nav-height: 4rem;
 
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 	font-family: 'Roboto', sans-serif;
 }
 body,

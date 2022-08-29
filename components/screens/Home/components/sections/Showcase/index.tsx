@@ -133,7 +133,10 @@ const imgbaseUrl =
 
 const ShowcaseSection = () => {
 	return (
-		<section className='main-content-section px-2 py-16 max-w-[1400px]'>
+		<section
+			className='main-content-section px-2 py-16 max-w-[1400px]'
+			id='services'
+		>
 			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
 					className='text-h2 sm:text-6xl md:text-8xl capitalize font-bold'

@@ -74,7 +74,7 @@ const mainHeaderData = {
 		},
 		{
 			__type: 'NORMAL_NAV_ITEM',
-			href: '#',
+			href: '/#services',
 			text: 'Services', // 'Latest',
 		},
 		// {
