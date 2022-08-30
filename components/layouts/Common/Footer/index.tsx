@@ -173,7 +173,7 @@ const MainFooter = () => {
 		<footer className='w-full bg-black text-zinc-200 font-bold text-lg px-8 py-8 flex flex-col'>
 			<hr className='bg-zinc-800 p-[0.1rem] border-0' />
 			<div className='flex flex-col my-6'>
-				<div className='w-full flex justify-start items-start'>
+				<div className='w-full flex justify-between items-start'>
 					{[
 						{
 							src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',

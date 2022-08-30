@@ -166,7 +166,7 @@ button[disabled] {
 		line-height: 1.2;
 	}
 	.text-h2 {
-		font-size: 3.5rem;
+		font-size: 3rem;
 		line-height: 1.2;
 	}
 	.text-h3 {
@@ -187,7 +187,7 @@ button[disabled] {
 			font-size: 4rem;
 		}
 		.text-h2 {
-			font-size: 3.2rem;
+			font-size: 3rem;
 		}
 	}
 }

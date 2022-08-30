@@ -69,8 +69,8 @@ const mainHeaderData = {
 		// navDropDownSection1,
 		{
 			__type: 'NORMAL_NAV_ITEM',
-			href: '#',
-			text: 'Company', // 'Our Work',
+			href: '/#technologies',
+			text: 'Technologies', // 'Our Work',
 		},
 		{
 			__type: 'NORMAL_NAV_ITEM',

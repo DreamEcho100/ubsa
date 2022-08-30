@@ -130,7 +130,7 @@ const ImgTextSection = ({
 				</div>
 				<div className='lg:hidden absolute top-0 left-0 w-full h-full z-[1] bg-black opacity-75' />
 				<div className='relative p-4 lg:p-0 z-[2] flex flex-col items-center justify-center text-center lg:block lg:text-left'>
-					<h2 className='text-h2 lg:text-h1 font-medium py-2'>
+					<h2 className='text-h2 font-medium py-2'>
 						{/* max-w-[75%] */}
 						{item.header.text}
 					</h2>
@@ -226,7 +226,10 @@ const NewsCard = ({
 
 const ShowCaseAndNewsSections = () => {
 	return (
-		<section className='main-content-section bg-black bg-opacity-90 text-slate-100'>
+		<section
+			className='main-content-section bg-black bg-opacity-90 text-slate-100'
+			id='services'
+		>
 			<div className='overflow-hidden py-8 max-w-[1400px] mx-auto'>
 				{[
 					{

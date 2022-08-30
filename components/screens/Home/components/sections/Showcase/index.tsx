@@ -135,11 +135,11 @@ const ShowcaseSection = () => {
 	return (
 		<section
 			className='main-content-section px-2 py-16 max-w-[1400px]'
-			id='services'
+			id='technologies'
 		>
 			<header className='flex flex-col items-center justify-center text-center p-4 max-w-[1400px] mx-auto'>
 				<h2
-					className='text-h2 sm:text-6xl md:text-8xl capitalize font-bold'
+					className='text-h2 capitalize font-bold'
 					style={
 						{
 							'--linearGradient': 'linear-gradient(to right, rgb(0, 0, 0)',
