@@ -127,7 +127,7 @@ const UniqueBusinessSolutionsSection = () => {
 				style={{ background: 'hsl(0, 0%, 11%)' }}
 			/>
 			<div
-				className={`${classes.leftCircle} opacity-0 absolute  top-[-10%] left-[-15%] rounded-full aspect-square w-[35%]`}
+				className={`${classes.leftCircle} opacity-0 absolute top-[-10%] left-0 -translate-x-1/2 rounded-full aspect-square w-[35%] min-w-[15rem]`}
 				style={{ background: 'hsl(0, 0%, 11%)' }}
 			/>
 			<SquigglyLine
