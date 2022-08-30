@@ -37,3 +37,27 @@
 		transform: translateX(-100%);
 	}
 }
+
+.rightCircle {
+	--translate-x: 150%;
+	opacity: 0;
+	transform: translateX(var(--translate-x));
+	animation: returnTo0X 1s linear forwards;
+}
+.leftCircle {
+	--translate-x: -100%;
+	opacity: 0;
+	transform: translateX(var(--translate-x));
+	animation: returnTo0X 1s linear forwards;
+}
+
+@keyframes returnTo0X {
+	from {
+		opacity: 0;
+		transform: translateX(var(--translate-x));
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}

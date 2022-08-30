@@ -1,4 +1,5 @@
 import CustomNextImage from '@components/common/CustomNextImage';
+import SquigglyLine from '@components/core/Sssquiggly';
 import {
 	CSSProperties,
 	// useEffect, useRef
@@ -115,13 +116,25 @@ const UniqueBusinessSolutionsSection = () => {
 		<section
 			// ref={elemRef}
 			style={{
-				backgroundImage:
-					'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
+				// backgroundImage:
+				// 	'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
+				backgroundColor: 'rgb(13 13 13)',
 			}}
-			className='main-content-section bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
+			className='relative main-content-section bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
+			<div
+				className={`${classes.rightCircle} opacity-0 absolute  top-[15%] right-[7.5%] rounded-full aspect-square w-[35%]`}
+				style={{ background: 'hsl(0, 0%, 11%)' }}
+			/>
+			<div
+				className={`${classes.leftCircle} opacity-0 absolute  top-[-10%] left-[-15%] rounded-full aspect-square w-[35%]`}
+				style={{ background: 'hsl(0, 0%, 11%)' }}
+			/>
+			<SquigglyLine
+				className={`${classes.rightCircle} opacity-0 absolute top-[12.5%] right-[5%] w-[15%] fill-gray-100 h-fit bg-no-repeat`}
+			/>
 			<div className='py-8 md:py-12' />
-			<div className='max-w-[1400px] mx-auto px-8 py-4'>
+			<div className='relative z-10 max-w-[1400px] mx-auto px-8 py-4'>
 				<h2
 					className={`text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] flex flex-col leading-relaxed font-medium ${classes.h2}`}
 				>
