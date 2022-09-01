@@ -160,7 +160,7 @@ const UniqueBusinessSolutionsSection = () => {
 					build one nowadays, but the challenge is to win the competition over
 					other businesses. We can help you with that.
 				</p>
-				<div className='py-6 md:py-10' />
+				{/* <div className='py-6 md:py-10' />
 				<div className='flex items-center justify-center'>
 					<button
 						className='transition-all duration-300 font-bold bg-zinc-100 text-zinc-900 border-2 border-zinc-900 px-6 py-4 
@@ -169,7 +169,7 @@ const UniqueBusinessSolutionsSection = () => {
 					>
 						<a href='#'>Contact us</a>
 					</button>
-				</div>
+				</div> */}
 				<div className='py-6 md:py-10' />
 				<div className='hidden lg:flex flex-wrap items-center justify-around'>
 					{testimonialsImages.map((image) => (

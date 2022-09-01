@@ -28,7 +28,9 @@ import classes from './index.module.css';
 
 interface ICustomDivProps
 	extends Omit<HTMLAttributes<HTMLDivElement>, 'className' | 'children'> {
-	className?: string | ((defaultClassName: string) => string);
+	className?:
+		| HTMLAttributes<HTMLDivElement>['className']
+		| ((defaultClassName: string) => string);
 	children?: ReactNode;
 }
 

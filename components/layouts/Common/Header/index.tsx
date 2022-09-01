@@ -1,6 +1,7 @@
 import classes from './index.module.css';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import CustomNextImage from '@components/common/CustomNextImage';
+import Modal from '@components/common/Modal';
 
 const navDropDownCard1 = {
 	__type: 'DROP_DOWN_LIST_CARD',
@@ -128,7 +129,7 @@ const SubMenuOnSmallerScreens = ({
 						))}
 					{item.__type === 'DROP_DOWN_LIST_SECTION' &&
 						item.list.map((item) => (
-							<div key={item.header.h2.text} className='p-4 px-0 flex w-full'>
+							<li key={item.header.h2.text} className='p-4 px-0 flex w-full'>
 								<div key={item.header.h2.text} className='flex flex-col w-full'>
 									<h2 className='text-h5 font-semibold'>
 										<span className='px-2' />
@@ -151,11 +152,143 @@ const SubMenuOnSmallerScreens = ({
 										))}
 									</ul>
 								</div>
-							</div>
+							</li>
 						))}
 				</ul>
 			</nav>
 		</li>
+	);
+};
+
+const defaultButtonClassName = `transition-all duration-300 font-bold bg-zinc-100 text-zinc-900 border-2 border-zinc-900 px-4 py-2 
+hover:bg-zinc-900 hover:text-zinc-100 hover:border-zinc-100
+focus:bg-zinc-900 focus:text-zinc-100 focus:border-zinc-100`;
+const ContactUsButton = ({
+	className,
+}: {
+	className?:
+		| string
+		| ((defaultClassName: typeof defaultButtonClassName) => string);
+}) => {
+	const [isModalVisible, setIsModalVisible] = useState(false);
+
+	const formClasses = {
+		input:
+			'shadow-lg border-b-[0.1rem] border-b-gray-300 px-2 py-1 rounded-[0.2rem] font-medium w-full',
+		label: 'flex flex-col my-2 cursor-pointer',
+	};
+
+	return (
+		<>
+			<button
+				className={
+					typeof className === 'string'
+						? className
+						: typeof className === 'function'
+						? className(defaultButtonClassName)
+						: defaultButtonClassName
+				}
+				onClick={() => setIsModalVisible(true)}
+			>
+				<a href='#'>Contact us</a>
+			</button>
+			<Modal
+				handleIsVisible={() => setIsModalVisible(false)}
+				isVisible={isModalVisible}
+				containerElem={{
+					className:
+						'w-[40rem] max-w-[98%] text-black bg-zinc-900 text-zinc-100 pt-6 px-2',
+					style: {
+						colorScheme: 'dark',
+					},
+				}}
+			>
+				<Fragment key='header'>
+					<header
+						className='flex flex-col items-start px-2'
+						style={{
+							textAlign: 'initial',
+						}}
+					>
+						<h3 className='font-bold text-h3'>Contact Us</h3>
+						<div className='py-1' />
+						<p>
+							UBSA transforms recurring revenue into up-front capital for growth
+							without restrictive debt or dilution.
+						</p>
+					</header>
+				</Fragment>
+				<Fragment key='body'>
+					<form className='font-medium py-2 px-4 text-[1.2rem]'>
+						<div className='flex flex-col sm:flex-row'>
+							<label
+								htmlFor='firstName'
+								className={`${formClasses.label} flex-1`}
+							>
+								<span>
+									<small>First Name</small>
+								</span>
+								<input
+									className={formClasses.input}
+									type='text'
+									name='firstName'
+									id='firstName'
+									required
+								/>
+							</label>
+							<div className='px-1' />
+							<label
+								htmlFor='lastName'
+								className={`${formClasses.label} flex-1`}
+							>
+								<span>
+									<small>Last Name</small>
+								</span>
+								<input
+									className={formClasses.input}
+									type='text'
+									name='lastName'
+									id='lastName'
+									required
+								/>
+							</label>
+						</div>
+						<label htmlFor='email' className={formClasses.label}>
+							<span>
+								<small>Email</small>
+							</span>
+							<input
+								className={formClasses.input}
+								type='email'
+								name='email'
+								id='email'
+								required
+							/>
+						</label>
+						<label htmlFor='message' className={formClasses.label}>
+							<span>
+								<small>Tell us more about your project:</small>
+							</span>
+							<textarea
+								className={formClasses.input}
+								name='message'
+								id='message'
+								cols={30}
+								rows={5}
+								required
+							></textarea>
+						</label>
+						<div className='py-1' />
+						<button
+							onClick={(event) => event.preventDefault()}
+							className='transition-all duration-300 rounded-sm px-4 py-3 bg-zinc-700 hover:brightness-90 focus:rounded-none'
+						>
+							Submit
+						</button>
+					</form>
+				</Fragment>
+			</Modal>
+		</>
 	);
 };
 
@@ -166,7 +299,7 @@ const MainHeader = () => {
 	return (
 		<header
 			id='main-header'
-			className={`transition-all duration-300 z-10 fixed top-0 left-0 h-main-nav-page w-full mx-auto text-md font-medium ${classes.mainHeader}`}
+			className={`transition-all duration-300 z-30 fixed top-0 left-0 h-main-nav-page w-full mx-auto text-md font-medium ${classes.mainHeader}`}
 		>
 			<div className='w-full h-full relative bg-black bg-opacity-70 text-white'>
 				{/* <div className='absolute top-0 left-0 w-full h-full filter blur-sm header-bg' /> */}
@@ -297,6 +430,9 @@ const MainHeader = () => {
 									</li>
 								);
 							})}
+							<li>
+								<ContactUsButton />
+							</li>
 						</ul>
 					</nav>
 
@@ -312,10 +448,10 @@ const MainHeader = () => {
 				<div
 					className={`${classes.dropdownOnSmallScreens} ${
 						isNavOnHoverContainerVisible ? '' : 'hidden'
-					} bg-black flex lg:hidden absolute top-full left-0 w-full`}
+					} z-20 bg-black flex lg:hidden absolute top-full left-0 w-full`}
 				>
-					<nav>
-						<ul className='flex flex-col justify-between'>
+					<nav className='w-full'>
+						<ul className='flex flex-col justify-between w-full'>
 							{mainHeaderData.nav.map((item) => {
 								// if (
 								// 	item.__type === 'DROP_DOWN_LIST_CARD' ||
@@ -326,14 +462,16 @@ const MainHeader = () => {
 								// 	);
 
 								return (
-									<li
-										className={`px-4 py-4 rounded-lg cursor-pointer`}
-										key={item.text}
-									>
+									<li className='p-4 rounded-lg' key={item.text}>
 										<a href={item.href}>{item.text}</a>
 									</li>
 								);
 							})}
+							<li className='px-4 pb-4 rounded-lg w-full'>
+								<ContactUsButton
+									className={(defaultClassName) => `${defaultClassName} w-full`}
+								/>
+							</li>
 						</ul>
 					</nav>
 				</div>
