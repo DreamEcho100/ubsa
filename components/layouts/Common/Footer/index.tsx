@@ -173,44 +173,13 @@ const MainFooter = () => {
 		<footer className='w-full bg-black text-zinc-200 font-bold text-lg px-8 py-8 flex flex-col'>
 			<hr className='bg-zinc-800 p-[0.1rem] border-0' />
 			<div className='flex flex-col my-6'>
-				<div className='w-full flex justify-between items-start'>
-					{[
-						{
-							src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
-							alt: 'Next.js',
-							title: 'Next.js',
-							className: 'rounded-full bg-white',
-							style: {
-								backgroundImage: 'radial-gradient(white, white, black, black)',
-							},
-						},
-						{
-							src: '/svgs/react-seeklogo.com.svg',
-							alt: 'React.js',
-							title: 'React.js',
-						},
-						{
-							src: '/svgs/typescript-seeklogo.com.svg',
-							alt: 'TypeScript',
-							title: 'TypeScript',
-						},
-						{
-							src: '/svgs/javascript-js-seeklogo.com.svg',
-							alt: 'JavaScript',
-							title: 'JavaScript',
-						},
-						// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
-						// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
-					].map(({ src, alt, className, style = {}, ...props }, index, arr) => (
-						<Fragment key={src}>
-							<span className={`${className}`} style={style} {...props}>
-								<CustomNextImage src={src} alt={alt} width={50} height={50} />
-							</span>
-							{index !== arr.length - 1 && <span className='px-1' />}
-						</Fragment>
-					))}
-				</div>
-				<div className='py-2' />
+				<CustomNextImage
+					src='/images/AKArtboard-light.png'
+					alt=''
+					width={50}
+					height={50}
+				/>
+				<div className='py-1' />
 				<p>Unique Business Solutions Agency</p>
 			</div>
 			<div className='flex flex-col'>

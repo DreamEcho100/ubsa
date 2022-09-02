@@ -102,7 +102,7 @@ const ImgTextSection = ({
 			}
 		>
 			<div
-				className={`overflow-hidden relative w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}
+				className={`rounded-xl overflow-hidden relative w-1/2 p-4 hidden lg:block ${classes.imgContainer}`}
 			>
 				<div
 					className={`transition-all duration-300 bg-gradient-to-b absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 hover:bg-opacity-50 ${classes.wrapper}`}

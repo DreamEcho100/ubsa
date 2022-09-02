@@ -38,26 +38,28 @@
 	left: 0;
 	padding: 0 0.3em 0.3em 0;
 	border-radius: 0% 100% 100% 0% / 100% 0% 100% 0%;
-	background: linear-gradient(145deg, black, white);
+	/* background: linear-gradient(145deg, black, white); */
 }
 .ModalCloseButton:focus {
 	box-shadow: 0.14rem 0.14rem 0.5rem var(--pc3, black);
 }
 
-[dir='rtl'] .ModalCloseButton {
+/* [dir='rtl']  */
+.ModalCloseButton {
 	left: unset;
 	right: 0;
-	padding: 0 0 0.3em 0.3em;
+	padding: 0 0.3em 0.3em 0.6em;
 	border-radius: 100% 0% 0% 100% / 0% 100% 0% 100%;
-	background: linear-gradient(
+	/* background: linear-gradient(
 		270deg,
 		black,
 		white,
-		/* var(--pc2),
-		var(--main-special-bg-color-3) */
-	);
+	); */
+	font-size: 1.5rem;
+	background-color: gray;
 }
-[dir='rtl'] .ModalCloseButton:focus {
+/* [dir='rtl']  */
+.ModalCloseButton:focus {
 	box-shadow: -0.14rem 0.14rem 0.5rem var(--pc3, black);
 }
 

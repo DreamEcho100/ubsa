@@ -197,7 +197,7 @@ const ContactUsButton = ({
 				isVisible={isModalVisible}
 				containerElem={{
 					className:
-						'w-[40rem] max-w-[98%] text-black bg-zinc-900 text-zinc-100 pt-6 px-2',
+						'w-[40rem] max-w-[98%] text-black bg-zinc-900 text-zinc-100 pt-8 pb-4 px-5',
 					style: {
 						colorScheme: 'dark',
 					},
@@ -430,6 +430,7 @@ const MainHeader = () => {
 									</li>
 								);
 							})}
+							<li className='px-4' role='note' />
 							<li>
 								<ContactUsButton />
 							</li>

@@ -78,7 +78,7 @@ const Card = ({
 	return (
 		<div
 			ref={elemRef}
-			className='relative w-full aspect-square max-w-full p-2 lg:p-4'
+			className='rounded-3xl overflow-hidden relative w-full aspect-square max-w-full p-2 lg:p-4'
 		>
 			<a
 				href={item.a.href}
@@ -92,16 +92,16 @@ const Card = ({
 					alt={item.img.alt}
 					width={400}
 					height={400}
-					className='absolute top-0 left-0 w-full h-full -z-10 object-cover'
+					className='rounded-2xl absolute top-0 left-0 w-full h-full -z-10 object-cover'
 					priority
 				/>
 				<div
-					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
+					className={`rounded-2xl io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
 						isMobileOrTablet ? 'io-isMobileOrTablet' : ''
 					}`}
 				>
 					<div
-						className={`io-container-inner transition-all duration-300 w-full p-8 md:p-4 ${
+						className={`rounded-2xl io-container-inner transition-all duration-300 w-full p-8 md:p-4 ${
 							size === 'bg' ? 'md:p-16' : 'md:p-8'
 						} flex-col items-center justify-center text-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-75 ${
 							isMobileOrTablet ? 'io-isMobileOrTablet' : 'hidden'
@@ -159,7 +159,7 @@ const ShowcaseSection = () => {
 				</p>
 			</header>
 			<div className='flex flex-col items-center md:flex-row lg:px-8'>
-				<div className='aspect-square w-11/12 sm:w-3/5 md:w-2/3'>
+				<div className='w-11/12 sm:w-3/5 md:w-2/3'>
 					{[
 						{
 							img: {
@@ -181,7 +181,7 @@ const ShowcaseSection = () => {
 						<Card key={item.h3.text} item={item} size='md' />
 					))}
 				</div>
-				<div className='aspect-square w-11/12 sm:w-3/5 md:w-1/3'>
+				<div className='w-11/12 sm:w-3/5 md:w-1/3'>
 					{[
 						{
 							img: {

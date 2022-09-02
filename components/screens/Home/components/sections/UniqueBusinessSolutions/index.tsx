@@ -2,6 +2,7 @@ import CustomNextImage from '@components/common/CustomNextImage';
 import SquigglyLine from '@components/core/Sssquiggly';
 import {
 	CSSProperties,
+	Fragment,
 	// useEffect, useRef
 } from 'react';
 
@@ -171,20 +172,10 @@ const UniqueBusinessSolutionsSection = () => {
 					</button>
 				</div> */}
 				<div className='py-6 md:py-10' />
-				<div className='hidden lg:flex flex-wrap items-center justify-around'>
-					{testimonialsImages.map((image) => (
-						<div key={image.src} className='w-44 h-20'>
-							<CustomNextImage
-								src={image.src}
-								alt={image.alt}
-								width={175}
-								height={80}
-								className='w-full h-full m-4'
-							/>
-						</div>
-					))}
+				<div className='hidden sm:flex flex-wrap items-center justify-around'>
+					<Technologies />
 				</div>
-				<div className='lg:hidden overflow-hidden'>
+				<div className='sm:hidden overflow-hidden'>
 					<div
 						className={`flex items-center ${classes.sliderTrack}`}
 						style={
@@ -192,17 +183,7 @@ const UniqueBusinessSolutionsSection = () => {
 						}
 						// justify-around
 					>
-						{testimonialsImages.map((image) => (
-							<div key={image.src} className='w-44 h-20'>
-								<CustomNextImage
-									src={image.src}
-									alt={image.alt}
-									width={175}
-									height={80}
-									className='w-full h-full m-4'
-								/>
-							</div>
-						))}
+						<Technologies />
 					</div>
 				</div>
 				<div className='py-4 md:py-8' />
@@ -212,3 +193,45 @@ const UniqueBusinessSolutionsSection = () => {
 };
 
 export default UniqueBusinessSolutionsSection;
+
+const Technologies = () => {
+	return (
+		<div className='w-full flex justify-between items-start'>
+			{[
+				{
+					src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
+					alt: 'Next.js',
+					title: 'Next.js',
+					className: 'rounded-full bg-white',
+					style: {
+						backgroundImage: 'radial-gradient(white, white, black, black)',
+					},
+				},
+				{
+					src: '/svgs/react-seeklogo.com.svg',
+					alt: 'React.js',
+					title: 'React.js',
+				},
+				{
+					src: '/svgs/typescript-seeklogo.com.svg',
+					alt: 'TypeScript',
+					title: 'TypeScript',
+				},
+				{
+					src: '/svgs/javascript-js-seeklogo.com.svg',
+					alt: 'JavaScript',
+					title: 'JavaScript',
+				},
+				// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
+				// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
+			].map(({ src, alt, className, style = {}, ...props }, index, arr) => (
+				<Fragment key={src}>
+					<span className={`${className}`} style={style} {...props}>
+						<CustomNextImage src={src} alt={alt} width={50} height={50} />
+					</span>
+					{index !== arr.length - 1 && <span className='px-1' />}
+				</Fragment>
+			))}
+		</div>
+	);
+};
