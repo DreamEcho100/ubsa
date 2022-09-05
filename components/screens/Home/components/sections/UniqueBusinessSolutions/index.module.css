@@ -18,7 +18,7 @@
 @media screen and (max-width: 1024px) {
 	.sliderTrack {
 		/* width: calc(11rem * var(--itemsLength)); */
-		width: max-content;
+		/* width: max-content; */
 		animation: infiniteXScrollAnimation calc(var(--itemsLength) * 4s) linear
 			infinite;
 	}

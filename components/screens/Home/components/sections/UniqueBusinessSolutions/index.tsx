@@ -172,12 +172,12 @@ const UniqueBusinessSolutionsSection = () => {
 					</button>
 				</div> */}
 				<div className='py-6 md:py-10' />
-				<div className='hidden sm:flex flex-wrap items-center justify-around'>
+				<div className='w-full hidden sm:flex flex-wrap items-center justify-around'>
 					<Technologies />
 				</div>
-				<div className='sm:hidden overflow-hidden'>
+				<div className='w-full sm:hidden overflow-hidden'>
 					<div
-						className={`flex items-center ${classes.sliderTrack}`}
+						className={`w-full flex ${classes.sliderTrack}`}
 						style={
 							{ '--itemsLength': testimonialsImages.length } as CSSProperties
 						}
@@ -200,8 +200,8 @@ const Technologies = () => {
 			{[
 				{
 					src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
-					alt: 'Next.js',
-					title: 'Next.js',
+					alt: 'Next JS',
+					title: 'Next JS',
 					className: 'rounded-full bg-white',
 					style: {
 						backgroundImage: 'radial-gradient(white, white, black, black)',
@@ -209,8 +209,8 @@ const Technologies = () => {
 				},
 				{
 					src: '/svgs/react-seeklogo.com.svg',
-					alt: 'React.js',
-					title: 'React.js',
+					alt: 'React JS',
+					title: 'React JS',
 				},
 				{
 					src: '/svgs/typescript-seeklogo.com.svg',
@@ -222,12 +222,44 @@ const Technologies = () => {
 					alt: 'JavaScript',
 					title: 'JavaScript',
 				},
+				{
+					src: '/svgs/node-js-icon.svg',
+					alt: 'Node JS',
+					title: 'Node JS',
+				},
+				{
+					src: '/svgs/tailwind-css-icon.svg',
+					alt: 'Tail Wind',
+					title: 'Tail Wind',
+				},
+				{
+					src: '/svgs/css3-icon.svg',
+					alt: 'CSS3',
+					title: 'CSS3',
+				},
+				{
+					src: '/svgs/html5-line-icon.svg',
+					alt: 'HTML5',
+					title: 'HTML5',
+				},
 				// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
 				// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
 			].map(({ src, alt, className, style = {}, ...props }, index, arr) => (
 				<Fragment key={src}>
-					<span className={`${className}`} style={style} {...props}>
-						<CustomNextImage src={src} alt={alt} width={50} height={50} />
+					<span
+						className={`${
+							className || ''
+						} aspect-square flex items-center justify-center`}
+						style={style}
+						{...props}
+					>
+						<CustomNextImage
+							src={src}
+							alt={alt}
+							width={50}
+							height={50}
+							className='object-center'
+						/>
 					</span>
 					{index !== arr.length - 1 && <span className='px-1' />}
 				</Fragment>
