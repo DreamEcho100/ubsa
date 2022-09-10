@@ -172,18 +172,21 @@ const UniqueBusinessSolutionsSection = () => {
 					</button>
 				</div> */}
 				<div className='py-6 md:py-10' />
-				<div className='w-full hidden sm:flex flex-wrap items-center justify-around'>
+				<div className='w-full hidden lg:block'>
 					<Technologies />
 				</div>
-				<div className='w-full sm:hidden overflow-hidden'>
+				<div className='w-full lg:hidden overflow-hidden'>
 					<div
-						className={`w-full flex ${classes.sliderTrack}`}
+						className={`w-full flex carousal-x-track`}
+						// ${classes.sliderTrack}
 						style={
-							{ '--itemsLength': testimonialsImages.length } as CSSProperties
+							{
+								'--itemsLength': testimonialsImages.length * 8, // testimonialsImages.length * 15,
+							} as CSSProperties
 						}
 						// justify-around
 					>
-						<Technologies />
+						<Technologies isRepeated />
 					</div>
 				</div>
 				<div className='py-4 md:py-8' />
@@ -194,63 +197,100 @@ const UniqueBusinessSolutionsSection = () => {
 
 export default UniqueBusinessSolutionsSection;
 
-const Technologies = () => {
+const technologies = [
+	{
+		src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
+		alt: 'Next JS',
+		title: 'Next JS',
+		// className: 'rounded-full',
+		// style: {
+		// 	backgroundImage: 'radial-gradient(white, white, black, black)',
+		// },
+	},
+	{
+		src: '/svgs/react-seeklogo.com.svg',
+		alt: 'React JS',
+		title: 'React JS',
+	},
+	{
+		src: '/svgs/typescript-seeklogo.com.svg',
+		alt: 'TypeScript',
+		title: 'TypeScript',
+	},
+	{
+		src: '/svgs/javascript-js-seeklogo.com.svg',
+		alt: 'JavaScript',
+		title: 'JavaScript',
+	},
+	{
+		src: '/svgs/threejs.svg',
+		alt: 'Three JS',
+		title: 'Three JS',
+	},
+	{
+		src: '/svgs/tailwind-css-icon.svg',
+		alt: 'Tail Wind',
+		title: 'Tail Wind',
+	},
+	{
+		src: '/svgs/sass-icon.svg',
+		alt: 'SASS',
+		title: 'SASS',
+	},
+	{
+		src: '/svgs/css3-icon.svg',
+		alt: 'CSS3',
+		title: 'CSS3',
+	},
+	{
+		src: '/svgs/html5-line-icon.svg',
+		alt: 'HTML5',
+		title: 'HTML5',
+	},
+	{
+		src: '/svgs/figma-icon.svg',
+		alt: 'Figma',
+		title: 'Figma',
+	},
+	{
+		src: '/svgs/node-js-icon.svg',
+		alt: 'Node JS',
+		title: 'Node JS',
+	},
+	{
+		src: '/svgs/jest-js-icon.svg',
+		alt: 'Jest',
+		title: 'Jest',
+	},
+	{
+		src: '/svgs/cypress.svg',
+		alt: 'Cypress',
+		title: 'Cypress',
+	},
+	// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
+	// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
+];
+
+const Technologies = ({ isRepeated }: { isRepeated?: boolean }) => {
+	const techs = isRepeated
+		? [
+				...technologies,
+				...technologies,
+				...technologies,
+				...technologies,
+				...technologies,
+				...technologies,
+				...technologies,
+				...technologies,
+		  ]
+		: technologies;
+
 	return (
-		<div className='w-full flex justify-between items-start'>
-			{[
-				{
-					src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
-					alt: 'Next JS',
-					title: 'Next JS',
-					className: 'rounded-full bg-white',
-					style: {
-						backgroundImage: 'radial-gradient(white, white, black, black)',
-					},
-				},
-				{
-					src: '/svgs/react-seeklogo.com.svg',
-					alt: 'React JS',
-					title: 'React JS',
-				},
-				{
-					src: '/svgs/typescript-seeklogo.com.svg',
-					alt: 'TypeScript',
-					title: 'TypeScript',
-				},
-				{
-					src: '/svgs/javascript-js-seeklogo.com.svg',
-					alt: 'JavaScript',
-					title: 'JavaScript',
-				},
-				{
-					src: '/svgs/node-js-icon.svg',
-					alt: 'Node JS',
-					title: 'Node JS',
-				},
-				{
-					src: '/svgs/tailwind-css-icon.svg',
-					alt: 'Tail Wind',
-					title: 'Tail Wind',
-				},
-				{
-					src: '/svgs/css3-icon.svg',
-					alt: 'CSS3',
-					title: 'CSS3',
-				},
-				{
-					src: '/svgs/html5-line-icon.svg',
-					alt: 'HTML5',
-					title: 'HTML5',
-				},
-				// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
-				// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
-			].map(({ src, alt, className, style = {}, ...props }, index, arr) => (
+		<div className='w-full flex flex-wrap justify-center items-center'>
+			{techs.map(({ src, alt, ...props }, index, arr) => (
 				<Fragment key={src}>
 					<span
-						className={`${
-							className || ''
-						} aspect-square flex items-center justify-center`}
-						style={style}
+						className='w-[5rem] my-2 aspect-square flex items-center justify-center bg-transparent'
 						{...props}
 					>
 						<CustomNextImage
@@ -258,10 +298,10 @@ const Technologies = () => {
 							alt={alt}
 							width={50}
 							height={50}
-							className='object-center'
+							className='object-center object-contain w-full h-full max-w-full max-h-full'
 						/>
 					</span>
-					{index !== arr.length - 1 && <span className='px-1' />}
+					{index !== arr.length - 1 && <span className='px-2' />}
 				</Fragment>
 			))}
 		</div>
