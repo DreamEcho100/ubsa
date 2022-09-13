@@ -2,14 +2,16 @@ import classes from './index.module.css';
 import { Fragment, useState } from 'react';
 import CustomNextImage from '@components/common/CustomNextImage';
 import Modal from '@components/common/Modal';
+import ContactUsModal from '@components/core/ContactUsMoadal';
+import twClasses from '@utils/tailwind';
 
 const navDropDownCard1 = {
 	__type: 'DROP_DOWN_LIST_CARD',
 	entry: 'Company',
 	list: [
 		{ href: '#', text: 'Team' },
-		{ href: '#', text: 'Technologies' },
-	],
+		{ href: '#', text: 'Technologies' }
+	]
 } as const;
 
 const navDropDownSection1 = {
@@ -18,7 +20,7 @@ const navDropDownSection1 = {
 	list: [
 		{
 			header: {
-				h2: { text: 'Web Design & Development' },
+				h2: { text: 'Web Design & Development' }
 			},
 			list: [
 				{ href: '#', text: 'WordPress' },
@@ -26,44 +28,44 @@ const navDropDownSection1 = {
 				{ href: '#', text: 'Web Applications' },
 				{ href: '#', text: 'E-Commerce' },
 				{ href: '#', text: 'Mobile Apps' },
-				{ href: '#', text: 'Hosting Services' },
-			],
+				{ href: '#', text: 'Hosting Services' }
+			]
 		},
 		{
 			header: {
-				h2: { text: 'Design' },
+				h2: { text: 'Design' }
 			},
 			list: [
 				{ href: '#', text: 'Branding & Design' },
-				{ href: '#', text: 'Web Design' },
-			],
+				{ href: '#', text: 'Web Design' }
+			]
 		},
 		{
 			header: {
-				h2: { text: 'Technical' },
+				h2: { text: 'Technical' }
 			},
 			list: [
 				{ href: '#', text: 'IT Consultancy' },
-				{ href: '#', text: 'IT Outsourcing' },
-			],
+				{ href: '#', text: 'IT Outsourcing' }
+			]
 		},
 		{
 			header: {
-				h2: { text: 'Marketing' },
+				h2: { text: 'Marketing' }
 			},
 			list: [
 				{ href: '#', text: 'Digital Marketing' },
-				{ href: '#', text: 'Search Engine Optimization Services' },
-			],
-		},
-	],
+				{ href: '#', text: 'Search Engine Optimization Services' }
+			]
+		}
+	]
 } as const;
 
 const mainHeaderData = {
 	logo: {
 		href: '/',
 		text: 'ubsa',
-		iconUrl: 'images/AKArtboard-light.png',
+		iconUrl: 'images/AKArtboard-light.png'
 	},
 	nav: [
 		// navDropDownCard1,
@@ -71,13 +73,13 @@ const mainHeaderData = {
 		{
 			__type: 'NORMAL_NAV_ITEM',
 			href: '/#technologies',
-			text: 'Technologies', // 'Our Work',
+			text: 'Technologies' // 'Our Work',
 		},
 		{
 			__type: 'NORMAL_NAV_ITEM',
 			href: '/#services',
-			text: 'Services', // 'Latest',
-		},
+			text: 'Services' // 'Latest',
+		}
 		// {
 		// 	__type: 'NORMAL_NAV_ITEM',
 		// 	href: '#',
@@ -88,11 +90,11 @@ const mainHeaderData = {
 		// 	href: '#',
 		// 	text: 'Get a Quote',
 		// },
-	],
+	]
 } as const;
 
 const SubMenuOnSmallerScreens = ({
-	item,
+	item
 }: {
 	item: typeof navDropDownCard1 | typeof navDropDownSection1;
 }) => {
@@ -112,7 +114,7 @@ const SubMenuOnSmallerScreens = ({
 						borderRight: '0.25rem solid transparent',
 						borderTop: '0.25rem solid #fff',
 						fontSize: 0,
-						lineHeight: 0,
+						lineHeight: 0
 					}}
 				/>
 			</button>
@@ -160,23 +162,16 @@ const SubMenuOnSmallerScreens = ({
 	);
 };
 
-const defaultButtonClassName = `transition-all duration-300 font-bold bg-zinc-100 text-zinc-900 border-2 border-zinc-900 px-4 py-2 
-hover:bg-zinc-900 hover:text-zinc-100 hover:border-zinc-100
-focus:bg-zinc-900 focus:text-zinc-100 focus:border-zinc-100`;
+const defaultButtonClassName = `${twClasses.button} font-bold px-4 py-2`;
+
 const ContactUsButton = ({
-	className,
+	className
 }: {
 	className?:
 		| string
 		| ((defaultClassName: typeof defaultButtonClassName) => string);
 }) => {
 	const [isModalVisible, setIsModalVisible] = useState(false);
-
-	const formClasses = {
-		input:
-			'shadow-lg border-b-[0.1rem] border-b-gray-300 px-2 py-1 rounded-[0.2rem] font-medium w-full',
-		label: 'flex flex-col my-2 cursor-pointer',
-	};
 
 	return (
 		<>
@@ -190,104 +185,12 @@ const ContactUsButton = ({
 				}
 				onClick={() => setIsModalVisible(true)}
 			>
-				<a href='#'>Contact us</a>
+				Contact us
 			</button>
-			<Modal
+			<ContactUsModal
 				handleIsVisible={() => setIsModalVisible(false)}
 				isVisible={isModalVisible}
-				containerElem={{
-					className:
-						'w-[40rem] max-w-[98%] text-black bg-zinc-900 text-zinc-100 pt-8 pb-4 px-5',
-					style: {
-						colorScheme: 'dark',
-					},
-				}}
-			>
-				<Fragment key='header'>
-					<header
-						className='flex flex-col items-start px-2'
-						style={{
-							textAlign: 'initial',
-						}}
-					>
-						<h3 className='font-bold text-h3'>Contact Us</h3>
-						<div className='py-1' />
-						<p>
-							UBSA transforms recurring revenue into up-front capital for growth
-							without restrictive debt or dilution.
-						</p>
-					</header>
-				</Fragment>
-				<Fragment key='body'>
-					<form className='font-medium py-2 px-4 text-[1.2rem]'>
-						<div className='flex flex-col sm:flex-row'>
-							<label
-								htmlFor='firstName'
-								className={`${formClasses.label} flex-1`}
-							>
-								<span>
-									<small>First Name</small>
-								</span>
-								<input
-									className={formClasses.input}
-									type='text'
-									name='firstName'
-									id='firstName'
-									required
-								/>
-							</label>
-							<div className='px-1' />
-							<label
-								htmlFor='lastName'
-								className={`${formClasses.label} flex-1`}
-							>
-								<span>
-									<small>Last Name</small>
-								</span>
-								<input
-									className={formClasses.input}
-									type='text'
-									name='lastName'
-									id='lastName'
-									required
-								/>
-							</label>
-						</div>
-						<label htmlFor='email' className={formClasses.label}>
-							<span>
-								<small>Email</small>
-							</span>
-							<input
-								className={formClasses.input}
-								type='email'
-								name='email'
-								id='email'
-								required
-							/>
-						</label>
-						<label htmlFor='message' className={formClasses.label}>
-							<span>
-								<small>Tell us more about your project:</small>
-							</span>
-							<textarea
-								className={formClasses.input}
-								name='message'
-								id='message'
-								cols={30}
-								rows={5}
-								required
-							></textarea>
-						</label>
-						<div className='py-1' />
-						<button
-							onClick={(event) => event.preventDefault()}
-							className='transition-all duration-300 rounded-sm px-4 py-3 bg-zinc-700 hover:brightness-90 focus:rounded-none'
-						>
-							Submit
-						</button>
-					</form>
-				</Fragment>
-			</Modal>
+			/>
 		</>
 	);
 };

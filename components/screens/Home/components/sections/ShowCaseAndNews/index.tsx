@@ -1,10 +1,12 @@
 import CustomNextImage from '@components/common/CustomNextImage';
-import { CSSProperties, useEffect, useRef } from 'react';
+import ContactUsModal from '@components/core/ContactUsMoadal';
+import twClasses from '@utils/tailwind';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import classes from './index.module.css';
 
 const imgTextSectionOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
-	threshold: 0.25, // half of item height
+	threshold: 0.25 // half of item height
 };
 
 const imgTextSectionObserver =
@@ -49,12 +51,12 @@ const imgTextSectionObserver =
 const ImgTextSection = ({
 	item,
 	itemIndex,
-	itemsLength,
+	itemsLength
 }: {
 	item: {
 		button: {
 			text: string;
-			href: string;
+			onClick: () => void;
 		};
 		header: {
 			text: string;
@@ -97,7 +99,7 @@ const ImgTextSection = ({
 			style={
 				{
 					'--itemIndex': itemIndex,
-					'--itemsLength': itemsLength,
+					'--itemsLength': itemsLength
 				} as CSSProperties
 			}
 		>
@@ -135,8 +137,11 @@ const ImgTextSection = ({
 						{item.header.text}
 					</h2>
 					<p className='my-8 max-w-[400px] drop-shadow-'>{item.description}</p>
-					<button className='transition-all duration-300 bg-zinc-100 text-zinc-900 text-2xl font-medium px-8 py-4 border border-transparent hover:bg-transparent hover:border-zinc-100 hover:text-zinc-100 focus:bg-transparent focus:border-zinc-100 focus:text-zinc-100 select-none'>
-						<a href={item.button.href}>{item.button.text}</a>
+					<button
+						className={`${twClasses.button} text-2xl font-medium px-8 py-4`}
+						onClick={item.button.onClick}
+					>
+						{item.button.text}
 					</button>
 				</div>
 			</div>
@@ -146,7 +151,7 @@ const ImgTextSection = ({
 
 const newsCardSectionOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
-	threshold: 0.25, // half of item height
+	threshold: 0.25 // half of item height
 };
 
 const newsCardSectionObserver =
@@ -182,7 +187,7 @@ const newsCardSectionObserver =
 	}, imgTextSectionOptions);
 const NewsCard = ({
 	item,
-	itemIndex,
+	itemIndex
 }: {
 	item: {
 		date: string;
@@ -225,56 +230,73 @@ const NewsCard = ({
 };
 
 const ShowCaseAndNewsSections = () => {
+	const [isModalVisible, setIsModalVisible] = useState(false);
 	return (
-		<section
-			className='main-content-section bg-black bg-opacity-90 text-slate-100'
-			id='services'
-		>
-			<div className='overflow-hidden py-8 max-w-[1400px] mx-auto'>
-				{[
-					{
-						button: { text: 'Get in Touch', href: '#' },
-						header: { text: 'Super Fast & Smooth Loading Speed' },
-						description:
-							"We use our programming skills and techniques to create websites that run over 20X faster than the average. Don't worry about the loading time of your product or portfolio images for your customers anymore. We make the highest-resolution images and animations load up quickly for your website visitors.",
-						image: {
-							src: '/images/services/1.png', // https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg
-							alt: '',
+		<>
+			<section
+				className='main-content-section bg-black bg-opacity-90 text-slate-100'
+				id='services'
+			>
+				<div className='overflow-hidden py-8 max-w-[1400px] mx-auto'>
+					{[
+						{
+							button: {
+								text: 'Get in Touch',
+								onClick: () => setIsModalVisible(true)
+							},
+							header: { text: 'Super Fast & Smooth Loading Speed' },
+							description:
+								"We use our programming skills and techniques to create websites that run over 20X faster than the average. Don't worry about the loading time of your product or portfolio images for your customers anymore. We make the highest-resolution images and animations load up quickly for your website visitors.",
+							image: {
+								src: '/images/services/1.png', // https://exerge.com/wp-content/uploads/2022/07/Positive-Impact-School-Website-uai-1467x1174.jpg
+								alt: ''
+							}
 						},
-					},
-					{
-						button: { text: 'Get in Touch', href: '#' },
-						header: {
-							text: 'Optimized for High Conversation Rate & Better SEO Scores',
+						{
+							button: {
+								text: 'Get in Touch',
+								onClick: () => setIsModalVisible(true)
+							},
+							header: {
+								text: 'Optimized for High Conversation Rate & Better SEO Scores'
+							},
+							description:
+								'We consider every detailed aspect when it comes to user experience and SEO optimization. The way we put the design elements and custom animations, together, or enhance web performance speed and functionalities, can immediately show you direct increase in web traffic, leads, conversion rates, and SEO scores.',
+							image: {
+								src: '/images/services/2.png', // https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg
+								alt: ''
+							}
 						},
-						description:
-							'We consider every detailed aspect when it comes to user experience and SEO optimization. The way we put the design elements and custom animations, together, or enhance web performance speed and functionalities, can immediately show you direct increase in web traffic, leads, conversion rates, and SEO scores.',
-						image: {
-							src: '/images/services/2.png', // https://exerge.com/wp-content/uploads/2022/07/AgicoCRM-uai-1467x1174.jpg
-							alt: '',
-						},
-					},
-					{
-						button: { text: 'Get in Touch', href: '#' },
-						header: { text: 'Extra Web Security and Functionalities' },
-						description:
-							'Our team is confident in bringing your custom web ideas to life. Whether you want to implement a whole new custom functionality or feature on your website or A/B different possibilities, we assure to make it happen.',
-						image: {
-							src: '/images/services/3.png', // https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg
-							alt: '',
-						},
-					},
-				].map((item, itemIndex, itemsArr) => (
-					<ImgTextSection
-						key={itemIndex}
-						item={item}
-						itemIndex={itemIndex}
-						itemsLength={itemsArr.length}
-					/>
-				))}
-				{/* <News /> */}
-			</div>
-		</section>
+						{
+							button: {
+								text: 'Get in Touch',
+								onClick: () => setIsModalVisible(true)
+							},
+							header: { text: 'Extra Web Security and Functionalities' },
+							description:
+								'Our team is confident in bringing your custom web ideas to life. Whether you want to implement a whole new custom functionality or feature on your website or A/B different possibilities, we assure to make it happen.',
+							image: {
+								src: '/images/services/3.png', // https://exerge.com/wp-content/uploads/2022/07/renergent-uai-1467x1174.jpg
+								alt: ''
+							}
+						}
+					].map((item, itemIndex, itemsArr) => (
+						<ImgTextSection
+							key={itemIndex}
+							item={item}
+							itemIndex={itemIndex}
+							itemsLength={itemsArr.length}
+						/>
+					))}
+					{/* <News /> */}
+				</div>
+			</section>
+
+			<ContactUsModal
+				handleIsVisible={() => setIsModalVisible(false)}
+				isVisible={isModalVisible}
+			/>
+		</>
 	);
 };
 
@@ -292,30 +314,30 @@ const News = () => {
 						date: 'April 11, 2022',
 						header: {
 							text: 'Top 4 Reasons Why Golf Courses or Country Clubs Need a Website',
-							href: '#',
-						},
+							href: '#'
+						}
 					},
 					{
 						date: 'September 27, 2019',
 						header: {
 							text: '5 Advantages of a good real estate management software',
-							href: '#',
-						},
+							href: '#'
+						}
 					},
 					{
 						date: 'September 24, 2019',
 						header: {
 							text: 'How to Manage Clients In A Better Way | 5 Professional Tips',
-							href: '#',
-						},
+							href: '#'
+						}
 					},
 					{
 						date: 'September 5, 2019',
 						header: {
 							text: 'Clutch Announces Exerge as The Top B2B Company in The Middle East',
-							href: '#',
-						},
-					},
+							href: '#'
+						}
+					}
 				].map((item, itemIndex) => (
 					<NewsCard key={itemIndex} item={item} itemIndex={itemIndex} />
 				))}

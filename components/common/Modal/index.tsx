@@ -11,7 +11,7 @@ import {
 	useCallback,
 	useEffect,
 	useRef,
-	useState,
+	useState
 } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -64,7 +64,7 @@ const focusableSelectors = [
 	'audio[controls]:not([tabindex^="-"])',
 	'video[controls]:not([tabindex^="-"])',
 	'[contenteditable]:not([tabindex^="-"])',
-	'[tabindex]:not([tabindex^="-"])',
+	'[tabindex]:not([tabindex^="-"])'
 ];
 
 const Modal: FC<TModalComponentProps> = ({
@@ -77,7 +77,7 @@ const Modal: FC<TModalComponentProps> = ({
 	containerElem,
 	containerHeaderElem,
 	containerBodyElem,
-	containerFooterElem,
+	containerFooterElem
 	// ...props
 }) => {
 	// const isChildrenArray = Array.isArray(children);
@@ -89,7 +89,7 @@ const Modal: FC<TModalComponentProps> = ({
 		bodyOverflowBeforeModal?: string;
 	}>({
 		lastElementFocusedBeforeThisModal: null,
-		bodyOverflowBeforeModal: undefined,
+		bodyOverflowBeforeModal: undefined
 	});
 	const modalContainerCloseButtonPropsProps = useRef<HTMLButtonElement>(null);
 
@@ -208,7 +208,7 @@ const Modal: FC<TModalComponentProps> = ({
 
 	const handleCustomDivProps = (
 		props: ICustomDivProps = {
-			children: undefined,
+			children: undefined
 		},
 		options: {
 			defaultClassName: string;
@@ -218,14 +218,14 @@ const Modal: FC<TModalComponentProps> = ({
 
 		return {
 			...props,
-			className: handleClassName(options.defaultClassName, className),
+			className: handleClassName(options.defaultClassName, className)
 		};
 	};
 
 	return createPortal(
 		<div
 			{...handleCustomDivProps(wrapperElem, {
-				defaultClassName: classes.wrapper,
+				defaultClassName: classes.wrapper
 			})}
 			ref={modalWrapperRef}
 			onClick={(event: MouseEvent) => {
@@ -236,7 +236,7 @@ const Modal: FC<TModalComponentProps> = ({
 			{/* <div className={classes.wrapper}> */}
 			<div
 				{...handleCustomDivProps(containerElem, {
-					defaultClassName: classes.modalContainerDefault,
+					defaultClassName: classes.modalContainerDefault
 				})}
 				onKeyDown={modalContainerOnKeyDownEventHandler}
 			>
@@ -248,20 +248,20 @@ const Modal: FC<TModalComponentProps> = ({
 					className={classes.ModalCloseButton}
 					aria-label='close'
 				>
-					x
+					<strong>x</strong>
 				</button>
 				{Array.isArray(children) ? (
 					<>
 						<header
 							{...handleCustomDivProps(containerHeaderElem, {
-								defaultClassName: classes.modalHeaderDefault,
+								defaultClassName: classes.modalHeaderDefault
 							})}
 						>
 							{findByKey('header', children)}
 						</header>
 						<section
 							{...handleCustomDivProps(containerBodyElem, {
-								defaultClassName: classes.modalBodyDefault,
+								defaultClassName: classes.modalBodyDefault
 							})}
 							ref={modalContainerBodyRef}
 						>
@@ -269,7 +269,7 @@ const Modal: FC<TModalComponentProps> = ({
 						</section>
 						<footer
 							{...handleCustomDivProps(containerFooterElem, {
-								defaultClassName: classes.modalFooterDefault,
+								defaultClassName: classes.modalFooterDefault
 							})}
 						>
 							{findByKey('footer', children)}
@@ -278,7 +278,7 @@ const Modal: FC<TModalComponentProps> = ({
 				) : (
 					<section
 						{...handleCustomDivProps(containerBodyElem, {
-							defaultClassName: classes.modalBodyDefault,
+							defaultClassName: classes.modalBodyDefault
 						})}
 						ref={modalContainerBodyRef}
 					>

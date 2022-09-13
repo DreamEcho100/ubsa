@@ -2,7 +2,7 @@ import CustomNextImage from '@components/common/CustomNextImage';
 import SquigglyLine from '@components/core/Sssquiggly';
 import {
 	CSSProperties,
-	Fragment,
+	Fragment
 	// useEffect, useRef
 } from 'react';
 
@@ -10,7 +10,7 @@ import classes from './index.module.css';
 
 const uniqueBusinessSolutionsSectionOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
-	threshold: 0.1, // half of item height
+	threshold: 0.1 // half of item height
 };
 
 const uniqueBusinessSolutionsSectionObserver =
@@ -49,52 +49,52 @@ const uniqueBusinessSolutionsSectionObserver =
 const testimonialsImages = [
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/1ag-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/2blz-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/3cs-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/4csn-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/5chrg-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/8gq-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/9gm-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/10gsuk-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/11hn-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/13pi-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/14rg-uai-258x116.png',
-		alt: '',
+		alt: ''
 	},
 	{
 		src: 'https://exerge.com/wp-content/uploads/2022/07/15tw-uai-258x116.png',
-		alt: '',
-	},
+		alt: ''
+	}
 ];
 
 const UniqueBusinessSolutionsSection = () => {
@@ -119,7 +119,7 @@ const UniqueBusinessSolutionsSection = () => {
 			style={{
 				// backgroundImage:
 				// 	'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
-				backgroundColor: 'rgb(13 13 13)',
+				backgroundColor: 'rgb(13 13 13)'
 			}}
 			className='relative main-content-section bg-black bg-opacity-95 text-zinc-100 bg-contain bg-no-repeat'
 		>
@@ -181,7 +181,7 @@ const UniqueBusinessSolutionsSection = () => {
 						// ${classes.sliderTrack}
 						style={
 							{
-								'--itemsLength': testimonialsImages.length * 8, // testimonialsImages.length * 15,
+								'--itemsLength': testimonialsImages.length * 8 // testimonialsImages.length * 15,
 							} as CSSProperties
 						}
 						// justify-around
@@ -201,7 +201,7 @@ const technologies = [
 	{
 		src: '/svgs/next-js-rounded-dark-seeklogo.com.svg',
 		alt: 'Next JS',
-		title: 'Next JS',
+		title: 'Next JS'
 		// className: 'rounded-full',
 		// style: {
 		// 	backgroundImage: 'radial-gradient(white, white, black, black)',
@@ -210,63 +210,63 @@ const technologies = [
 	{
 		src: '/svgs/react-seeklogo.com.svg',
 		alt: 'React JS',
-		title: 'React JS',
+		title: 'React JS'
 	},
 	{
 		src: '/svgs/typescript-seeklogo.com.svg',
 		alt: 'TypeScript',
-		title: 'TypeScript',
+		title: 'TypeScript'
 	},
 	{
 		src: '/svgs/javascript-js-seeklogo.com.svg',
 		alt: 'JavaScript',
-		title: 'JavaScript',
+		title: 'JavaScript'
 	},
 	{
 		src: '/svgs/threejs.svg',
 		alt: 'Three JS',
-		title: 'Three JS',
+		title: 'Three JS'
 	},
 	{
 		src: '/svgs/tailwind-css-icon.svg',
 		alt: 'Tail Wind',
-		title: 'Tail Wind',
+		title: 'Tail Wind'
 	},
 	{
 		src: '/svgs/sass-icon.svg',
 		alt: 'SASS',
-		title: 'SASS',
+		title: 'SASS'
 	},
 	{
 		src: '/svgs/css3-icon.svg',
 		alt: 'CSS3',
-		title: 'CSS3',
+		title: 'CSS3'
 	},
 	{
 		src: '/svgs/html5-line-icon.svg',
 		alt: 'HTML5',
-		title: 'HTML5',
+		title: 'HTML5'
 	},
 	{
 		src: '/svgs/figma-icon.svg',
 		alt: 'Figma',
-		title: 'Figma',
+		title: 'Figma'
 	},
 	{
 		src: '/svgs/node-js-icon.svg',
 		alt: 'Node JS',
-		title: 'Node JS',
+		title: 'Node JS'
 	},
 	{
 		src: '/svgs/jest-js-icon.svg',
 		alt: 'Jest',
-		title: 'Jest',
+		title: 'Jest'
 	},
 	{
 		src: '/svgs/cypress.svg',
 		alt: 'Cypress',
-		title: 'Cypress',
-	},
+		title: 'Cypress'
+	}
 	// { src: '/svgs/css3-seeklogo.com.svg', alt: 'css3-seeklogo' },
 	// { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
 ];
@@ -281,7 +281,7 @@ const Technologies = ({ isRepeated }: { isRepeated?: boolean }) => {
 				...technologies,
 				...technologies,
 				...technologies,
-				...technologies,
+				...technologies
 		  ]
 		: technologies;
 
@@ -290,7 +290,7 @@ const Technologies = ({ isRepeated }: { isRepeated?: boolean }) => {
 			{techs.map(({ src, alt, ...props }, index, arr) => (
 				<Fragment key={src}>
 					<span
-						className='w-[5rem] my-2 aspect-square flex items-center justify-center bg-transparent'
+						className='w-[4rem] my-2 aspect-square flex items-center justify-center bg-transparent'
 						{...props}
 					>
 						<CustomNextImage

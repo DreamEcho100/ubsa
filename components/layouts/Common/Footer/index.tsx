@@ -25,21 +25,21 @@ const mainFooterData = {
 				{ href: '#', text: 'Services' },
 				{ href: '#', text: 'Careers' },
 				{ href: '#', text: 'Latest News' },
-				{ href: '#', text: 'Contact' },
-			],
+				{ href: '#', text: 'Contact' }
+			]
 		},
 		{
 			__type: 'ADDRESS_LIST_MANY_SECTION',
 			sections: [
 				{
 					header: { text: 'UK' },
-					list: ['20, Chines Gardens,', 'West Bridgford,', 'NG27TT', 'UK'],
+					list: ['20, Chines Gardens,', 'West Bridgford,', 'NG27TT', 'UK']
 				},
 				{
 					header: { text: 'PK' },
-					list: ['2121,', 'Phase 7, Bahria Town,', 'Islamabad, 46000', 'PK'],
-				},
-			],
+					list: ['2121,', 'Phase 7, Bahria Town,', 'Islamabad, 46000', 'PK']
+				}
+			]
 		},
 		{
 			__type: 'CONTACT_LIST_AND_NECESSARY_LINKS',
@@ -53,21 +53,21 @@ const mainFooterData = {
 					__type: 'LINKS',
 					list: [
 						{ href: '#', text: 'Sitemap' },
-						{ href: '#', text: 'Privacy Policy' },
-					],
-				},
-			],
-		},
+						{ href: '#', text: 'Privacy Policy' }
+					]
+				}
+			]
+		}
 	],
 	socialLinks: [
 		{ href: '', icon: <FaFacebook /> },
 		{ href: '', icon: <FaTwitter /> },
-		{ href: '', icon: <FaInstagram /> },
-	],
+		{ href: '', icon: <FaInstagram /> }
+	]
 } as const;
 
 const GeneralLinks = ({
-	generalLinks,
+	generalLinks
 }: {
 	generalLinks: typeof mainFooterData['generalLinks'];
 }) => {
@@ -171,7 +171,7 @@ const MainFooter = () => {
 	const { generalLinks, socialLinks } = mainFooterData;
 	return (
 		<footer className='w-full bg-black text-zinc-200 font-bold text-lg px-8 py-8 flex flex-col'>
-			<hr className='bg-zinc-800 p-[0.1rem] border-0' />
+			<hr className='bg-zinc-800 p-[0.075rem] border-0' />
 			<div className='flex flex-col my-6'>
 				<CustomNextImage
 					src='/images/AKArtboard-light.png'
@@ -211,7 +211,7 @@ const MainFooter = () => {
 				</div>
 				<div className=''>
 					<p>
-						<small>
+						<small className='text-[60%] font-black'>
 							All product and company names are trademarks or registered
 							trademarks of their respective holders. Use of them does not imply
 							any affiliation with or endorsement by them.
