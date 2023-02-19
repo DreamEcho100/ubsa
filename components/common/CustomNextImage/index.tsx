@@ -1,5 +1,5 @@
-import Image from 'next/future/image';
-import { ImageProps } from 'next/dist/client/future/image'; // next/dist/client/image.d
+import Image from 'next/image';
+import { ImageProps } from 'next/dist/client/image'; // next/dist/client/image.d
 
 interface ICustomNextImageProps extends ImageProps {
 	placeholder?: 'blur' | 'empty';
@@ -15,12 +15,12 @@ const CustomNextImage = ({
 	...props
 }: ICustomNextImageProps) => {
 	const handleImageProps = () => {
-		const imageProps: ICustomNextImageProps = {
+		const imageProps: Omit<ICustomNextImageProps, 'alt'> = {
 			unoptimized,
 			// layout,
 			src,
 			placeholder,
-			...props,
+			...props
 		};
 
 		if (placeholder !== 'empty') {

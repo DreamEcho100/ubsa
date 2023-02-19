@@ -4,7 +4,7 @@ import { CSSProperties, useEffect, useRef } from 'react';
 
 const cardOptions = {
 	// rootMargin: "-200px 0px 0px 0px"
-	threshold: 0.95, // half of item height
+	threshold: 0.95 // half of item height
 };
 
 const cardObserver =
@@ -50,7 +50,7 @@ const cardObserver =
 
 const Card = ({
 	item,
-	size = 'sm',
+	size = 'sm'
 }: {
 	item: {
 		img: { src: string; alt: string };
@@ -78,30 +78,30 @@ const Card = ({
 	return (
 		<div
 			ref={elemRef}
-			className='rounded-3xl overflow-hidden relative w-full aspect-square max-w-full p-2 lg:p-4'
+			className='overflow-hidden relative w-full aspect-square max-w-full'
 		>
+			<CustomNextImage
+				// src={`//images.weserv.nl/?url=${item.img.src}&w=${1000}`}
+				src={item.img.src}
+				alt={item.img.alt}
+				width={400}
+				height={400}
+				className='absolute top-0 left-0 w-full h-full -z-10 object-cover'
+				priority
+			/>
 			<a
 				href={item.a.href}
 				className='relative w-full h-full'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
-				<CustomNextImage
-					// src={`//images.weserv.nl/?url=${item.img.src}&w=${1000}`}
-					src={item.img.src}
-					alt={item.img.alt}
-					width={400}
-					height={400}
-					className='rounded-2xl absolute top-0 left-0 w-full h-full -z-10 object-cover'
-					priority
-				/>
 				<div
-					className={`rounded-2xl io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
+					className={`io-container-outer transition-all duration-300 w-full h-full flex items-end justify-center group hover:bg-black hover:bg-opacity-60 ${
 						isMobileOrTablet ? 'io-isMobileOrTablet' : ''
 					}`}
 				>
 					<div
-						className={`rounded-2xl io-container-inner transition-all duration-300 w-full p-8 md:p-4 ${
+						className={`io-container-inner transition-all duration-300 w-full p-8 md:p-4 ${
 							size === 'bg' ? 'md:p-16' : 'md:p-8'
 						} flex-col items-center justify-center text-center group-hover:flex group-hover:bg-black group-hover:bg-opacity-75 ${
 							isMobileOrTablet ? 'io-isMobileOrTablet' : 'hidden'
@@ -147,7 +147,7 @@ const ShowcaseSection = () => {
 								'var(--linearGradient, linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.7)))',
 							backgroundClip: 'text',
 							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
+							WebkitTextFillColor: 'transparent'
 						} as CSSProperties
 					}
 				>
@@ -159,71 +159,79 @@ const ShowcaseSection = () => {
 				</p>
 			</header>
 			<div className='flex flex-col items-center md:flex-row lg:px-8'>
-				<div className='w-11/12 sm:w-3/5 md:w-2/3'>
+				<div
+					className={
+						`w-11/12 sm:w-3/5 md:w-2/3 ` + 'flex flex-col gap-4 md:gap-0'
+					}
+				>
 					{[
 						{
 							img: {
 								src: 'https://techcult.com/wp-content/uploads/2022/08/go-to-hulu-website-on-a-browser.png', // '/images/showcase/hulu.png' /*`${imgbaseUrl}/hulu_swlpgt.jpg`*/,
-								alt: 'hulu',
+								alt: 'hulu'
 							},
 							a: { href: 'https://www.hulu.com', text: 'https://www.hulu.com' },
-							h3: { text: 'hulu' },
+							h3: { text: 'hulu' }
 						},
 						{
 							img: {
 								src: '/images/showcase/vice.png' /*`${imgbaseUrl}/vice_h2nx1b.jpg`*/,
-								alt: 'vice',
+								alt: 'vice'
 							},
 							a: { href: 'https://www.vice.com', text: 'https://www.vice.com' },
-							h3: { text: 'vice' },
-						},
+							h3: { text: 'vice' }
+						}
 					].map((item) => (
 						<Card key={item.h3.text} item={item} size='md' />
 					))}
 				</div>
-				<div className='w-11/12 sm:w-3/5 md:w-1/3'>
+				<div
+					className={
+						`w-11/12 sm:w-3/5 md:w-1/3 ` + 'flex flex-col gap-4 md:gap-0'
+					}
+				>
 					{[
 						{
 							img: {
 								src: '/images/showcase/twitch.png' /*`${imgbaseUrl}/twitch_absljp.jpg`*/,
-								alt: 'twitch',
+								alt: 'twitch'
 							},
 							a: {
 								href: 'https://www.twitch.com',
-								text: 'https://www.twitch.com',
+								text: 'https://www.twitch.com'
 							},
-							h3: { text: 'twitch' },
+							h3: { text: 'twitch' }
 						},
 						{
 							img: {
 								src: '/images/showcase/nike.png' /*`${imgbaseUrl}/nike_cqzoi8.jpg`*/,
-								alt: 'nike',
+								alt: 'nike'
 							},
 							a: { href: 'https://www.nike.com', text: 'https://www.nike.com' },
-							h3: { text: 'nike' },
+							h3: { text: 'nike' }
 						},
 						{
 							img: {
 								src: '/images/showcase/tiktok.png' /*`${imgbaseUrl}/tiktok_p9hyax.jpg`*/,
-								alt: 'tiktok',
+								alt: 'tiktok'
 							}, // './images/showcase/tiktok.png'
 							a: {
 								href: 'https://www.tiktok.com',
-								text: 'https://www.tiktok.com',
+								text: 'https://www.tiktok.com'
 							},
-							h3: { text: 'tiktok' },
+							h3: { text: 'tiktok' }
 						},
 						{
 							img: {
 								src: '/images/showcase/hbomax.png' /*`${imgbaseUrl}/hbomax_uxwhez.jpg`*/,
-								alt: 'hbomax',
+								alt: 'hbomax'
 							},
 							a: {
 								href: 'https://www.hbomax.com',
-								text: 'https://www.hbomax.com',
+								text: 'https://www.hbomax.com'
 							},
-							h3: { text: 'hbomax' },
-						},
+							h3: { text: 'hbomax' }
+						}
 					].map((item) => (
 						<Card key={item.h3.text} item={item} />
 					))}
