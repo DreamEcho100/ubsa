@@ -28,7 +28,7 @@ const PolicyPage: NextPage<Props> = ({ metadata, htmlContent }) => {
       </Head>
 
       <div className="h-main-nav-page bg-neutral-900" />
-      <div className="main-content-section flex max-w-prose flex-col gap-4 px-8 py-4">
+      <div className="main-content-section flex max-w-[100ch] flex-col gap-4 px-8 py-4">
         <h1 className="text-h1">{metadata.title}</h1>
         <div
           className={cx(
