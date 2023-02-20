@@ -1,0 +1,42 @@
+.h2 span {
+	overflow: hidden;
+}
+
+.h2 span p {
+	transform: translateY(100%);
+	animation: slideYTo0 var(--animation-duration, 1.2s)
+		cubic-bezier(0.62, 0.06, 0, 1.12) forwards
+		calc(var(--index, 0) * 0.5 * var(--animation-duration, 0.4s));
+}
+
+@keyframes slideYTo0 {
+	to {
+		transform: translateY(0);
+	}
+}
+
+.rightCircle {
+	--translate-from-x: 150%;
+	--translate-to-x: 0%;
+	opacity: 0;
+	transform: translateX(var(--translate-from-x));
+	animation: returnTo0X 1s linear forwards;
+}
+.leftCircle {
+	--translate-from-x: -150%;
+	--translate-to-x: -50%;
+	opacity: 0;
+	transform: translateX(var(--translate-from-x));
+	animation: returnTo0X 1.5s linear forwards;
+}
+
+@keyframes returnTo0X {
+	from {
+		opacity: 0;
+		transform: translateX(var(--translate-from-x));
+	}
+	to {
+		opacity: 1;
+		transform: translateX(var(--translate-to-x));
+	}
+}

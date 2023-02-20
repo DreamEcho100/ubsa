@@ -1,0 +1,27 @@
+/* width: calc(11rem * var(--itemsLength)); */
+/* .innerSlider {
+	width: max-content;
+	animation: infiniteXScrollAnimation calc(var(--itemsLength, 10) * 4s) linear
+		infinite;
+	--x: 100vw;
+	transform: translateX(var(--x));
+}
+
+:global(.stop).innerSlider,
+.innerSlider:hover,
+.innerSlider:focus-within {
+	animation-play-state: paused;
+}
+
+@keyframes infiniteXScrollAnimation {
+	0% {
+    --x: 100vw;
+	}
+	100% {
+    --x: -100%;
+	}
+} */
+
+/* transform: translateX(100vw); */
+/* transform: translateX(-11rem * (var(--itemsLength) * 0.5)); */
+/* transform: translateX(-100%); */

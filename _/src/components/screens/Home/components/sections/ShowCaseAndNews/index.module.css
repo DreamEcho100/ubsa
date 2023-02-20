@@ -1,0 +1,88 @@
+.imgAndDetailsContainer {
+	z-index: calc(var(--itemsLength, 2) - var(--itemIndex, 1));
+	transform: translateY(-50%);
+	opacity: 0;
+}
+
+.imgAndDetailsContainer.appear {
+	transition: all ease-in 0.4s calc(var(--index, 0) * 0.5 * 0.15s);
+	transform: translateY(0%);
+	opacity: 1;
+}
+
+@media screen and (min-width: 1024px) {
+	.imgAndDetailsContainer {
+		z-index: 1;
+		transform: translate(0%);
+		opacity: 1;
+	}
+
+	.imgContainer {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	.detailsContainer {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+
+	.imgContainer.appear,
+	.detailsContainer.appear {
+		transition: all ease-in 0.6s 0.3s;
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+.newsCard {
+	transform: translate(-25%, -100%);
+	opacity: 0;
+}
+
+.newsCard.appear {
+	transition: all ease-in 0.3s calc(var(--index, 0) * 0.3s);
+	transform: translate(0%, 0%);
+	opacity: 1;
+}
+
+.scaleImg .wrapper {
+	transition: all 0.6s cubic-bezier(0.9, -0.96, 0.02, 0.69) 0.9s;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.scaleImg img {
+	transition: all 0.6s cubic-bezier(0.9, -0.96, 0.02, 0.69) 0.9s;
+	transform: scale(1.1);
+}
+
+.colorfulHeader h3 {
+	background-image: var(
+		--linearGradient,
+		linear-gradient(to right, white, transparent)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: colorfulHeaderH3 0.9s linear 1s forwards;
+	/* background-size: 100%; */
+	background-size: 1%;
+	background-position: -1em 5em;
+	background-repeat: repeat;
+	/* WebkitBackgroundClip: text; */
+	/* WebkitTextFillColor: transparent; */
+}
+
+@keyframes colorfulHeaderH3 {
+	0% {
+		background-size: 1%;
+		background-position: -1em 5em;
+	}
+	60% {
+		background-size: 80%;
+		background-position: 0 1em;
+	}
+	100% {
+		background-size: 100%;
+		background-position: 0 0;
+	}
+}

@@ -1,0 +1,60 @@
+.navOnHover {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	overflow: hidden;
+	opacity: 0;
+	height: 0;
+	transition: all 0.1s ease-in 0.2s;
+	animation: setVarNone 0.3s ease-in-out 0.3s;
+}
+.navOnHover .container {
+	position: relative;
+}
+
+.navOnHoverContainer.cardContainer {
+	position: relative;
+}
+
+.navOnHover.card {
+	/* top: 200%; */
+}
+
+.navOnHover.section {
+	cursor: auto;
+	width: 100%;
+	max-width: var(--main-max-width);
+	margin: 0 auto;
+	position: absolute;
+	top: 100%;
+}
+
+.navOnHoverContainer:hover .navOnHover,
+.navOnHover:hover,
+.navOnHoverContainer > button:focus + .navOnHover,
+.navOnHoverContainer:focus-within .navOnHover {
+	opacity: 1;
+	height: auto;
+	animation: setVarAuto 0.3s ease-in-out 0.6s forwards;
+}
+.navOnHoverContainer .navOnHover:hover {
+	transition: all 0.1s ease-in 0.7s;
+}
+
+@keyframes setVarNone {
+	0% {
+		z-index: 1;
+	}
+	100% {
+		z-index: -1;
+	}
+}
+
+@keyframes setVarAuto {
+	0% {
+		z-index: -1;
+	}
+	100% {
+		z-index: 1;
+	}
+}
