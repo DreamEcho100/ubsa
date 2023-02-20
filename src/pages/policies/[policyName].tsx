@@ -32,7 +32,7 @@ const PolicyPage: NextPage<Props> = ({ metadata, htmlContent }) => {
         <h1 className="text-h1">{metadata.title}</h1>
         <div
           className={cx(
-            "rounded-md border-[0.25rem] border-solid border-neutral-900 px-8 py-4",
+            "rounded-md border-[0.25rem] border-solid border-neutral-900 p-8",
             "prose"
             // "prose mx-auto flex max-w-full flex-col py-4 text-inherit",
             // "prose-p:my-2",
