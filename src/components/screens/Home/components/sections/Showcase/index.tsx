@@ -200,7 +200,7 @@ const ShowcaseSection = () => {
         </h2>
         <p className="mx-auto my-8 max-w-[800px] font-bold sm:text-3xl md:my-16 md:text-4xl">
           Check some of the more successful global businesses, websites
-          programmed in next.js.
+          programmed using Next.js.
         </p>
       </header>
       <div className="flex flex-wrap items-center justify-center gap-8 md:flex-row lg:px-8">
