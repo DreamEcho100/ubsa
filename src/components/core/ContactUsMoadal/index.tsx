@@ -99,6 +99,7 @@ const ContactUsModal = ({
           </label>
           <div className="py-1" />
           <button
+            type="submit"
             onClick={(event) => event.preventDefault()}
             className="rounded-sm bg-zinc-700 px-4 py-3 transition-all duration-300 hover:brightness-90 focus:rounded-none"
           >
