@@ -58,20 +58,6 @@ const ContactUsModal = ({
               required
             />
           </label>
-          {/* <div className="px-1" />
-            <label htmlFor="lastName" className={`${formClasses.label} flex-1`}>
-              <span>
-                <small>Last Name</small>
-              </span>
-              <input
-                className={formClasses.input}
-                type="text"
-                name="lastName"
-                id="lastName"
-                required
-              />
-            </label>
-          </div> */}
           <label htmlFor="email" className={formClasses.label}>
             <span>
               <small>Email</small>
@@ -100,7 +86,6 @@ const ContactUsModal = ({
           <div className="py-1" />
           <button
             type="submit"
-            onClick={(event) => event.preventDefault()}
             className="rounded-sm bg-zinc-700 px-4 py-3 transition-all duration-300 hover:brightness-90 focus:rounded-none"
           >
             Submit
