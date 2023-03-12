@@ -63,7 +63,7 @@ const Card = ({
   return (
     <div
       ref={elemRef}
-      className="relative aspect-square w-96 max-w-full overflow-hidden"
+      className="relative aspect-square w-96 max-w-full overflow-hidden rounded-lg"
     >
       <CustomNextImage
         src={item.img.src}

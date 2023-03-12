@@ -122,7 +122,7 @@ const UniqueBusinessSolutionsSection = () => {
         // 	'url("images/bg-demo-dots-bg-compressed-uai-2064x1433.webp")',
         backgroundColor: "rgb(13 13 13)",
       }}
-      className="main-content-section relative bg-black bg-opacity-95 bg-contain bg-no-repeat text-zinc-100"
+      className="main-content-section relative overflow-hidden bg-black bg-opacity-95 bg-contain bg-no-repeat text-zinc-100"
     >
       <div
         className={`${synthitizesClasses.rightCircle} absolute top-[15%]  right-[7.5%] aspect-square w-[35%] rounded-full opacity-0`}
