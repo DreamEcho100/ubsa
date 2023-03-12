@@ -22,7 +22,7 @@ const syntitizedClasses = z
 
 const imgTextSectionOptions = {
   // rootMargin: "-200px 0px 0px 0px"
-  threshold: 0.25, // half of item height
+  threshold: 0.1, // half of item height
 };
 
 const imgTextSectionObserver =
