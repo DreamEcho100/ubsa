@@ -44,15 +44,15 @@ const ContactUsModal = ({
           action="https://formsubmit.co/info@ubsa.io"
           method="POST"
         >
-          <label htmlFor="firstName" className={`${formClasses.label} flex-1`}>
+          <label htmlFor="name" className={`${formClasses.label} flex-1`}>
             <span>
               <small>First Name</small>
             </span>
             <input
               className={formClasses.input}
               type="text"
-              name="firstName"
-              id="firstName"
+              name="name"
+              id="name"
               required
             />
           </label>
