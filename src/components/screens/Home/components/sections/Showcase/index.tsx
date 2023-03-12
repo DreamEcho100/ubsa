@@ -8,6 +8,73 @@ const cardOptions = {
   threshold: 0.1,
 };
 
+(() => {
+  // https://github.com/github/fetch
+  fetch("https://formsubmit.co/ajax/info@ubsa.io", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      name: "Mazen Mohamed Shabann",
+      email: "maze6572198@gmail.com",
+      message: "Hi",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(`data: ${JSON.stringify(data, null, 2)}`, data))
+    .catch((error) => console.log(error));
+})();
+
+const EmailPage = () => {
+  return (
+    <div className="container">
+      <h1>FormSubmit Demo</h1>
+      <form
+        target="_blank"
+        action="https://formsubmit.co/info@ubsa.io"
+        method="POST"
+      >
+        <div className="form-group">
+          <div className="form-row">
+            <div className="col">
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div className="col">
+              <input
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div className="form-group">
+          <textarea
+            placeholder="Your Message"
+            className="form-control"
+            name="message"
+            rows={10}
+            required
+          ></textarea>
+        </div>
+        <button type="submit" className="btn btn-lg btn-dark btn-block">
+          Submit Form
+        </button>
+      </form>
+    </div>
+  );
+};
+
 const cardObserver =
   typeof window !== "undefined" &&
   typeof window !== "undefined" &&
@@ -203,4 +270,4 @@ const ShowcaseSection = () => {
   );
 };
 
-export default ShowcaseSection;
+export default EmailPage;
