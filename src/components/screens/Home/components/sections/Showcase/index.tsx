@@ -2,10 +2,11 @@ import type { CSSProperties } from "react";
 import CustomNextImage from "~//components/common/CustomNextImage";
 import { useSharedMainState } from "~//components/layouts/Main/context";
 import { useEffect, useRef } from "react";
+import { cx } from "class-variance-authority";
 
 const cardOptions = {
   // rootMargin: "-200px 0px 0px 0px"
-  threshold: 0.95, // half of item height
+  threshold: 0.1, // half of item height
 };
 
 const cardObserver =
@@ -54,7 +55,7 @@ const Card = ({
   size = "sm",
 }: {
   item: {
-    img: { src: string; alt: string };
+    img: { src: string; alt: string; className?: string };
     a: { href: string; text: string };
     h3: { text: string };
   };
@@ -87,7 +88,10 @@ const Card = ({
         alt={item.img.alt}
         width={400}
         height={400}
-        className="absolute top-0 left-0 -z-10 h-full w-full object-cover"
+        className={cx(
+          "absolute top-0 left-0 -z-10 h-full w-full object-cover",
+          item.img.className
+        )}
         priority
       />
       <a
@@ -226,6 +230,7 @@ const ShowcaseSection = () => {
               img: {
                 src: "/images/showcase/hbomax.png" /*`${imgbaseUrl}/hbomax_uxwhez.jpg`*/,
                 alt: "hbomax",
+                className: "object-top",
               },
               a: {
                 href: "https://www.hbomax.com",
