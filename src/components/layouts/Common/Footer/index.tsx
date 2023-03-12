@@ -202,8 +202,13 @@ const MainFooter = () => {
             <nav>
               <ul className="flex">
                 {socialLinks.map((listItem, listItemIndex) => (
-                  <li key={listItemIndex} className="m-2">
-                    <a href={listItem.href}>{listItem.icon}</a>
+                  <li
+                    key={listItemIndex}
+                    className="m-2 transition-all duration-100 hover:text-white"
+                  >
+                    <a href={listItem.href} target="_blank" rel="noreferrer">
+                      {listItem.icon}
+                    </a>
                   </li>
                 ))}
               </ul>
