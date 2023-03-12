@@ -25,13 +25,12 @@ const ContactUsModal = ({
     >
       <Fragment key="header">
         <header
-          className="flex flex-col items-start px-2"
+          className="flex flex-col items-start gap-1 px-2"
           style={{
             textAlign: "initial",
           }}
         >
           <h3 className="text-h3 font-bold">Contact Us</h3>
-          <div className="py-1" />
           <p>
             UBSA transforms recurring revenue into up-front capital for growth
             without restrictive debt or dilution.
@@ -40,21 +39,20 @@ const ContactUsModal = ({
       </Fragment>
       <Fragment key="body">
         <form
-          className="py-2 px-4 text-[1.2rem] font-medium"
+          className="flex flex-col gap-1 py-2 px-4 text-[1.2rem] font-medium"
           target="_blank"
           action="https://formsubmit.co/info@ubsa.io"
           method="POST"
         >
-          {/* <div className="flex flex-col sm:flex-row"> */}
-          <label htmlFor="name" className={`${formClasses.label} flex-1`}>
+          <label htmlFor="firstName" className={`${formClasses.label} flex-1`}>
             <span>
               <small>First Name</small>
             </span>
             <input
               className={formClasses.input}
               type="text"
-              name="name"
-              id="name"
+              name="firstName"
+              id="firstName"
               required
             />
           </label>
@@ -83,10 +81,9 @@ const ContactUsModal = ({
               required
             ></textarea>
           </label>
-          <div className="py-1" />
           <button
             type="submit"
-            className="rounded-sm bg-zinc-700 px-4 py-3 transition-all duration-300 hover:brightness-90 focus:rounded-none"
+            className="mt-2 w-fit rounded-sm bg-zinc-700 px-4 py-3 transition-all duration-300 hover:brightness-90 focus:rounded-none"
           >
             Submit
           </button>
