@@ -8,7 +8,7 @@ const cardOptions = {
   threshold: 0.1,
 };
 
-(() => {
+/*(() => {
   // https://github.com/github/fetch
   fetch("https://formsubmit.co/ajax/info@ubsa.io", {
     method: "POST",
@@ -74,6 +74,7 @@ const EmailPage = () => {
     </div>
   );
 };
+*/
 
 const cardObserver =
   typeof window !== "undefined" &&
@@ -270,4 +271,4 @@ const ShowcaseSection = () => {
   );
 };
 
-export default EmailPage;
+export default ShowcaseSection;
