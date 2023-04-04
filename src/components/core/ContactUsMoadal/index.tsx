@@ -1,5 +1,7 @@
+import { Fragment, useId, useState } from "react";
+
+import { api } from "~/utils/api";
 import Modal from "~//components/common/Modal";
-import { Fragment } from "react";
 
 const formClasses = {
   input:
@@ -11,6 +13,26 @@ const ContactUsModal = ({
   handleIsVisible,
   isVisible,
 }: Pick<Parameters<typeof Modal>["0"], "handleIsVisible" | "isVisible">) => {
+  const baseId = useId();
+  const sendEmailMutation = api.general.sendEmail.useMutation({
+    onSuccess: () => {
+      handleIsVisible({ isVisible: false });
+    },
+  });
+
+  const [formValues, setFormValues] = useState({
+    email: "",
+    name: "",
+    // subject: '',
+    text: "",
+  });
+
+  const handleChange = (name: string, value: string) =>
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
   return (
     <Modal
       handleIsVisible={handleIsVisible}
@@ -40,11 +62,16 @@ const ContactUsModal = ({
       <Fragment key="body">
         <form
           className="flex flex-col gap-1 py-2 px-4 text-[1.2rem] font-medium"
-          target="_blank"
-          action="https://formsubmit.co/info@ubsa.io"
-          method="POST"
+          onSubmit={(event) => {
+            event.preventDefault();
+
+            sendEmailMutation.mutate(formValues);
+          }}
         >
-          <label htmlFor="name" className={`${formClasses.label} flex-1`}>
+          <label
+            htmlFor={`${baseId}-name`}
+            className={`${formClasses.label} flex-1`}
+          >
             <span>
               <small>First Name</small>
             </span>
@@ -52,11 +79,14 @@ const ContactUsModal = ({
               className={formClasses.input}
               type="text"
               name="name"
-              id="name"
+              onChange={(event) =>
+                handleChange(event.target.name, event.target.value)
+              }
+              id={`${baseId}-name`}
               required
             />
           </label>
-          <label htmlFor="email" className={formClasses.label}>
+          <label htmlFor={`${baseId}-email`} className={formClasses.label}>
             <span>
               <small>Email</small>
             </span>
@@ -64,24 +94,31 @@ const ContactUsModal = ({
               className={formClasses.input}
               type="email"
               name="email"
-              id="email"
+              onChange={(event) =>
+                handleChange(event.target.name, event.target.value)
+              }
+              id={`${baseId}-email`}
               required
             />
           </label>
-          <label htmlFor="message" className={formClasses.label}>
+          <label htmlFor={`${baseId}-text`} className={formClasses.label}>
             <span>
               <small>Tell us more about your project:</small>
             </span>
             <textarea
               className={formClasses.input}
-              name="message"
-              id="message"
+              name="text"
+              onChange={(event) =>
+                handleChange(event.target.name, event.target.value)
+              }
+              id={`${baseId}-text`}
               cols={30}
               rows={5}
               required
             ></textarea>
           </label>
           <button
+            disabled={sendEmailMutation.isLoading}
             type="submit"
             className="mt-2 w-fit rounded-sm bg-zinc-700 px-4 py-3 transition-all duration-300 hover:brightness-90 focus:rounded-none"
           >
