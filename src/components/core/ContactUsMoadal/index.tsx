@@ -24,7 +24,7 @@ const ContactUsModal = ({
     email: "",
     name: "",
     // subject: '',
-    text: "",
+    message: "",
   });
 
   const handleChange = (name: string, value: string) =>
@@ -73,12 +73,13 @@ const ContactUsModal = ({
             className={`${formClasses.label} flex-1`}
           >
             <span>
-              <small>First Name</small>
+              <small>Name</small>
             </span>
             <input
               className={formClasses.input}
               type="text"
               name="name"
+              value={formValues.name}
               onChange={(event) =>
                 handleChange(event.target.name, event.target.value)
               }
@@ -94,6 +95,7 @@ const ContactUsModal = ({
               className={formClasses.input}
               type="email"
               name="email"
+              value={formValues.email}
               onChange={(event) =>
                 handleChange(event.target.name, event.target.value)
               }
@@ -107,7 +109,8 @@ const ContactUsModal = ({
             </span>
             <textarea
               className={formClasses.input}
-              name="text"
+              name="message"
+              value={formValues.message}
               onChange={(event) =>
                 handleChange(event.target.name, event.target.value)
               }
