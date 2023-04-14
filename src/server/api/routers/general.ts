@@ -11,7 +11,6 @@ export const generalRouter = createTRPCRouter({
       z.object({
         email: z.string().email(),
         name: z.string().min(2),
-        // subject: z.string().min(2),
         message: z.string().min(3),
       })
     )
@@ -28,21 +27,18 @@ export const generalRouter = createTRPCRouter({
           user: env.EMAIL_USER,
           pass: env.EMAIL_PASSWORD,
         },
-        tls: {
-          rejectUnauthorized: false,
-        },
+        tls: { rejectUnauthorized: false },
       });
 
       // send mail with defined transport object
       const info = await transporter.sendMail({
-        from: email, // `"${name}" <${email}>`, // sender address
+        from: env.EMAIL_USER,
+        sender: `"${name}" <${email}>`, // sender address
         to: env.EMAIL_USER, // list of receivers
-        subject: `New message from ${name} on the ubsa.io contact form`, // Subject line
+        subject: `New message from "${name}" <${email}> on the ubsa.io contact form`, // Subject line
         text: message, // plain text body
         html: `<b>${message}</b>`, // html body
       });
-
-      console.log("Message sent: %s", info.messageId);
 
       return { success: true };
     }),
