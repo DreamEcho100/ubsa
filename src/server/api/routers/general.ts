@@ -15,8 +15,6 @@ export const generalRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ input }) => {
-      const { name, email, message } = input;
-
       const EMAIL_SMTP_PORT = Number(env.EMAIL_SMTP_PORT);
       // create reusable transporter object using the default SMTP transport
       const transporter = nodemailer.createTransport({
@@ -31,13 +29,13 @@ export const generalRouter = createTRPCRouter({
       });
 
       // send mail with defined transport object
-      const info = await transporter.sendMail({
+      await transporter.sendMail({
         from: env.EMAIL_USER,
-        sender: `"${name}" <${email}>`, // sender address
+        sender: `"${input.name}" <${input.email}>`, // sender address
         to: env.EMAIL_USER, // list of receivers
-        subject: `New message from "${name}" <${email}> on the ubsa.io contact form`, // Subject line
-        text: message, // plain text body
-        html: `<b>${message}</b>`, // html body
+        subject: `New message from "${input.name}" <${input.email}> on the ubsa.io contact form`, // Subject line
+        text: input.message, // plain text body
+        html: `<b>${input.message}</b>`, // html body
       });
 
       return { success: true };

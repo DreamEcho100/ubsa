@@ -6,6 +6,7 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import MainLayout from "~/components/layouts/Main";
+import FacebookPixel from "~/components/core/FacebookPixel";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -13,9 +14,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-		<MainLayout>
-      <Component {...pageProps} />
-		</MainLayout>
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+      <FacebookPixel />
     </SessionProvider>
   );
 };
