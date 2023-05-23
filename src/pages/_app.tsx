@@ -16,13 +16,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <MainLayout>
-        <Head>
-          <meta
-            name="facebook-domain-verification"
-            content="vllwkmsr3sr5l7g06fao1xx1z3tf55"
-          />
-        </Head>
-        <Component {...pageProps} />
+        <>
+          <Head>
+            <meta
+              name="facebook-domain-verification"
+              content="vllwkmsr3sr5l7g06fao1xx1z3tf55"
+            />
+          </Head>
+          <Component {...pageProps} />
+        </>
       </MainLayout>
       <FacebookPixel />
     </SessionProvider>
