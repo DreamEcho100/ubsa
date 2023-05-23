@@ -30,7 +30,7 @@ const FacebookPixel = () => {
   return (
     <Script
       id="facebook-pixel"
-      strategy="worker"
+      strategy="lazyOnload"
       onReady={() => setIsReady(true)}
     >
       {`
