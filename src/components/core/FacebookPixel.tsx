@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { env } from "~/env.mjs";
 
 const handleRouteChange = () => {
@@ -16,16 +16,23 @@ const pageview = () => {
 
 const FacebookPixel = () => {
   const router = useRouter();
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    if (!isReady) return;
+
     // the below will only fire on route changes (not initial load - that is handled in the script below)
     router.events.on("routeChangeComplete", handleRouteChange);
 
     return () => router.events.off("routeChangeComplete", handleRouteChange);
-  }, [router.events]);
+  }, [router.events, isReady]);
 
   return (
-    <Script id="facebook-pixel" strategy="worker">
+    <Script
+      id="facebook-pixel"
+      strategy="worker"
+      onReady={() => setIsReady(true)}
+    >
       {`
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
