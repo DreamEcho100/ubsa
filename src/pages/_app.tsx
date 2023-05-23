@@ -7,6 +7,7 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import MainLayout from "~/components/layouts/Main";
 import FacebookPixel from "~/components/core/FacebookPixel";
+import Head from "next/head";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -15,6 +16,12 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <MainLayout>
+        <Head>
+          <meta
+            name="facebook-domain-verification"
+            content="vllwkmsr3sr5l7g06fao1xx1z3tf55"
+          />
+        </Head>
         <Component {...pageProps} />
       </MainLayout>
       <FacebookPixel />
