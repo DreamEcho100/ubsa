@@ -25,7 +25,7 @@ const FacebookPixel = () => {
   }, [router.events]);
 
   return (
-    <Script id="facebook-pixel">
+    <Script id="facebook-pixel" strategy="worker">
       {`
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
