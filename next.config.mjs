@@ -20,5 +20,17 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: !process.env.IS_LOCAL_PRODUCTION,
+  },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: !process.env.IS_LOCAL_PRODUCTION,
+  },
 };
 export default config;
