@@ -212,7 +212,7 @@ const MainHeader = () => {
           <div className="rounded-lg px-4 py-1">
             {/* bg-zinc-700 bg-transparent */}
             <h1>
-              <a
+              <Link
                 href={mainHeaderData.logo.href}
                 className=" flex items-center justify-between"
               >
@@ -226,7 +226,7 @@ const MainHeader = () => {
                 />
                 <span className="px-1" />
                 {mainHeaderData.logo.text}
-              </a>
+              </Link>
             </h1>
           </div>
           <nav className="hidden h-full lg:flex">
@@ -331,7 +331,7 @@ const MainHeader = () => {
                     }`}
                     key={item.text}
                   >
-                    <a href={item.href}>{item.text}</a>
+                    <Link href={item.href}>{item.text}</Link>
                   </li>
                 );
               })}
@@ -369,7 +369,7 @@ const MainHeader = () => {
 
                 return (
                   <li className="rounded-lg p-4" key={item.text}>
-                    <a href={item.href}>{item.text}</a>
+                    <Link href={item.href}>{item.text}</Link>
                   </li>
                 );
               })}
