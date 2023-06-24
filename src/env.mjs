@@ -31,8 +31,8 @@ const server = z.object({
  */
 const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
-	NEXT_PUBLIC_FACEBOOK_PIXEL_ID: z.string().min(1),
-	NEXT_PUBLIC_TWITTER_PIXEL_ID: z.string().min(1),
+  NEXT_PUBLIC_FACEBOOK_PIXEL_ID: z.string().min(1),
+  NEXT_PUBLIC_TWITTER_PIXEL_ID: z.string().min(1),
 });
 
 /**
@@ -51,8 +51,8 @@ const processEnv = {
   EMAIL_HOST: process.env.EMAIL_HOST,
   EMAIL_SMTP_PORT: process.env.EMAIL_SMTP_PORT,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
-	NEXT_PUBLIC_FACEBOOK_PIXEL_ID: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
-	NEXT_PUBLIC_TWITTER_PIXEL_ID: process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID
+  NEXT_PUBLIC_FACEBOOK_PIXEL_ID: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID,
+  NEXT_PUBLIC_TWITTER_PIXEL_ID: process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID,
 };
 
 // Don't touch the part below
