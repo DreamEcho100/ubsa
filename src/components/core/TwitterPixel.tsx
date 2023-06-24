@@ -11,7 +11,7 @@ const TWITTER_PIXEL_ID = env.NEXT_PUBLIC_TWITTER_PIXEL_ID;
 
 const pageview = () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-  (window as any).fbq("track", "PageView");
+  (window as any).twq("track", "PageView");
 };
 
 const TwitterPixel = () => {
