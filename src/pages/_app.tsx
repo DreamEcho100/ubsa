@@ -7,6 +7,7 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import MainLayout from "~/components/layouts/Main";
 import FacebookPixel from "~/components/core/FacebookPixel";
+import TwitterPixel from "~/components/core/TwitterPixel";
 import Head from "next/head";
 
 const MyApp: AppType<{ session: Session | null }> = ({
@@ -27,6 +28,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </>
       </MainLayout>
       <FacebookPixel />
+			<TwitterPixel />
     </SessionProvider>
   );
 };
