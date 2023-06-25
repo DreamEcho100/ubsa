@@ -39,7 +39,6 @@ const TwitterPixel = () => {
 a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
 twq('config','${TWITTER_PIXEL_ID}');
 twq('init','${TWITTER_PIXEL_ID}');
-twq('track','PageView')
       `}
     </Script>
   );
