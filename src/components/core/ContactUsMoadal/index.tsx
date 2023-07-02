@@ -2,6 +2,7 @@ import { Fragment, useId, useState } from "react";
 
 import { api } from "~/utils/api";
 import Modal from "~//components/common/Modal";
+import { toast } from "react-toastify";
 
 const formClasses = {
   input:
@@ -14,17 +15,30 @@ const ContactUsModal = ({
   isVisible,
 }: Pick<Parameters<typeof Modal>["0"], "handleIsVisible" | "isVisible">) => {
   const baseId = useId();
-  const sendEmailMutation = api.general.sendEmail.useMutation({
-    onSuccess: () => {
-      handleIsVisible({ isVisible: false });
-    },
-  });
-
   const [formValues, setFormValues] = useState({
     email: "",
     name: "",
     // subject: '',
     message: "",
+  });
+  const sendEmailMutation = api.general.sendEmail.useMutation({
+    onSuccess: () => {
+      handleIsVisible({ isVisible: false });
+      toast.success(
+        "Your message has been successfully sent! We will get back to you ASAP!"
+      );
+      (
+        window as unknown as {
+          twq?: (
+            event: string,
+            name: string,
+            data: Record<string, unknown>
+          ) => void;
+        }
+      ).twq?.("event", "tw-ofcb0-ofesn", {
+        email_address: formValues.email, // use this to pass a user’s email address
+      });
+    },
   });
 
   const handleChange = (name: string, value: string) =>
@@ -61,7 +75,7 @@ const ContactUsModal = ({
       </Fragment>
       <Fragment key="body">
         <form
-          className="flex flex-col gap-1 py-2 px-4 text-[1.2rem] font-medium"
+          className="flex flex-col gap-1 px-4 py-2 text-[1.2rem] font-medium"
           onSubmit={(event) => {
             event.preventDefault();
 
