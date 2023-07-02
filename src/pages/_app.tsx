@@ -10,6 +10,9 @@ import FacebookPixel from "~/components/core/FacebookPixel";
 import TwitterPixel from "~/components/core/TwitterPixel";
 import Head from "next/head";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -28,7 +31,19 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </>
       </MainLayout>
       <FacebookPixel />
-			<TwitterPixel />
+      <TwitterPixel />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </SessionProvider>
   );
 };
