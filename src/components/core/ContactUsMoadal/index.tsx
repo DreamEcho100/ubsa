@@ -27,16 +27,10 @@ const ContactUsModal = ({
       toast.success(
         "Your message has been successfully sent! We will get back to you ASAP!"
       );
-      (
-        window as unknown as {
-          twq?: (
-            event: string,
-            name: string,
-            data: Record<string, unknown>
-          ) => void;
-        }
-      ).twq?.("event", "tw-ofcb0-ofesn", {
-        email_address: formValues.email, // use this to pass a user’s email address
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+      (window as any)?.twq("contact", "tw-ofcb0-ofesn", {
+        email_address: formValues.email,
       });
     },
   });

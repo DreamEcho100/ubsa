@@ -1,6 +1,6 @@
 import CustomNextImage from "~//components/common/CustomNextImage";
 import SquigglyLine from "~//components/core/Sssquiggly";
-import type { CSSProperties } from "react";
+import type { CSSProperties, Key } from "react";
 import { Fragment } from "react";
 
 import classes from "./index.module.css";
@@ -125,15 +125,15 @@ const UniqueBusinessSolutionsSection = () => {
       className="main-content-section relative overflow-hidden bg-black bg-opacity-95 bg-contain bg-no-repeat text-zinc-100"
     >
       <div
-        className={`${synthitizesClasses.rightCircle} absolute top-[15%]  right-[7.5%] aspect-square w-[35%] rounded-full opacity-0`}
+        className={`${synthitizesClasses.rightCircle} absolute right-[7.5%]  top-[15%] aspect-square w-[35%] rounded-full opacity-0`}
         style={{ background: "hsl(0, 0%, 11%)" }}
       />
       <div
-        className={`${synthitizesClasses.leftCircle} absolute top-[-10%] left-0 aspect-square w-[35%] min-w-[15rem] -translate-x-1/2 rounded-full opacity-0`}
+        className={`${synthitizesClasses.leftCircle} absolute left-0 top-[-10%] aspect-square w-[35%] min-w-[15rem] -translate-x-1/2 rounded-full opacity-0`}
         style={{ background: "hsl(0, 0%, 11%)" }}
       />
       <SquigglyLine
-        className={`${synthitizesClasses.rightCircle} absolute top-[12.5%] right-[5%] h-fit w-[15%] bg-no-repeat fill-gray-100 opacity-0`}
+        className={`${synthitizesClasses.rightCircle} absolute right-[5%] top-[12.5%] h-fit w-[15%] bg-no-repeat fill-gray-100 opacity-0`}
       />
       <div className="py-8 md:py-12" />
       <div className="relative z-10 mx-auto max-w-[1400px] px-8 py-4">
@@ -197,7 +197,12 @@ const UniqueBusinessSolutionsSection = () => {
 
 export default UniqueBusinessSolutionsSection;
 
-const technologies = [
+const technologies: {
+  key?: Key;
+  src: string;
+  alt: string;
+  title: string;
+}[] = [
   {
     src: "/svgs/next-js-rounded-dark-seeklogo.com.svg",
     alt: "Next JS",
@@ -271,24 +276,28 @@ const technologies = [
   // { src: '/svgs/html5-with-wordmark-color.svg', alt: 'html5-with' },
 ];
 
+const repeatedTechs = [
+  technologies,
+  technologies,
+  technologies,
+  technologies,
+  technologies,
+  technologies,
+  technologies,
+  technologies,
+]
+  .map((techs, techIndex) =>
+    techs.map((tech) => ({ ...tech, key: `${techIndex}_${tech.src}` }))
+  )
+  .flat();
+
 const Technologies = ({ isRepeated }: { isRepeated?: boolean }) => {
-  const techs = isRepeated
-    ? [
-        ...technologies,
-        ...technologies,
-        ...technologies,
-        ...technologies,
-        ...technologies,
-        ...technologies,
-        ...technologies,
-        ...technologies,
-      ]
-    : technologies;
+  const techs = isRepeated ? repeatedTechs : technologies;
 
   return (
     <div className="flex w-full flex-wrap items-center justify-center">
-      {techs.map(({ src, alt, ...props }, index, arr) => (
-        <Fragment key={src}>
+      {techs.map(({ src, alt, key, ...props }, index, arr) => (
+        <Fragment key={key || src}>
           <span
             className="my-2 flex aspect-square w-[4rem] items-center justify-center bg-transparent"
             {...props}
