@@ -7,7 +7,13 @@
 // 	youtubeWhiteIconUrl,
 // } from '~//data/index';
 
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
 
 import { Fragment } from "react";
 import CustomNextImage from "~//components/common/CustomNextImage";
@@ -62,11 +68,9 @@ const mainFooterData = {
   socialLinks: [
     { href: "https://www.facebook.com/ubsa.io/", icon: <FaFacebook /> },
     { href: "https://twitter.com/ubsa_io_design", icon: <FaTwitter /> },
-    { href: "https://www.instagram.com/ubsa.io_design/", icon: <FaInstagram /> },
-		{ href: "https://www.linkedin.com/company/ubsa-io/", icon: <FaLinkedin /> },
-		{ href: "https://www.youtube.com/@ubsa.io_design", icon: <FaYoutube /> },
-		
-		
+    { href: "https://www.instagram.com/ubsa_io/", icon: <FaInstagram /> },
+    { href: "https://www.linkedin.com/company/ubsa-io/", icon: <FaLinkedin /> },
+    { href: "https://www.youtube.com/@ubsa.io_design", icon: <FaYoutube /> },
   ],
 } as const;
 
